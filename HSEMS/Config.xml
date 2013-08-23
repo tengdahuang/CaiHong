@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MyConfig>
+
+
+  <UpdatePath>http://192.168.0.207/liveupdate/HSEMS/</UpdatePath>
+  <CurrentVersion>0.048</CurrentVersion>
+  <DatabaseAddress>192.168.0.205</DatabaseAddress>
+  <DatabaseName>HSEMS</DatabaseName>
+  <UserName>sa</UserName>
+  <UserPassword>hs165datasvr</UserPassword>
+
+
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>Config.xml</File>
+  </FilesToDownload>
+
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>HSEMS.exe</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>Lephone.Data.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>Lephone.Util.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>Microsoft.Office.Interop.Excel.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>Microsoft.Vbe.Interop.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>msiexec.exe</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>office.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>stdole.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>XSolo.BaseForm.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>XSolo.Common.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>Ionic.Zip.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>NPOI.dll</File>
+  </FilesToDownload>
+  <FilesToDownload>
+    <SourcePath>./</SourcePath>
+    <TargetPath>.\</TargetPath>
+    <File>log4net.dll</File>
+  </FilesToDownload>
+</MyConfig>

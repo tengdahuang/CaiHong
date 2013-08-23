@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EEC73104-235E-4814-A60C-A9F5D5198E3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XSolo.BaseForm</RootNamespace>
+    <AssemblyName>XSolo.BaseForm</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmAddEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddEdit.Designer.cs">
+      <DependentUpon>FrmAddEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBLogin.Designer.cs">
+      <DependentUpon>FrmBLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBMainForm.Designer.cs">
+      <DependentUpon>FrmBMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBMasterDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBMasterDetail.Designer.cs">
+      <DependentUpon>FrmBMasterDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBTree.Designer.cs">
+      <DependentUpon>FrmBTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBUserManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBUserManagement.Designer.cs">
+      <DependentUpon>FrmBUserManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumericUpDownEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NumericUpDownEx.Designer.cs">
+      <DependentUpon>NumericUpDownEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddEdit.resx">
+      <DependentUpon>FrmAddEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBLogin.resx">
+      <DependentUpon>FrmBLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBMainForm.resx">
+      <DependentUpon>FrmBMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBMasterDetail.resx">
+      <DependentUpon>FrmBMasterDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBTree.resx">
+      <DependentUpon>FrmBTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBUserManagement.resx">
+      <DependentUpon>FrmBUserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumericUpDownEx.resx">
+      <DependentUpon>NumericUpDownEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonClose.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notes_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\process.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XSolo.Common\XSolo.Common.csproj">
+      <Project>{F4EB7896-2E7C-4055-9B02-7DB20C9570F1}</Project>
+      <Name>XSolo.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LineChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

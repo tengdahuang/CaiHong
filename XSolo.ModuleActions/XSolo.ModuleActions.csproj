@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{493F9502-149B-49B1-9046-426DB24970AA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XSolo.ModuleActions</RootNamespace>
+    <AssemblyName>XSolo.ModuleActions</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lephone.Data">
+      <HintPath>..\TDReferences\Lephone.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Lephone.Util">
+      <HintPath>..\TDReferences\Lephone.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\BllACLAction.cs" />
+    <Compile Include="BLL\BllACLModule.cs" />
+    <Compile Include="BLL\BllACLModuleAction.cs" />
+    <Compile Include="BLL\BllACLMain.cs" />
+    <Compile Include="BLL\BllUserLogin.cs" />
+    <Compile Include="Common\UserStatics.cs" />
+    <Compile Include="DataAccess\MainAction.cs" />
+    <Compile Include="DataAccess\MainModule.cs" />
+    <Compile Include="DataAccess\MainOptr.cs" />
+    <Compile Include="DataAccess\MainRole.cs" />
+    <Compile Include="FrmACLAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmACLAction.Designer.cs">
+      <DependentUpon>FrmACLAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmACLActionEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmACLActionEdit.Designer.cs">
+      <DependentUpon>FrmACLActionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmACLModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmACLModule.Designer.cs">
+      <DependentUpon>FrmACLModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmACLModuleAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmACLModuleAction.Designer.cs">
+      <DependentUpon>FrmACLModuleAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmACLModuleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmACLModuleEdit.Designer.cs">
+      <DependentUpon>FrmACLModuleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmACLMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmACLMain.Designer.cs">
+      <DependentUpon>FrmACLMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCode\AccessSystem.cs" />
+    <EmbeddedResource Include="FrmACLAction.resx">
+      <DependentUpon>FrmACLAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmACLActionEdit.resx">
+      <DependentUpon>FrmACLActionEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmACLModule.resx">
+      <DependentUpon>FrmACLModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmACLModuleAction.resx">
+      <DependentUpon>FrmACLModuleAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmACLModuleEdit.resx">
+      <DependentUpon>FrmACLModuleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmACLMain.resx">
+      <DependentUpon>FrmACLMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XSolo.BaseForm\XSolo.BaseForm.csproj">
+      <Project>{EEC73104-235E-4814-A60C-A9F5D5198E3A}</Project>
+      <Name>XSolo.BaseForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XSolo.Common\XSolo.Common.csproj">
+      <Project>{F4EB7896-2E7C-4055-9B02-7DB20C9570F1}</Project>
+      <Name>XSolo.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,828 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77034524-31D9-4416-AEFE-4E1B8433AA50}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HSEMS</RootNamespace>
+    <AssemblyName>HSEMS</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://192.168.0.207/HSEMS/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A442B8EF571684A28B7D7EF68E2027E1F7B30256</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>HSEMS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>HSEMS.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetSkin">
+      <HintPath>..\TDReferences\DotNetSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Lephone.Data">
+      <HintPath>..\TDReferences\Lephone.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Lephone.Util">
+      <HintPath>..\TDReferences\Lephone.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\TDReferences\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\TDReferences\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bll\BllACLAction.cs" />
+    <Compile Include="Bll\BllACLModule.cs" />
+    <Compile Include="Bll\BllACLModuleAction.cs" />
+    <Compile Include="Bll\BllAttendanceRate.cs" />
+    <Compile Include="Bll\BllEquipmentAllQuery.cs" />
+    <Compile Include="Bll\BllEquipmentClassifiedStatistic.cs" />
+    <Compile Include="Bll\BllEquipmentInformation.cs" />
+    <Compile Include="Bll\BllEquipmentAccept.cs" />
+    <Compile Include="Bll\BllEquipmentOffline.cs" />
+    <Compile Include="Bll\BllEquipmentProductHandle.cs" />
+    <Compile Include="Bll\BllEquipmentRemainingProblem.cs" />
+    <Compile Include="Bll\BllEquipmentRepairFirst.cs" />
+    <Compile Include="Bll\BllEquipmentRepairSecond.cs" />
+    <Compile Include="Bll\BllEquipmentDee.cs" />
+    <Compile Include="Bll\BllEquipmentVariation.cs" />
+    <Compile Include="Bll\BllEquipmentVariationAccept.cs" />
+    <Compile Include="Bll\BllEquipmentVariationHandle.cs" />
+    <Compile Include="Bll\BllEquipmentVariationHandle2.cs" />
+    <Compile Include="Bll\BllMainChangePassword.cs" />
+    <Compile Include="Bll\BllTechnologicalEquipment.cs" />
+    <Compile Include="Bll\BllEquipmentVariationQuery.cs" />
+    <Compile Include="Common\CommonStatics.cs" />
+    <Compile Include="Common\ExcelToSqlServer.cs" />
+    <Compile Include="Common\SysEnums.cs" />
+    <Compile Include="Dal\AttendanceRate.cs" />
+    <Compile Include="Dal\EquipmentDee.cs" />
+    <Compile Include="Dal\EquipmentOffline.cs" />
+    <Compile Include="Dal\EquipmentVariation.cs" />
+    <Compile Include="Dal\TechnologicalEquipment.cs" />
+    <Compile Include="FrmAttendanceRate\FrmAttendanceRateEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAttendanceRate\FrmAttendanceRateEntry.Designer.cs">
+      <DependentUpon>FrmAttendanceRateEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAttendanceRate\FrmAttendanceRateEntryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAttendanceRate\FrmAttendanceRateEntryEdit.Designer.cs">
+      <DependentUpon>FrmAttendanceRateEntryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAttendanceRate\FrmAttendanceRateQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAttendanceRate\FrmAttendanceRateQuery.Designer.cs">
+      <DependentUpon>FrmAttendanceRateQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQueryBySingle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQueryBySingle.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeQueryBySingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQueryByTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQueryByTypes.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeQueryByTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQueryDailySingle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQueryDailySingle.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeQueryDailySingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeEntry.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeExport.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeEfficiencyStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeEfficiencyStatistic.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeEfficiencyStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeOutputTotal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeOutputTotal.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeOutputTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentAllQueryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentAllQueryEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentAllQueryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationQuery.Designer.cs">
+      <DependentUpon>FrmEquipmentVariationQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationAccept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationAccept.Designer.cs">
+      <DependentUpon>FrmEquipmentVariationAccept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationAcceptEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationAcceptEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentVariationAcceptEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationHandle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationHandle.Designer.cs">
+      <DependentUpon>FrmEquipmentVariationHandle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationHandle2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationHandle2.Designer.cs">
+      <DependentUpon>FrmEquipmentVariationHandle2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationHandle2Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationHandle2Edit.Designer.cs">
+      <DependentUpon>FrmEquipmentVariationHandle2Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationHandleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationHandleEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentVariationHandleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentOfflineApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentOfflineApply.Designer.cs">
+      <DependentUpon>FrmEquipmentOfflineApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentOfflineQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentOfflineQuery.Designer.cs">
+      <DependentUpon>FrmEquipmentOfflineQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentOfflineRepair.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentOfflineRepair.Designer.cs">
+      <DependentUpon>FrmEquipmentOfflineRepair.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentOfflineRepairEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentOfflineRepairEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentOfflineRepairEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentClassifiedStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentClassifiedStatistic.Designer.cs">
+      <DependentUpon>FrmEquipmentClassifiedStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentAllQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentAllQuery.Designer.cs">
+      <DependentUpon>FrmEquipmentAllQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeEntryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeEntryEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeEntryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQuery.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQueryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDee\FrmEquipmentDeeQueryEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentDeeQueryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRemainingProblem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRemainingProblem.Designer.cs">
+      <DependentUpon>FrmEquipmentRemainingProblem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRemainingProblemEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRemainingProblemEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentRemainingProblemEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentProductHandle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentProductHandle.Designer.cs">
+      <DependentUpon>FrmEquipmentProductHandle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentProductHandleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentProductHandleEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentProductHandleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRepairSecond.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRepairSecond.Designer.cs">
+      <DependentUpon>FrmEquipmentRepairSecond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRepairSecondEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRepairSecondEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentRepairSecondEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRepairFirst.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRepairFirst.Designer.cs">
+      <DependentUpon>FrmEquipmentRepairFirst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRepairFirstEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentRepairFirstEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentRepairFirstEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bll\BllEquipmentNotice.cs" />
+    <Compile Include="Bll\BllHrPersonnelFile.cs" />
+    <Compile Include="Bll\BllMainDictType.cs" />
+    <Compile Include="Bll\BllACLOptrAction.cs" />
+    <Compile Include="Bll\BllACLOptr.cs" />
+    <Compile Include="Bll\BllACLOptrModule.cs" />
+    <Compile Include="Bll\BllFrmAppMain.cs" />
+    <Compile Include="Bll\BllMainDict.cs" />
+    <Compile Include="Bll\BllUserLogin.cs" />
+    <Compile Include="Common\UserStatics.cs" />
+    <Compile Include="Dal\EquipmentInformation.cs" />
+    <Compile Include="Dal\EquipmentMaintenance.cs" />
+    <Compile Include="Dal\HrPersonnelFile.cs" />
+    <Compile Include="Dal\MainDict.cs" />
+    <Compile Include="Dal\MainDictType.cs" />
+    <Compile Include="Dal\MainAction.cs" />
+    <Compile Include="Dal\MainModule.cs" />
+    <Compile Include="Dal\MainOptr.cs" />
+    <Compile Include="Dal\MainOptrType.cs" />
+    <Compile Include="Dal\MainRole.cs" />
+    <Compile Include="FrmAppMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAppMain.Designer.cs">
+      <DependentUpon>FrmAppMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentAccept.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentAccept.Designer.cs">
+      <DependentUpon>FrmEquipmentAccept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentAcceptEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentAcceptEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentAcceptEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentNotice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentNotice.Designer.cs">
+      <DependentUpon>FrmEquipmentNotice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentInformation.Designer.cs">
+      <DependentUpon>FrmEquipmentInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentInformationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEquipment\FrmEquipmentInformationEdit.Designer.cs">
+      <DependentUpon>FrmEquipmentInformationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHr\FrmHrPersonnelFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHr\FrmHrPersonnelFile.Designer.cs">
+      <DependentUpon>FrmHrPersonnelFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHr\FrmHrPersonnelFileEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHr\FrmHrPersonnelFileEdit.Designer.cs">
+      <DependentUpon>FrmHrPersonnelFileEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainBoard.Designer.cs">
+      <DependentUpon>FrmMainBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainChangePassword.Designer.cs">
+      <DependentUpon>FrmMainChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainDict.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainDict.Designer.cs">
+      <DependentUpon>FrmMainDict.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainDictEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainDictEdit.Designer.cs">
+      <DependentUpon>FrmMainDictEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainDictType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainDictType.Designer.cs">
+      <DependentUpon>FrmMainDictType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainDictTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmMainDictTypeEdit.Designer.cs">
+      <DependentUpon>FrmMainDictTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLAction.Designer.cs">
+      <DependentUpon>FrmACLAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLActionEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLActionEdit.Designer.cs">
+      <DependentUpon>FrmACLActionEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLModule.Designer.cs">
+      <DependentUpon>FrmACLModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLModuleAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLModuleAction.Designer.cs">
+      <DependentUpon>FrmACLModuleAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLModuleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLModuleEdit.Designer.cs">
+      <DependentUpon>FrmACLModuleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLOptrActions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLOptrActions.Designer.cs">
+      <DependentUpon>FrmACLOptrActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLOptr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLOptr.Designer.cs">
+      <DependentUpon>FrmACLOptr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLOptrEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLOptrEdit.Designer.cs">
+      <DependentUpon>FrmACLOptrEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLOptrModules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSys\FrmACLOptrModules.Designer.cs">
+      <DependentUpon>FrmACLOptrModules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentQueryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentQueryEdit.Designer.cs">
+      <DependentUpon>FrmTechnologicalEquipmentQueryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentInput.Designer.cs">
+      <DependentUpon>FrmTechnologicalEquipmentInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentOverrun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentOverrun.Designer.cs">
+      <DependentUpon>FrmTechnologicalEquipmentOverrun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentOverrunEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentOverrunEdit.Designer.cs">
+      <DependentUpon>FrmTechnologicalEquipmentOverrunEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentSharpening.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentSharpening.Designer.cs">
+      <DependentUpon>FrmTechnologicalEquipmentSharpening.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentSharpeningEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentSharpeningEdit.Designer.cs">
+      <DependentUpon>FrmTechnologicalEquipmentSharpeningEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentQuery.Designer.cs">
+      <DependentUpon>FrmTechnologicalEquipmentQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationDistribution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVariation\FrmEquipmentVariationDistribution.Designer.cs">
+      <DependentUpon>FrmEquipmentVariationDistribution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCode\AccessSystem.cs" />
+    <EmbeddedResource Include="FrmAppMain.resx">
+      <DependentUpon>FrmAppMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAttendanceRate\FrmAttendanceRateEntry.resx">
+      <DependentUpon>FrmAttendanceRateEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAttendanceRate\FrmAttendanceRateEntryEdit.resx">
+      <DependentUpon>FrmAttendanceRateEntryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAttendanceRate\FrmAttendanceRateQuery.resx">
+      <DependentUpon>FrmAttendanceRateQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeEfficiencyStatistic.resx">
+      <DependentUpon>FrmEquipmentDeeEfficiencyStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeEntry.resx">
+      <DependentUpon>FrmEquipmentDeeEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeExport.resx">
+      <DependentUpon>FrmEquipmentDeeExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeOutputTotal.resx">
+      <DependentUpon>FrmEquipmentDeeOutputTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeQueryBySingle.resx">
+      <DependentUpon>FrmEquipmentDeeQueryBySingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeQueryByTypes.resx">
+      <DependentUpon>FrmEquipmentDeeQueryByTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeQueryDailySingle.resx">
+      <DependentUpon>FrmEquipmentDeeQueryDailySingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentAllQueryEdit.resx">
+      <DependentUpon>FrmEquipmentAllQueryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVariation\FrmEquipmentVariationQuery.resx">
+      <DependentUpon>FrmEquipmentVariationQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVariation\FrmEquipmentVariationAccept.resx">
+      <DependentUpon>FrmEquipmentVariationAccept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVariation\FrmEquipmentVariationAcceptEdit.resx">
+      <DependentUpon>FrmEquipmentVariationAcceptEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVariation\FrmEquipmentVariationHandle.resx">
+      <DependentUpon>FrmEquipmentVariationHandle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVariation\FrmEquipmentVariationHandle2.resx">
+      <DependentUpon>FrmEquipmentVariationHandle2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVariation\FrmEquipmentVariationHandle2Edit.resx">
+      <DependentUpon>FrmEquipmentVariationHandle2Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVariation\FrmEquipmentVariationHandleEdit.resx">
+      <DependentUpon>FrmEquipmentVariationHandleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentOfflineApply.resx">
+      <DependentUpon>FrmEquipmentOfflineApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentOfflineQuery.resx">
+      <DependentUpon>FrmEquipmentOfflineQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentOfflineRepair.resx">
+      <DependentUpon>FrmEquipmentOfflineRepair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentOfflineRepairEdit.resx">
+      <DependentUpon>FrmEquipmentOfflineRepairEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentClassifiedStatistic.resx">
+      <DependentUpon>FrmEquipmentClassifiedStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentAllQuery.resx">
+      <DependentUpon>FrmEquipmentAllQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeEntryEdit.resx">
+      <DependentUpon>FrmEquipmentDeeEntryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeQuery.resx">
+      <DependentUpon>FrmEquipmentDeeQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDee\FrmEquipmentDeeQueryEdit.resx">
+      <DependentUpon>FrmEquipmentDeeQueryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentRemainingProblem.resx">
+      <DependentUpon>FrmEquipmentRemainingProblem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentRemainingProblemEdit.resx">
+      <DependentUpon>FrmEquipmentRemainingProblemEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentProductHandle.resx">
+      <DependentUpon>FrmEquipmentProductHandle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentProductHandleEdit.resx">
+      <DependentUpon>FrmEquipmentProductHandleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentRepairSecond.resx">
+      <DependentUpon>FrmEquipmentRepairSecond.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentRepairSecondEdit.resx">
+      <DependentUpon>FrmEquipmentRepairSecondEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentRepairFirst.resx">
+      <DependentUpon>FrmEquipmentRepairFirst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentRepairFirstEdit.resx">
+      <DependentUpon>FrmEquipmentRepairFirstEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentAccept.resx">
+      <DependentUpon>FrmEquipmentAccept.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentAcceptEdit.resx">
+      <DependentUpon>FrmEquipmentAcceptEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentNotice.resx">
+      <DependentUpon>FrmEquipmentNotice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentInformation.resx">
+      <DependentUpon>FrmEquipmentInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEquipment\FrmEquipmentInformationEdit.resx">
+      <DependentUpon>FrmEquipmentInformationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHr\FrmHrPersonnelFile.resx">
+      <DependentUpon>FrmHrPersonnelFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHr\FrmHrPersonnelFileEdit.resx">
+      <DependentUpon>FrmHrPersonnelFileEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmMainBoard.resx">
+      <DependentUpon>FrmMainBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmMainChangePassword.resx">
+      <DependentUpon>FrmMainChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmMainDict.resx">
+      <DependentUpon>FrmMainDict.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmMainDictEdit.resx">
+      <DependentUpon>FrmMainDictEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmMainDictType.resx">
+      <DependentUpon>FrmMainDictType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmMainDictTypeEdit.resx">
+      <DependentUpon>FrmMainDictTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLAction.resx">
+      <DependentUpon>FrmACLAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLActionEdit.resx">
+      <DependentUpon>FrmACLActionEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLModule.resx">
+      <DependentUpon>FrmACLModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLModuleAction.resx">
+      <DependentUpon>FrmACLModuleAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLModuleEdit.resx">
+      <DependentUpon>FrmACLModuleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLOptrActions.resx">
+      <DependentUpon>FrmACLOptrActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLOptr.resx">
+      <DependentUpon>FrmACLOptr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLOptrEdit.resx">
+      <DependentUpon>FrmACLOptrEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSys\FrmACLOptrModules.resx">
+      <DependentUpon>FrmACLOptrModules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentQueryEdit.resx">
+      <DependentUpon>FrmTechnologicalEquipmentQueryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentInput.resx">
+      <DependentUpon>FrmTechnologicalEquipmentInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentOverrun.resx">
+      <DependentUpon>FrmTechnologicalEquipmentOverrun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentOverrunEdit.resx">
+      <DependentUpon>FrmTechnologicalEquipmentOverrunEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentSharpening.resx">
+      <DependentUpon>FrmTechnologicalEquipmentSharpening.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentSharpeningEdit.resx">
+      <DependentUpon>FrmTechnologicalEquipmentSharpeningEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTechnologicalEquipment\FrmTechnologicalEquipmentQuery.resx">
+      <DependentUpon>FrmTechnologicalEquipmentQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVariation\FrmEquipmentVariationDistribution.resx">
+      <DependentUpon>FrmEquipmentVariationDistribution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppUpdater\AppUpdater.csproj">
+      <Project>{7D50FE12-DC73-4C83-B348-97C94B9EE251}</Project>
+      <Name>AppUpdater</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XSolo.BaseForm\XSolo.BaseForm.csproj">
+      <Project>{EEC73104-235E-4814-A60C-A9F5D5198E3A}</Project>
+      <Name>XSolo.BaseForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XSolo.Common\XSolo.Common.csproj">
+      <Project>{F4EB7896-2E7C-4055-9B02-7DB20C9570F1}</Project>
+      <Name>XSolo.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\bg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\MainBoardBg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
