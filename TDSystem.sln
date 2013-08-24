@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSolo.BaseForm", "XSolo.Bas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSolo.Common", "XSolo.Common\XSolo.Common.csproj", "{F4EB7896-2E7C-4055-9B02-7DB20C9570F1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{021F5B0E-7B32-4291-806B-A3E2FD871E63}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppUpdater", "AppUpdater\AppUpdater.csproj", "{7D50FE12-DC73-4C83-B348-97C94B9EE251}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSEMS", "HSEMS\HSEMS.csproj", "{77034524-31D9-4416-AEFE-4E1B8433AA50}"
@@ -38,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TDReferences", "TDReference
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildCafe", "ChildCafe\ChildCafe.csproj", "{97F945AE-4960-4A47-82A0-2E47B92FD716}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B18B678B-1F7C-4670-9193-33DECD67A434}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{3C555975-82F2-4C2C-B41E-A9748C5B9BFB}"
 	ProjectSection(SolutionItems) = preProject
 		Documents\ImportTemp-Goods.xls = Documents\ImportTemp-Goods.xls
 		Documents\ImportTemp-Member2.xls = Documents\ImportTemp-Member2.xls
