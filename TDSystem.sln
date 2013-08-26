@@ -19,7 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TDReferences", "TDReference
 		TDReferences\DotNetSkin.dll = TDReferences\DotNetSkin.dll
 		TDReferences\Extensis-EXTENSIS.skn = TDReferences\Extensis-EXTENSIS.skn
 		TDReferences\Ionic.Zip.dll = TDReferences\Ionic.Zip.dll
-		TDReferences\Lephone.CodeGen.exe = TDReferences\Lephone.CodeGen.exe
 		TDReferences\Lephone.Data.dll = TDReferences\Lephone.Data.dll
 		TDReferences\Lephone.Linq.dll = TDReferences\Lephone.Linq.dll
 		TDReferences\Lephone.Util.dll = TDReferences\Lephone.Util.dll
@@ -40,10 +39,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildCafe", "ChildCafe\ChildCafe.csproj", "{97F945AE-4960-4A47-82A0-2E47B92FD716}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TDSystem.vsmdi
 	EndGlobalSection
@@ -185,6 +180,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 	GlobalSection(PowerDesigner) = preSolution
 		HasSWS = 1
