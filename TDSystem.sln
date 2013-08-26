@@ -38,6 +38,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TDReferences", "TDReference
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildCafe", "ChildCafe\ChildCafe.csproj", "{97F945AE-4960-4A47-82A0-2E47B92FD716}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B18B678B-1F7C-4670-9193-33DECD67A434}"
+	ProjectSection(SolutionItems) = preProject
+		Documents\ImportTemp-Goods.xls = Documents\ImportTemp-Goods.xls
+		Documents\ImportTemp-Member2.xls = Documents\ImportTemp-Member2.xls
+		Documents\会员信息模版.xls = Documents\会员信息模版.xls
+		Documents\数据结构.xls = Documents\数据结构.xls
+		Documents\新建文本文档.txt = Documents\新建文本文档.txt
+		Documents\销售明细-20130819-171924.xls = Documents\销售明细-20130819-171924.xls
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TDSystem.vsmdi
