@@ -66,8 +66,11 @@
     <Compile Include="Common\ExcelToSqlServer.cs" />
     <Compile Include="Common\SysEnums.cs" />
     <Compile Include="Common\UserStatics.cs" />
+    <Compile Include="Dal\BaseInfoMaterial.cs" />
     <Compile Include="Dal\BaseInfoMember.cs" />
     <Compile Include="Dal\BaseInfoMemberRecharge.cs" />
+    <Compile Include="Dal\BaseInfoStaff.cs" />
+    <Compile Include="Dal\BaseInfoVendor.cs" />
     <Compile Include="Dal\MainAction.cs" />
     <Compile Include="Dal\MainDict.cs" />
     <Compile Include="Dal\MainDictType.cs" />
