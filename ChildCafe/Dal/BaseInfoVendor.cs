@@ -56,5 +56,9 @@ namespace ChildCafe.Dal
         [Length(30)]
         public abstract string OptrType { get; set; }
 
+        [SpecialName]
+        public abstract DateTime SavedOn { get; set; }
+
+
     }
 }

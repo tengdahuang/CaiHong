@@ -13,7 +13,6 @@ namespace ChildCafe.Bll
         public static DataTable GetTable(string optrType)
         {
             SqlStatement ss = new SqlStatement("Select * from v_BaseInfoMember where 用户类型 = @optrType", new DataParameter("@optrType", optrType));
-            //SqlStatement ss = new SqlStatement("Select * from v_BaseInfoMember");
             return DbEntry.Context.ExecuteDataset(ss).Tables[0];
             //var dt = BaseInfoMember.Find(CK.K["OptrType"] == optrType).ToDataTable();
             //dt.Columns[1].ColumnName = "开卡日期";

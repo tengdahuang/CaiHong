@@ -60,6 +60,7 @@
             // 
             // FrmLogin
             // 
+            this.BackgroundImage = global::ChildCafe.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(590, 350);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLogin";

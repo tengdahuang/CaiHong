@@ -82,6 +82,12 @@
     <Compile Include="Dal\MainOptr.cs" />
     <Compile Include="Dal\MainOptrType.cs" />
     <Compile Include="Dal\MainRole.cs" />
+    <Compile Include="FrmBaseInfoVendorEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfoVendorEdit.Designer.cs">
+      <DependentUpon>FrmBaseInfoVendorEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoVendor.cs">
       <SubType>Form</SubType>
     </Compile>

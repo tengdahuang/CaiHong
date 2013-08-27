@@ -26,7 +26,7 @@ namespace ChildCafe
         protected override void InitData()
         {
             ActionTable = UserStatics.GetUserActions(ModuleId);
-            TableForLoad = BllBaseInfoMember.GetTable(UserStatics.OptrType);
+            TableForLoad = BllBaseInfoVendor.GetTable(UserStatics.OptrType);
         }
 
         protected override void SetDataGridViewColumns()
@@ -38,7 +38,7 @@ namespace ChildCafe
 
         override protected void DeleteCurrentRow()
         {
-            BllBaseInfoMember.DelCell(DeletingRowId);
+            BllBaseInfoVendor.DelCell(DeletingRowId);
         }
 
 
