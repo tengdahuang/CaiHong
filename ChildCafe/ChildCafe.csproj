@@ -67,6 +67,7 @@
     <Compile Include="Common\SysEnums.cs" />
     <Compile Include="Common\UserStatics.cs" />
     <Compile Include="Dal\BaseInfoMaterial.cs" />
+    <Compile Include="Dal\BaseInfoMaterialIngredient.cs" />
     <Compile Include="Dal\BaseInfoMember.cs" />
     <Compile Include="Dal\BaseInfoMemberRecharge.cs" />
     <Compile Include="Dal\BaseInfoStaff.cs" />

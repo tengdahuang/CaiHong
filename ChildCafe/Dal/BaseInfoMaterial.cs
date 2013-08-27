@@ -7,8 +7,15 @@ namespace ChildCafe.Dal
 {
     public abstract class BaseInfoMaterial: DbObjectModel<BaseInfoMaterial>
     {
+
         /// <summary>
-        /// 品名
+        /// 商品编码
+        /// </summary>
+        [Length(30)]
+        public abstract string MeterialCode { get; set; }
+
+        /// <summary>
+        /// 商品名称
         /// </summary>
         [Length(30)]
         public abstract string MaterialName { get; set; }
@@ -119,7 +126,7 @@ namespace ChildCafe.Dal
         /// <summary>
         /// 是否计入库存
         /// </summary>
-        public abstract bool IsStoreMatain { get; set; }
+        public abstract bool IsAddToInventory { get; set; }
 
         /// <summary>
         /// 是否半成品
@@ -143,6 +150,12 @@ namespace ChildCafe.Dal
         /// </summary>
         [Length(30)]
         public abstract string OptrType { get; set; }
+
+        [SpecialName]
+        public abstract DateTime SavedOn { get; set; }
+
+        [HasMany(OrderBy = "Id")]
+        public abstract IList<BaseInfoMaterialIngredient> BaseInfoMaterialIngredients { get; set; }
 
     }
 }
