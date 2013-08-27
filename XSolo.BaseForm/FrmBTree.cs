@@ -84,6 +84,8 @@ namespace XSolo.BaseForm
         /// </summary>
         private string _itemId;
 
+        protected long DeletingRowId;
+
         //protected DataTable treeTable;
         //protected DataTable dt;
         //protected string TreeItemId = "";
@@ -449,19 +451,12 @@ namespace XSolo.BaseForm
 
                             foreach (DataGridViewRow row in baseDataGridView.SelectedRows)
                             {
-                                DeleteCurrentRow(row);
+                                DeletingRowId = long.Parse(row.Cells[0].Value.ToString());
+                                DeleteCurrentRow();
                                 count++;
                             }
-
-                            if (count == 0)
-                            {
-                                MessageBox.Show("没有删除任何记录！");
-                            }
-                            else
-                            {
-                                MessageBox.Show("已删除" + count + "条记录！");
-                            }
-
+                            MessageBox.Show("已删除" + count + "条记录！");
+                            
                             resetDataGridView();
                             SetDataGridViewColumns();
                             if (IsTree)
@@ -574,7 +569,7 @@ namespace XSolo.BaseForm
             throw new NotImplementedException();
         }
 
-        virtual protected void DeleteCurrentRow(DataGridViewRow row)
+        virtual protected void DeleteCurrentRow()
         {
             throw new NotImplementedException();
         }

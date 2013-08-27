@@ -50,22 +50,7 @@ namespace ChildCafe
 
         override protected void DeleteCurrentRow()
         {
-            int count = 0;
-
-            foreach (DataGridViewRow row in baseDataGridView.SelectedRows)
-            {
-                BllMainDict.DelCell((long)row.Cells[0].Value);
-                count++;
-            }
-
-            if (count == 0)
-            {
-                MessageBox.Show("没有删除任何记录！");
-            }
-            else
-            {
-                MessageBox.Show("已删除" + count + "条记录！");
-            }
+                BllMainDict.DelCell(DeletingRowId);
         }
 
 

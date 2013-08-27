@@ -39,7 +39,7 @@ namespace ChildCafe
             if (name == "root" || name == "rtadmin" || name == "rpadmin" || name == "raadmin" || name == "roadmin")
                 MessageBox.Show("管理员用户不能删除！！");
             else
-                BllACLOptr.DelCell((long)baseDataGridView.SelectedCells[0].Value);
+                BllACLOptr.DelCell(DeletingRowId);
         }
 
         protected override void SetOperation()

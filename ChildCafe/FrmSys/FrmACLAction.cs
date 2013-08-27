@@ -41,7 +41,7 @@ namespace ChildCafe
             if (baseDataGridView.SelectedCells[1].Value.ToString() == "root")
                 MessageBox.Show("root用户不能删除！！");
             else
-                BllACLAction.DelCell((long)baseDataGridView.SelectedCells[0].Value);
+                BllACLAction.DelCell(DeletingRowId);
         }
     }
 }

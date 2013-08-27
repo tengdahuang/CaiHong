@@ -14,7 +14,7 @@ namespace ChildCafe.Bll
         {
             //SqlStatement ss = new SqlStatement("Select * from v_BaseInfoMember where 用户类型 = @optrType", new DataParameter("@optrType", optrType));
             //return DbEntry.Context.ExecuteDataset(ss).Tables[0];
-
+            return null;
         }
 
         internal static void DelCell(long id)

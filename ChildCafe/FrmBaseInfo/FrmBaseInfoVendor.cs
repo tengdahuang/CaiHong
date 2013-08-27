@@ -36,9 +36,9 @@ namespace ChildCafe
 
         }
 
-        override protected void DeleteCurrentRow(DataGridViewRow row)
+        override protected void DeleteCurrentRow()
         {
-            BllBaseInfoMember.DelCell((long)row.Cells[0].Value);
+            BllBaseInfoMember.DelCell(DeletingRowId);
         }
 
 

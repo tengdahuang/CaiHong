@@ -41,7 +41,7 @@ namespace ChildCafe
 
         override protected void DeleteCurrentRow()
         {
-            BllACLModule.DelCell((long) baseDataGridView.SelectedCells[0].Value);
+            BllACLModule.DelCell(DeletingRowId);
         }
 
         protected override void SetOperation()
