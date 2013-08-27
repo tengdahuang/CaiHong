@@ -17,8 +17,8 @@ namespace ChildCafe
         public FrmAppMain()
         {
             InitializeComponent();
-            if (SystemVersion.GetSystemVertion() > 5)
-                skinUI1.Active = false;
+            //if (SystemVersion.GetSystemVertion() > 5)
+            //    skinUI1.Active = false;
         }
 
         private void FrmAppMain_Load(object sender, EventArgs e)

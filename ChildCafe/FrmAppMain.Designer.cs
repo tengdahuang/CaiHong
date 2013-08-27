@@ -28,35 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.skinUI1 = new DotNetSkin.SkinUI();
             this.SuspendLayout();
-            // 
-            // skinUI1
-            // 
-            this.skinUI1.Active = true;
-            this.skinUI1.Button = true;
-            this.skinUI1.Caption = true;
-            this.skinUI1.CheckBox = true;
-            this.skinUI1.ComboBox = true;
-            this.skinUI1.ContextMenu = true;
-            this.skinUI1.DisableTag = 999;
-            this.skinUI1.Edit = true;
-            this.skinUI1.GroupBox = true;
-            this.skinUI1.ImageList = null;
-            this.skinUI1.MaiMenu = true;
-            this.skinUI1.Panel = true;
-            this.skinUI1.Progress = true;
-            this.skinUI1.RadioButton = true;
-            this.skinUI1.ScrollBar = true;
-            this.skinUI1.SkinFile = "D:\\projects\\WinForm\\CaiHong\\TDReferences\\MNS-STANDART.skn";
-            this.skinUI1.SkinSteam = null;
-            this.skinUI1.Spin = true;
-            this.skinUI1.StatusBar = true;
-            this.skinUI1.SystemMenu = true;
-            this.skinUI1.TabControl = true;
-            this.skinUI1.Text = "Mycontrol1=edit\r\nMycontrol2=edit\r\n";
-            this.skinUI1.ToolBar = true;
-            this.skinUI1.TrackBar = true;
             // 
             // FrmAppMain
             // 
@@ -75,7 +47,7 @@
 
         #endregion
 
-        public DotNetSkin.SkinUI skinUI1;
+
 
 
 
