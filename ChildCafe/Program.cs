@@ -81,6 +81,7 @@ namespace ChildCafe
                     login.Dispose();
                     Application.Run(new FrmAppMain());
                 }
+
             }
 
         }

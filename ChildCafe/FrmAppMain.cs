@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Resources;
 using System.Text;
 using System.Windows.Forms;
 using ChildCafe.Bll;
 using ChildCafe.Common;
+using XSolo.Common;
 
 namespace ChildCafe
 {
@@ -15,6 +17,8 @@ namespace ChildCafe
         public FrmAppMain()
         {
             InitializeComponent();
+            if (SystemVersion.GetSystemVertion() > 5)
+                skinUI1.Active = false;
         }
 
         private void FrmAppMain_Load(object sender, EventArgs e)

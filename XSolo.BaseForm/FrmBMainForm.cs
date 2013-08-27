@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using System.Reflection;
+using XSolo.Common;
 
 
 namespace XSolo.BaseForm
@@ -16,6 +17,7 @@ namespace XSolo.BaseForm
         public FrmBMainForm()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.iconMain;
         }
 
 

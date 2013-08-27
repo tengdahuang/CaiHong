@@ -13,6 +13,7 @@ namespace XSolo.BaseForm
         public FrmBLogin()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.iconMain;
         }
 
         private void CloseMe()

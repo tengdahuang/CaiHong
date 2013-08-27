@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.SuspendLayout();
             // 
             // btnLogin
@@ -63,7 +62,6 @@
             // 
             this.ClientSize = new System.Drawing.Size(590, 350);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
             this.ResumeLayout(false);
             this.PerformLayout();
