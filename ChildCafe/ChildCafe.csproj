@@ -57,6 +57,7 @@
     <Compile Include="Bll\BllACLOptrAction.cs" />
     <Compile Include="Bll\BllACLOptrModule.cs" />
     <Compile Include="Bll\BllBaseInfoMember.cs" />
+    <Compile Include="Bll\BllBaseInfoVendor.cs" />
     <Compile Include="Bll\BllFrmAppMain.cs" />
     <Compile Include="Bll\BllMainDict.cs" />
     <Compile Include="Bll\BllMainDictType.cs" />
@@ -79,6 +80,12 @@
     <Compile Include="Dal\MainOptr.cs" />
     <Compile Include="Dal\MainOptrType.cs" />
     <Compile Include="Dal\MainRole.cs" />
+    <Compile Include="FrmBaseInfo\FrmBaseInfoVendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoVendor.Designer.cs">
+      <DependentUpon>FrmBaseInfoVendor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoMemberBirthReminder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +202,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoVendor.resx">
+      <DependentUpon>FrmBaseInfoVendor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberBirthReminder.resx">
       <DependentUpon>FrmBaseInfoMemberBirthReminder.cs</DependentUpon>
     </EmbeddedResource>

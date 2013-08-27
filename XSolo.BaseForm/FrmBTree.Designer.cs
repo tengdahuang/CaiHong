@@ -44,6 +44,8 @@
             this.baseToolStrip = new System.Windows.Forms.ToolStrip();
             this.baseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.baseImageList = new System.Windows.Forms.ImageList(this.components);
+            this.baseStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.countToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.baseDataGridView)).BeginInit();
             this.panelMain.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -51,6 +53,7 @@
             this.splitContainer1.SuspendLayout();
             this.panelFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.baseBindingSource)).BeginInit();
+            this.baseStatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // baseDataGridView
@@ -119,6 +122,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.baseStatusStrip);
             this.splitContainer1.Panel2.Controls.Add(this.baseDataGridView);
             this.splitContainer1.Size = new System.Drawing.Size(715, 397);
             this.splitContainer1.SplitterDistance = 180;
@@ -206,6 +210,22 @@
             this.baseImageList.Images.SetKeyName(15, "search.png");
             this.baseImageList.Images.SetKeyName(16, "up.png");
             // 
+            // baseStatusStrip
+            // 
+            this.baseStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.countToolStripStatusLabel});
+            this.baseStatusStrip.Location = new System.Drawing.Point(0, 375);
+            this.baseStatusStrip.Name = "baseStatusStrip";
+            this.baseStatusStrip.Size = new System.Drawing.Size(531, 22);
+            this.baseStatusStrip.TabIndex = 4;
+            this.baseStatusStrip.Text = "statusStrip1";
+            // 
+            // countToolStripStatusLabel
+            // 
+            this.countToolStripStatusLabel.Name = "countToolStripStatusLabel";
+            this.countToolStripStatusLabel.Size = new System.Drawing.Size(71, 17);
+            this.countToolStripStatusLabel.Text = "共有 条记录";
+            // 
             // FrmBTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -224,10 +244,13 @@
             this.panelMain.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             this.splitContainer1.ResumeLayout(false);
             this.panelFind.ResumeLayout(false);
             this.panelFind.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.baseBindingSource)).EndInit();
+            this.baseStatusStrip.ResumeLayout(false);
+            this.baseStatusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +270,7 @@
         protected System.Windows.Forms.Label lbFind;
         protected System.Windows.Forms.Button btDisplayAll;
         protected System.Windows.Forms.Button btnFind;
+        protected System.Windows.Forms.StatusStrip baseStatusStrip;
+        protected System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
     }
 }

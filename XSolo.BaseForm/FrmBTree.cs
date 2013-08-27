@@ -110,8 +110,8 @@ namespace XSolo.BaseForm
                 InitData();
                 CreateActionButtons();
                 InitTree();
-                //resetDataGridView();
                 reloadDataGridView();
+                SetCountToolStripStatusLabel();
                 SetDataGridViewColumns();
             }
 
@@ -158,6 +158,7 @@ namespace XSolo.BaseForm
         virtual protected void resetDataGridView()
         {
             reloadDataGridView();
+            SetCountToolStripStatusLabel();
         }
 
         /// <summary>
@@ -444,7 +445,23 @@ namespace XSolo.BaseForm
                     {
                         if (baseDataGridView.Rows.Count > 0)
                         {
-                            DeleteCurrentRow();
+                            int count = 0;
+
+                            foreach (DataGridViewRow row in baseDataGridView.SelectedRows)
+                            {
+                                DeleteCurrentRow(row);
+                                count++;
+                            }
+
+                            if (count == 0)
+                            {
+                                MessageBox.Show("没有删除任何记录！");
+                            }
+                            else
+                            {
+                                MessageBox.Show("已删除" + count + "条记录！");
+                            }
+
                             resetDataGridView();
                             SetDataGridViewColumns();
                             if (IsTree)
@@ -557,7 +574,7 @@ namespace XSolo.BaseForm
             throw new NotImplementedException();
         }
 
-        virtual protected void DeleteCurrentRow()
+        virtual protected void DeleteCurrentRow(DataGridViewRow row)
         {
             throw new NotImplementedException();
         }
@@ -662,6 +679,7 @@ namespace XSolo.BaseForm
             {
                 baseBindingSource.Filter = SetFilterString();
                 baseDataGridView.DataSource = baseBindingSource;
+                SetCountToolStripStatusLabel();
             }
 
         }
@@ -707,6 +725,17 @@ namespace XSolo.BaseForm
 
         }
 
+        virtual protected void SetCountToolStripStatusLabel()
+        {
+            if (baseDataGridView.RowCount == 0)
+            {
+                countToolStripStatusLabel.Text = "总共有0条记录";
+            }
+            else
+            {
+                countToolStripStatusLabel.Text = "总共有" + baseDataGridView.RowCount.ToString() + "条记录";
+            }
+        }
 
 
         //protected void setBaseBindingsource(DataSet ds, string s)
