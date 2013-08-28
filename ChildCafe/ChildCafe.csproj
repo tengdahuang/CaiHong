@@ -58,7 +58,9 @@
     <Compile Include="Bll\BllACLOptr.cs" />
     <Compile Include="Bll\BllACLOptrAction.cs" />
     <Compile Include="Bll\BllACLOptrModule.cs" />
+    <Compile Include="Bll\BllBaseInfoMaterial.cs" />
     <Compile Include="Bll\BllBaseInfoMember.cs" />
+    <Compile Include="Bll\BllBaseInfoStaff.cs" />
     <Compile Include="Bll\BllBaseInfoVendor.cs" />
     <Compile Include="Bll\BllFrmAppMain.cs" />
     <Compile Include="Bll\BllMainDict.cs" />
@@ -82,6 +84,30 @@
     <Compile Include="Dal\MainOptr.cs" />
     <Compile Include="Dal\MainOptrType.cs" />
     <Compile Include="Dal\MainRole.cs" />
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMaterial.Designer.cs">
+      <DependentUpon>FrmBaseInfoMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMaterialEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMaterialEdit.Designer.cs">
+      <DependentUpon>FrmBaseInfoMaterialEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoStaff.Designer.cs">
+      <DependentUpon>FrmBaseInfoStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoStaffEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoStaffEdit.Designer.cs">
+      <DependentUpon>FrmBaseInfoStaffEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoVendorEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +236,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMaterial.resx">
+      <DependentUpon>FrmBaseInfoMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMaterialEdit.resx">
+      <DependentUpon>FrmBaseInfoMaterialEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoStaff.resx">
+      <DependentUpon>FrmBaseInfoStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoStaffEdit.resx">
+      <DependentUpon>FrmBaseInfoStaffEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoVendor.resx">
       <DependentUpon>FrmBaseInfoVendor.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberRechargeEdit.resx">
       <DependentUpon>FrmBaseInfoMemberRechargeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoVendorEdit.resx">
+      <DependentUpon>FrmBaseInfoVendorEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSys\FrmMainDict.resx">
       <DependentUpon>FrmMainDict.cs</DependentUpon>

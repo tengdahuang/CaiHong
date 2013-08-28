@@ -11,9 +11,9 @@ using XSolo.Common;
 
 namespace ChildCafe
 {
-    public partial class FrmBaseInfoMemberEdit : XSolo.BaseForm.FrmAddEdit
+    public partial class FrmBaseInfoStaffEdit : XSolo.BaseForm.FrmAddEdit
     {
-        public FrmBaseInfoMemberEdit()
+        public FrmBaseInfoStaffEdit()
         {
             InitializeComponent();
         }
@@ -23,13 +23,12 @@ namespace ChildCafe
 
             if (!IsAdd)
             {
-                var obj = BaseInfoMember.FindById(long.Parse(ItemID));
+                var obj = BaseInfoStaff.FindById(long.Parse(ItemID));
                 FrmAddEditBindComboBoxText.BindObjectToControls(obj, tabPage1);
             }
             else
             {
-                ctDiscountRate.Value = 100;
-                ctJoinedDate.Value = DateTime.Now.Date;
+                ctDateOfEmployment.Value = DateTime.Now.Date;
             }
 
         }
@@ -39,7 +38,7 @@ namespace ChildCafe
             if (IsAdd)
             {
 
-                var obj = BaseInfoMember.New;
+                var obj = BaseInfoStaff.New;
                 FrmAddEditBindComboBoxText.BindControlsToObject(obj, tabPage1);
                 obj.OptrType = UserStatics.OptrType;
                 obj.Save();
@@ -49,7 +48,7 @@ namespace ChildCafe
             else
             {
 
-                var obj = BaseInfoMember.FindById(long.Parse(ItemID));
+                var obj = BaseInfoStaff.FindById(long.Parse(ItemID));
                 FrmAddEditBindComboBoxText.BindControlsToObject(obj, tabPage1);
                 obj.OptrType = UserStatics.OptrType;
                 obj.Save();
@@ -59,24 +58,19 @@ namespace ChildCafe
 
         protected override void DefineControlErrors()
         {
-            if (ctCardNumber.Text == "") errorProvider.SetError(ctCardNumber, "卡号不能为空");
-            else errorProvider.SetError(ctCardNumber, "");
             if (ctName.Text == "") errorProvider.SetError(ctName, "姓名不能为空");
             else errorProvider.SetError(ctName, "");
-            if (ctMobile.Text == "") errorProvider.SetError(ctMobile, "手机不能为空");
-            else errorProvider.SetError(ctMobile, "");
         }
 
         private void ctName_TextChanged(object sender, EventArgs e)
         {
-            ctPinYin.Text = AutoPinYin.GetPinYin(ctName.Text);
+            ctShortCode.Text = AutoPinYin.GetPinYin(ctName.Text);
         }
 
         protected override void AfterSave()
         {
             this.Close();
         }
-
 
     }
 }

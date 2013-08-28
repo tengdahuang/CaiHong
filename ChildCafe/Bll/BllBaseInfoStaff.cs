@@ -8,18 +8,18 @@ using Lephone.Data.SqlEntry;
 
 namespace ChildCafe.Bll
 {
-    class BllBaseInfoVendor
+    public class BllBaseInfoStaff
     {
+
         public static DataTable GetTable(string optrType)
         {
-            SqlStatement ss = new SqlStatement("Select * from v_BaseInfoVendor where 用户类型 = @optrType", new DataParameter("@optrType", optrType));
+            SqlStatement ss = new SqlStatement("Select * from v_BaseInfoStaff where 用户类型 = @optrType", new DataParameter("@optrType", optrType));
             return DbEntry.Context.ExecuteDataset(ss).Tables[0];
         }
 
         internal static void DelCell(long id)
         {
-            BaseInfoVendor.DeleteAll(CK.K["Id"] == id);
+            BaseInfoStaff.DeleteAll(CK.K["Id"] == id);
         }
-
     }
 }

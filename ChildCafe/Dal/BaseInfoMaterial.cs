@@ -12,13 +12,13 @@ namespace ChildCafe.Dal
         /// 商品编码
         /// </summary>
         [Length(30)]
-        public abstract string MeterialCode { get; set; }
+        public abstract string Code { get; set; }
 
         /// <summary>
         /// 商品名称
         /// </summary>
         [Length(30)]
-        public abstract string MaterialName { get; set; }
+        public abstract string Name { get; set; }
 
         /// <summary>
         /// 简码
@@ -114,7 +114,7 @@ namespace ChildCafe.Dal
         public abstract decimal InventoryCost { get; set; }
 
         /// <summary>
-        /// 报警数
+        /// 最低库存
         /// </summary>
         public abstract decimal StockLowAlarm { get; set; }
 

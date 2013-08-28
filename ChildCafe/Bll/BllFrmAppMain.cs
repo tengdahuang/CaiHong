@@ -24,7 +24,7 @@ namespace ChildCafe.Bll
             new SqlStatement("SELECT mm.Id AS Id, mm.Name AS Name, mm.ChineseName AS ChineseName, mm.ParentId AS ParentId, mm.Sequence AS Sequence " +
                                 "from " + 
                                 "(SELECT m.Id as Id, Name, ChineseName, ParentId, Sequence, mmmo.MainOptr_Id FROM MainModule AS m INNER JOIN MainModule_MainOptr AS mmmo ON m.Id=mmmo.MainModule_Id) mm " +
-                                "inner JOIN MainOptr mo ON mm.MainOptr_Id = mo.Id WHERE (mo.Id = 1) Order By mm.ParentId,mm.Sequence",
+                                "inner JOIN MainOptr mo ON mm.MainOptr_Id = mo.Id WHERE (mo.Id = @Id) Order By mm.ParentId,mm.Sequence",
             new DataParameter("@id", id));
             dt = DbEntry.Context.ExecuteDataset(sqlStatement).Tables[0];
             return dt;
