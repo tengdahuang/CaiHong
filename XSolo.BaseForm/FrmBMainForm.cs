@@ -36,7 +36,7 @@ namespace XSolo.BaseForm
         /// 
 
         //点击任务栏图标，恢复窗体
-        private void notifyIconToTaskbar_Click(object sender, EventArgs e)
+        private void notifyIconToTaskbar_DoubleClick(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
             {
@@ -52,12 +52,13 @@ namespace XSolo.BaseForm
         }
 
 
+
         //如果窗体最小化，则直接隐藏到任务栏，如果是其他两种状态，则显示窗体
         private void FrmBMainForm_SizeChanged(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
             {
-                this.Hide();
+                //this.Hide();
                 notifyIconToTaskbar.Visible = true;
             }
 
@@ -82,7 +83,7 @@ namespace XSolo.BaseForm
         private void showMenuItem_Click(object sender, EventArgs e)
         {
             Show();
-            WindowState = FormWindowState.Normal;
+            WindowState = FormWindowState.Minimized;
             Activate();
         }
 
@@ -400,6 +401,7 @@ namespace XSolo.BaseForm
         {
             return false;
         }
+
 
 
 

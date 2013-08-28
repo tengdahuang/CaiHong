@@ -61,7 +61,6 @@
             this.tbPassword.Size = new System.Drawing.Size(189, 21);
             this.tbPassword.TabIndex = 2;
             this.tbPassword.UseSystemPasswordChar = true;
-            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // btnLogin
             // 
@@ -84,12 +83,13 @@
             // 
             // cbUser
             // 
+            this.cbUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbUser.FormattingEnabled = true;
             this.cbUser.Location = new System.Drawing.Point(335, 190);
             this.cbUser.Name = "cbUser";
             this.cbUser.Size = new System.Drawing.Size(189, 20);
             this.cbUser.TabIndex = 1;
-            this.cbUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbUser_KeyDown);
             // 
             // FrmBLogin
             // 
@@ -100,10 +100,12 @@
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmBLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户登录";
             this.Load += new System.EventHandler(this.FrmBLogin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBLogin_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

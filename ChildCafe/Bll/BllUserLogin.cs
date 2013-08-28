@@ -8,7 +8,7 @@ namespace ChildCafe.Bll
 {
     public class BllUserLogin
     {
-        public bool CheckLogin(string name, string password)
+        public static bool CheckLogin(string name, string password)
         {
             password = XSolo.Common.EncryptDecrypt.MD5(password);
             var recordCount = MainOptr.Find(CK.K["Name"] == name && CK.K["Password"] == password).Count;

@@ -45,7 +45,7 @@
             this.notifyIconToTaskbar.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIconToTaskbar.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconToTaskbar.Icon")));
             this.notifyIconToTaskbar.Text = "欢迎使用本程序";
-            this.notifyIconToTaskbar.Click += new System.EventHandler(this.notifyIconToTaskbar_Click);
+            this.notifyIconToTaskbar.DoubleClick += new System.EventHandler(this.notifyIconToTaskbar_DoubleClick);
             // 
             // contextMenuStrip1
             // 

@@ -15,6 +15,7 @@ namespace ChildCafe
         public FrmLogin()
         {
             InitializeComponent();
+            //BackgroundImage = Properties.Resources.background;
             cbUser.DataSource = BllUserLogin.GetUserNameList();
         }
 
@@ -22,8 +23,7 @@ namespace ChildCafe
         //todo 登录不用下拉框,用户名不重复
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var ul = new BllUserLogin();
-            if (ul.CheckLogin(cbUser.Text, tbPassword.Text))
+            if (BllUserLogin.CheckLogin(cbUser.Text, tbPassword.Text))
             {
                 DialogResult = DialogResult.OK;
                 var usr = BllUserLogin.GetUser(cbUser.Text);
