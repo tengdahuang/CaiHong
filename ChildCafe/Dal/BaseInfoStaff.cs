@@ -8,6 +8,12 @@ namespace ChildCafe.Dal
     public abstract class BaseInfoStaff: DbObjectModel<BaseInfoStaff>
     {
         /// <summary>
+        /// 编号
+        /// </summary>
+        [Length(30)]
+        public abstract string Number { get; set; }
+
+        /// <summary>
         /// 姓名
         /// </summary>
         [Length(30)]

@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChildCafe.Common;
+using ChildCafe.Dal;
 using XSolo.Common;
 
 namespace ChildCafe
@@ -14,6 +16,48 @@ namespace ChildCafe
         public FrmBaseInfoMaterialEdit()
         {
             InitializeComponent();
+        }
+
+        protected override void Loading()
+        {
+            ctIsAddToInventory.Checked = true;
+            ctUnitConvValue.Value = 1;
+
+            ctCategory.DataSource = CommonStatics.GetDict(UserStatics.OptrType, "物料分类");
+            ctCategory.DisplayMember = "Name";
+
+            ctPurchaseUnitName.DataSource = CommonStatics.GetDict(UserStatics.OptrType, "单位");
+            ctPurchaseUnitName.DisplayMember = "Name";
+
+            ctSaleUnitName.DataSource = CommonStatics.GetDict(UserStatics.OptrType, "单位");
+            ctSaleUnitName.DisplayMember = "Name";
+
+
+            if (!IsAdd)
+            {
+                var obj = BaseInfoMaterial.FindById(long.Parse(ItemID));
+                BindControlsDecimal.BindObjectToControls(obj, tabPage1);
+                //ReSetNumbericUpDownStatus();
+            }
+            
+        }
+
+        protected override void Saving()
+        {
+            if (!IsAdd)
+            {
+                var obj = BaseInfoMaterial.FindById(long.Parse(ItemID));
+                BindControlsDecimal.BindControlsToObject(obj, tabPage1);
+                obj.Save();
+            }
+            else
+            {
+                var obj = BaseInfoMaterial.New;
+                BindControlsDecimal.BindControlsToObject(obj, tabPage1);
+                obj.OptrType = UserStatics.OptrType;
+                obj.Save();
+            }
+
         }
 
         private void ctIsAddToInventory_CheckedChanged(object sender, EventArgs e)
@@ -46,6 +90,7 @@ namespace ChildCafe
             {
                 ctConvPrice.Value = ctUnitPrice.Value / ctUnitConvValue.Value;
                 ctConvQuantity.Value = ctInvQuantity.Value*ctUnitConvValue.Value;
+                ctInventoryCost.Value = ctConvPrice.Value * ctConvQuantity.Value;
             }
         }
 
@@ -55,6 +100,7 @@ namespace ChildCafe
             {
                 ctConvPrice.Value = ctUnitPrice.Value / ctUnitConvValue.Value;
                 ctConvQuantity.Value = ctInvQuantity.Value * ctUnitConvValue.Value;
+                ctInventoryCost.Value = ctConvPrice.Value * ctConvQuantity.Value;
             }
         }
 
@@ -65,6 +111,22 @@ namespace ChildCafe
                 ctConvQuantity.Value = ctInvQuantity.Value * ctUnitConvValue.Value;
                 ctInventoryCost.Value = ctConvPrice.Value*ctConvQuantity.Value;
             }
+        }
+
+        private void ctCode_TextChanged(object sender, EventArgs e)
+        {
+            ctBarcode.Text = ctCode.Text;
+        }
+
+        private void ctPurchaseUnitName_TextChanged(object sender, EventArgs e)
+        {
+            ctSaleUnitName.Text = ctPurchaseUnitName.Text;
+        }
+
+        private void ctCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ctCategory.Text == "半成品") ctIsIngredient.Checked = true;
+            else ctIsIngredient.Checked = false;
         }
     }
 }

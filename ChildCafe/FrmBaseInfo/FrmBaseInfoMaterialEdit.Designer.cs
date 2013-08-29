@@ -40,13 +40,13 @@
             this.ctBarcode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.ctSex = new System.Windows.Forms.ComboBox();
+            this.ctCategory = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ctBrand = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ctPurchaseUnitName = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.ctSaleUnitName = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.ctUnitConvValue = new XSolo.ExtendedControls.NumericUpDownEx();
             this.label11 = new System.Windows.Forms.Label();
@@ -133,13 +133,13 @@
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.ctUnitConvValue);
             this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.ctSaleUnitName);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.ctPurchaseUnitName);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.ctBrand);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.ctSex);
+            this.tabPage1.Controls.Add(this.ctCategory);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.ctItemNo);
             this.tabPage1.Controls.Add(this.label4);
@@ -160,7 +160,7 @@
             this.ctShortCode.Location = new System.Drawing.Point(464, 33);
             this.ctShortCode.Name = "ctShortCode";
             this.ctShortCode.Size = new System.Drawing.Size(121, 21);
-            this.ctShortCode.TabIndex = 44;
+            this.ctShortCode.TabIndex = 25;
             // 
             // label1
             // 
@@ -176,7 +176,7 @@
             this.ctName.Location = new System.Drawing.Point(464, 7);
             this.ctName.Name = "ctName";
             this.ctName.Size = new System.Drawing.Size(121, 21);
-            this.ctName.TabIndex = 42;
+            this.ctName.TabIndex = 10;
             this.ctName.TextChanged += new System.EventHandler(this.ctName_TextChanged);
             // 
             // ctCode
@@ -184,7 +184,8 @@
             this.ctCode.Location = new System.Drawing.Point(269, 7);
             this.ctCode.Name = "ctCode";
             this.ctCode.Size = new System.Drawing.Size(121, 21);
-            this.ctCode.TabIndex = 39;
+            this.ctCode.TabIndex = 5;
+            this.ctCode.TextChanged += new System.EventHandler(this.ctCode_TextChanged);
             // 
             // label3
             // 
@@ -206,15 +207,15 @@
             // 
             // ctItemNo
             // 
-            this.ctItemNo.Location = new System.Drawing.Point(269, 60);
+            this.ctItemNo.Location = new System.Drawing.Point(463, 167);
             this.ctItemNo.Name = "ctItemNo";
             this.ctItemNo.Size = new System.Drawing.Size(121, 21);
-            this.ctItemNo.TabIndex = 50;
+            this.ctItemNo.TabIndex = 102;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(210, 63);
+            this.label4.Location = new System.Drawing.Point(404, 170);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 49;
@@ -225,14 +226,14 @@
             this.ctSpecification.Location = new System.Drawing.Point(269, 33);
             this.ctSpecification.Name = "ctSpecification";
             this.ctSpecification.Size = new System.Drawing.Size(121, 21);
-            this.ctSpecification.TabIndex = 48;
+            this.ctSpecification.TabIndex = 20;
             // 
             // ctBarcode
             // 
             this.ctBarcode.Location = new System.Drawing.Point(77, 33);
             this.ctBarcode.Name = "ctBarcode";
             this.ctBarcode.Size = new System.Drawing.Size(121, 21);
-            this.ctBarcode.TabIndex = 45;
+            this.ctBarcode.TabIndex = 15;
             // 
             // label5
             // 
@@ -252,18 +253,19 @@
             this.label6.TabIndex = 46;
             this.label6.Text = "条码";
             // 
-            // ctSex
+            // ctCategory
             // 
-            this.ctSex.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.ctSex.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.ctSex.FormattingEnabled = true;
-            this.ctSex.Items.AddRange(new object[] {
+            this.ctCategory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ctCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ctCategory.FormattingEnabled = true;
+            this.ctCategory.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.ctSex.Location = new System.Drawing.Point(77, 7);
-            this.ctSex.Name = "ctSex";
-            this.ctSex.Size = new System.Drawing.Size(121, 20);
-            this.ctSex.TabIndex = 68;
+            this.ctCategory.Location = new System.Drawing.Point(77, 7);
+            this.ctCategory.Name = "ctCategory";
+            this.ctCategory.Size = new System.Drawing.Size(121, 20);
+            this.ctCategory.TabIndex = 1;
+            this.ctCategory.SelectedIndexChanged += new System.EventHandler(this.ctCategory_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -276,59 +278,60 @@
             // 
             // ctBrand
             // 
-            this.ctBrand.Location = new System.Drawing.Point(77, 60);
+            this.ctBrand.Location = new System.Drawing.Point(269, 167);
             this.ctBrand.Name = "ctBrand";
             this.ctBrand.Size = new System.Drawing.Size(121, 21);
-            this.ctBrand.TabIndex = 71;
+            this.ctBrand.TabIndex = 101;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 63);
+            this.label8.Location = new System.Drawing.Point(210, 170);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 12);
             this.label8.TabIndex = 70;
             this.label8.Text = "品牌";
             // 
-            // comboBox1
+            // ctPurchaseUnitName
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.ctPurchaseUnitName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ctPurchaseUnitName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ctPurchaseUnitName.FormattingEnabled = true;
+            this.ctPurchaseUnitName.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.comboBox1.Location = new System.Drawing.Point(77, 87);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 72;
+            this.ctPurchaseUnitName.Location = new System.Drawing.Point(77, 60);
+            this.ctPurchaseUnitName.Name = "ctPurchaseUnitName";
+            this.ctPurchaseUnitName.Size = new System.Drawing.Size(121, 20);
+            this.ctPurchaseUnitName.TabIndex = 40;
+            this.ctPurchaseUnitName.TextChanged += new System.EventHandler(this.ctPurchaseUnitName_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 90);
+            this.label9.Location = new System.Drawing.Point(18, 63);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 73;
             this.label9.Text = "采购单位";
             // 
-            // comboBox2
+            // ctSaleUnitName
             // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.ctSaleUnitName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ctSaleUnitName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ctSaleUnitName.FormattingEnabled = true;
+            this.ctSaleUnitName.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.comboBox2.Location = new System.Drawing.Point(269, 87);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
-            this.comboBox2.TabIndex = 74;
+            this.ctSaleUnitName.Location = new System.Drawing.Point(269, 60);
+            this.ctSaleUnitName.Name = "ctSaleUnitName";
+            this.ctSaleUnitName.Size = new System.Drawing.Size(121, 20);
+            this.ctSaleUnitName.TabIndex = 45;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(210, 90);
+            this.label10.Location = new System.Drawing.Point(210, 63);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 75;
@@ -337,7 +340,7 @@
             // ctUnitConvValue
             // 
             this.ctUnitConvValue.DecimalPlaces = 2;
-            this.ctUnitConvValue.Location = new System.Drawing.Point(464, 86);
+            this.ctUnitConvValue.Location = new System.Drawing.Point(464, 59);
             this.ctUnitConvValue.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -345,13 +348,13 @@
             0});
             this.ctUnitConvValue.Name = "ctUnitConvValue";
             this.ctUnitConvValue.Size = new System.Drawing.Size(120, 21);
-            this.ctUnitConvValue.TabIndex = 77;
+            this.ctUnitConvValue.TabIndex = 50;
             this.ctUnitConvValue.ValueChanged += new System.EventHandler(this.ctUnitConvValue_ValueChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(404, 88);
+            this.label11.Location = new System.Drawing.Point(404, 61);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(41, 12);
             this.label11.TabIndex = 76;
@@ -360,7 +363,12 @@
             // ctUnitPrice
             // 
             this.ctUnitPrice.DecimalPlaces = 2;
-            this.ctUnitPrice.Location = new System.Drawing.Point(77, 113);
+            this.ctUnitPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.ctUnitPrice.Location = new System.Drawing.Point(77, 86);
             this.ctUnitPrice.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -368,13 +376,13 @@
             0});
             this.ctUnitPrice.Name = "ctUnitPrice";
             this.ctUnitPrice.Size = new System.Drawing.Size(120, 21);
-            this.ctUnitPrice.TabIndex = 79;
+            this.ctUnitPrice.TabIndex = 55;
             this.ctUnitPrice.ValueChanged += new System.EventHandler(this.ctUnitPrice_ValueChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 115);
+            this.label12.Location = new System.Drawing.Point(17, 88);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 78;
@@ -384,7 +392,12 @@
             // 
             this.ctConvPrice.DecimalPlaces = 2;
             this.ctConvPrice.Enabled = false;
-            this.ctConvPrice.Location = new System.Drawing.Point(77, 167);
+            this.ctConvPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.ctConvPrice.Location = new System.Drawing.Point(77, 140);
             this.ctConvPrice.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -392,12 +405,12 @@
             0});
             this.ctConvPrice.Name = "ctConvPrice";
             this.ctConvPrice.Size = new System.Drawing.Size(120, 21);
-            this.ctConvPrice.TabIndex = 81;
+            this.ctConvPrice.TabIndex = 85;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 169);
+            this.label13.Location = new System.Drawing.Point(17, 142);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 80;
@@ -407,7 +420,12 @@
             // 
             this.ctAvgPrice.DecimalPlaces = 2;
             this.ctAvgPrice.Enabled = false;
-            this.ctAvgPrice.Location = new System.Drawing.Point(464, 167);
+            this.ctAvgPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.ctAvgPrice.Location = new System.Drawing.Point(464, 140);
             this.ctAvgPrice.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -415,12 +433,12 @@
             0});
             this.ctAvgPrice.Name = "ctAvgPrice";
             this.ctAvgPrice.Size = new System.Drawing.Size(120, 21);
-            this.ctAvgPrice.TabIndex = 83;
+            this.ctAvgPrice.TabIndex = 95;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(404, 169);
+            this.label14.Location = new System.Drawing.Point(404, 142);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(53, 12);
             this.label14.TabIndex = 82;
@@ -429,7 +447,7 @@
             // ctInvQuantity
             // 
             this.ctInvQuantity.DecimalPlaces = 2;
-            this.ctInvQuantity.Location = new System.Drawing.Point(269, 113);
+            this.ctInvQuantity.Location = new System.Drawing.Point(269, 86);
             this.ctInvQuantity.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -437,13 +455,13 @@
             0});
             this.ctInvQuantity.Name = "ctInvQuantity";
             this.ctInvQuantity.Size = new System.Drawing.Size(120, 21);
-            this.ctInvQuantity.TabIndex = 89;
+            this.ctInvQuantity.TabIndex = 60;
             this.ctInvQuantity.ValueChanged += new System.EventHandler(this.ctInvQuantity_ValueChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(209, 115);
+            this.label15.Location = new System.Drawing.Point(209, 88);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 12);
             this.label15.TabIndex = 88;
@@ -452,7 +470,12 @@
             // ctMemberPrice
             // 
             this.ctMemberPrice.DecimalPlaces = 2;
-            this.ctMemberPrice.Location = new System.Drawing.Point(269, 140);
+            this.ctMemberPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.ctMemberPrice.Location = new System.Drawing.Point(269, 113);
             this.ctMemberPrice.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -460,12 +483,12 @@
             0});
             this.ctMemberPrice.Name = "ctMemberPrice";
             this.ctMemberPrice.Size = new System.Drawing.Size(120, 21);
-            this.ctMemberPrice.TabIndex = 87;
+            this.ctMemberPrice.TabIndex = 75;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(209, 142);
+            this.label16.Location = new System.Drawing.Point(209, 115);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 12);
             this.label16.TabIndex = 86;
@@ -474,7 +497,12 @@
             // ctRetailPrice
             // 
             this.ctRetailPrice.DecimalPlaces = 2;
-            this.ctRetailPrice.Location = new System.Drawing.Point(77, 140);
+            this.ctRetailPrice.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.ctRetailPrice.Location = new System.Drawing.Point(77, 113);
             this.ctRetailPrice.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -482,12 +510,12 @@
             0});
             this.ctRetailPrice.Name = "ctRetailPrice";
             this.ctRetailPrice.Size = new System.Drawing.Size(120, 21);
-            this.ctRetailPrice.TabIndex = 85;
+            this.ctRetailPrice.TabIndex = 70;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(17, 142);
+            this.label17.Location = new System.Drawing.Point(17, 115);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(41, 12);
             this.label17.TabIndex = 84;
@@ -497,7 +525,7 @@
             // 
             this.ctConvQuantity.DecimalPlaces = 2;
             this.ctConvQuantity.Enabled = false;
-            this.ctConvQuantity.Location = new System.Drawing.Point(464, 113);
+            this.ctConvQuantity.Location = new System.Drawing.Point(464, 86);
             this.ctConvQuantity.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -505,21 +533,21 @@
             0});
             this.ctConvQuantity.Name = "ctConvQuantity";
             this.ctConvQuantity.Size = new System.Drawing.Size(120, 21);
-            this.ctConvQuantity.TabIndex = 91;
+            this.ctConvQuantity.TabIndex = 65;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(404, 115);
+            this.label18.Location = new System.Drawing.Point(404, 88);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(53, 12);
             this.label18.TabIndex = 90;
-            this.label18.Text = "折算数量";
+            this.label18.Text = "折算库存";
             // 
             // ctStockLowAlarm
             // 
             this.ctStockLowAlarm.DecimalPlaces = 2;
-            this.ctStockLowAlarm.Location = new System.Drawing.Point(464, 140);
+            this.ctStockLowAlarm.Location = new System.Drawing.Point(464, 113);
             this.ctStockLowAlarm.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -527,12 +555,12 @@
             0});
             this.ctStockLowAlarm.Name = "ctStockLowAlarm";
             this.ctStockLowAlarm.Size = new System.Drawing.Size(120, 21);
-            this.ctStockLowAlarm.TabIndex = 95;
+            this.ctStockLowAlarm.TabIndex = 80;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(404, 142);
+            this.label19.Location = new System.Drawing.Point(404, 115);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(53, 12);
             this.label19.TabIndex = 94;
@@ -541,7 +569,13 @@
             // ctInventoryCost
             // 
             this.ctInventoryCost.DecimalPlaces = 2;
-            this.ctInventoryCost.Location = new System.Drawing.Point(269, 167);
+            this.ctInventoryCost.Enabled = false;
+            this.ctInventoryCost.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.ctInventoryCost.Location = new System.Drawing.Point(269, 140);
             this.ctInventoryCost.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -549,12 +583,12 @@
             0});
             this.ctInventoryCost.Name = "ctInventoryCost";
             this.ctInventoryCost.Size = new System.Drawing.Size(120, 21);
-            this.ctInventoryCost.TabIndex = 93;
+            this.ctInventoryCost.TabIndex = 90;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(209, 169);
+            this.label20.Location = new System.Drawing.Point(209, 142);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(53, 12);
             this.label20.TabIndex = 92;
@@ -563,7 +597,7 @@
             // ctBonusPoint
             // 
             this.ctBonusPoint.DecimalPlaces = 2;
-            this.ctBonusPoint.Location = new System.Drawing.Point(77, 194);
+            this.ctBonusPoint.Location = new System.Drawing.Point(77, 167);
             this.ctBonusPoint.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -571,12 +605,12 @@
             0});
             this.ctBonusPoint.Name = "ctBonusPoint";
             this.ctBonusPoint.Size = new System.Drawing.Size(120, 21);
-            this.ctBonusPoint.TabIndex = 97;
+            this.ctBonusPoint.TabIndex = 100;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(17, 196);
+            this.label21.Location = new System.Drawing.Point(17, 169);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(29, 12);
             this.label21.TabIndex = 96;
@@ -585,10 +619,10 @@
             // ctIsAddToInventory
             // 
             this.ctIsAddToInventory.AutoSize = true;
-            this.ctIsAddToInventory.Location = new System.Drawing.Point(212, 199);
+            this.ctIsAddToInventory.Location = new System.Drawing.Point(19, 196);
             this.ctIsAddToInventory.Name = "ctIsAddToInventory";
             this.ctIsAddToInventory.Size = new System.Drawing.Size(96, 16);
-            this.ctIsAddToInventory.TabIndex = 98;
+            this.ctIsAddToInventory.TabIndex = 105;
             this.ctIsAddToInventory.Text = "是否计入库存";
             this.ctIsAddToInventory.UseVisualStyleBackColor = true;
             this.ctIsAddToInventory.CheckedChanged += new System.EventHandler(this.ctIsAddToInventory_CheckedChanged);
@@ -596,24 +630,24 @@
             // ctIsIngredient
             // 
             this.ctIsIngredient.AutoSize = true;
-            this.ctIsIngredient.Location = new System.Drawing.Point(314, 199);
+            this.ctIsIngredient.Location = new System.Drawing.Point(121, 196);
             this.ctIsIngredient.Name = "ctIsIngredient";
             this.ctIsIngredient.Size = new System.Drawing.Size(84, 16);
-            this.ctIsIngredient.TabIndex = 99;
+            this.ctIsIngredient.TabIndex = 110;
             this.ctIsIngredient.Text = "是否半成品";
             this.ctIsIngredient.UseVisualStyleBackColor = true;
             // 
             // ctStatus
             // 
-            this.ctStatus.Location = new System.Drawing.Point(464, 193);
+            this.ctStatus.Location = new System.Drawing.Point(463, 194);
             this.ctStatus.Name = "ctStatus";
             this.ctStatus.Size = new System.Drawing.Size(121, 21);
-            this.ctStatus.TabIndex = 101;
+            this.ctStatus.TabIndex = 103;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(405, 196);
+            this.label22.Location = new System.Drawing.Point(404, 197);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(29, 12);
             this.label22.TabIndex = 100;
@@ -626,24 +660,24 @@
             this.dgvIngredients.Name = "dgvIngredients";
             this.dgvIngredients.RowTemplate.Height = 23;
             this.dgvIngredients.Size = new System.Drawing.Size(565, 104);
-            this.dgvIngredients.TabIndex = 102;
+            this.dgvIngredients.TabIndex = 130;
             // 
             // chooseIngredient
             // 
-            this.chooseIngredient.Location = new System.Drawing.Point(211, 223);
+            this.chooseIngredient.Location = new System.Drawing.Point(20, 223);
             this.chooseIngredient.Name = "chooseIngredient";
             this.chooseIngredient.Size = new System.Drawing.Size(75, 23);
-            this.chooseIngredient.TabIndex = 103;
+            this.chooseIngredient.TabIndex = 125;
             this.chooseIngredient.Text = "选择耗材";
             this.chooseIngredient.UseVisualStyleBackColor = true;
             // 
             // IsIncludeIngredient
             // 
             this.IsIncludeIngredient.AutoSize = true;
-            this.IsIncludeIngredient.Location = new System.Drawing.Point(77, 227);
+            this.IsIncludeIngredient.Location = new System.Drawing.Point(211, 196);
             this.IsIncludeIngredient.Name = "IsIncludeIngredient";
             this.IsIncludeIngredient.Size = new System.Drawing.Size(132, 16);
-            this.IsIncludeIngredient.TabIndex = 104;
+            this.IsIncludeIngredient.TabIndex = 120;
             this.IsIncludeIngredient.Text = "是否由其他耗材组成";
             this.IsIncludeIngredient.UseVisualStyleBackColor = true;
             // 
@@ -653,7 +687,7 @@
             this.ctRemark.Multiline = true;
             this.ctRemark.Name = "ctRemark";
             this.ctRemark.Size = new System.Drawing.Size(508, 65);
-            this.ctRemark.TabIndex = 106;
+            this.ctRemark.TabIndex = 150;
             // 
             // label23
             // 
@@ -704,13 +738,13 @@
         private System.Windows.Forms.TextBox ctBarcode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox ctSex;
+        private System.Windows.Forms.ComboBox ctCategory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ctBrand;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox ctSaleUnitName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ctPurchaseUnitName;
         private System.Windows.Forms.Label label9;
         private XSolo.ExtendedControls.NumericUpDownEx ctUnitConvValue;
         private System.Windows.Forms.Label label11;

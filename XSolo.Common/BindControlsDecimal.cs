@@ -157,7 +157,15 @@ namespace XSolo.Common
                 Control control = FindControl(container, objProperty.Name);
                 
                 if (control == null) continue;
-                if (control is DateTimePicker)
+                if (control is CheckBox)
+                {
+
+                    CheckBox checkBox = (CheckBox)control;
+                    objProperty.SetValue(obj, Convert.ChangeType(checkBox.Checked, objProperty.PropertyType),
+                                             null);
+
+                }
+                else if (control is DateTimePicker)
                 {
 
                     DateTimePicker dateTimePicker = (DateTimePicker) control;

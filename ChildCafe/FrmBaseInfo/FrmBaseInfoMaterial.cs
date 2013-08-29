@@ -31,14 +31,14 @@ namespace ChildCafe
 
         protected override void SetDataGridViewColumns()
         {
-            //baseDataGridView.Columns[IdNameInTable].Visible = false;
-            //baseDataGridView.Columns["用户类型"].Visible = false;
+            baseDataGridView.Columns[IdNameInTable].Visible = false;
+            baseDataGridView.Columns["用户类型"].Visible = false;
 
         }
 
         override protected void DeleteCurrentRow()
         {
-            BllBaseInfoMember.DelCell(DeletingRowId);
+            BllBaseInfoMaterial.DelCell(DeletingRowId);
         }
 
         protected override void resetDataGridView()

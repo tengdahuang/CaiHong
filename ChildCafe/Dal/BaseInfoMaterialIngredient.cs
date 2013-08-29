@@ -13,7 +13,6 @@ namespace ChildCafe.Dal
         /// <summary>
         /// 半成品Id
         /// </summary>
-        [Length(30)]
         public abstract long IngredientId { get; set; }
 
         /// <summary>
