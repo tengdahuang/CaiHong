@@ -670,6 +670,7 @@
             this.chooseIngredient.TabIndex = 125;
             this.chooseIngredient.Text = "选择耗材";
             this.chooseIngredient.UseVisualStyleBackColor = true;
+            this.chooseIngredient.Click += new System.EventHandler(this.chooseIngredient_Click);
             // 
             // IsIncludeIngredient
             // 

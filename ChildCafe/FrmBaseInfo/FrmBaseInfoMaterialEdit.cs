@@ -128,5 +128,11 @@ namespace ChildCafe
             if (ctCategory.Text == "半成品") ctIsIngredient.Checked = true;
             else ctIsIngredient.Checked = false;
         }
+
+        private void chooseIngredient_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.Name.ToString());
+
+        }
     }
 }
