@@ -131,7 +131,8 @@ namespace ChildCafe
 
         private void chooseIngredient_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.Name.ToString());
+            FrmBaseInfoMaterialIngredients frmBaseInfoMaterialIngredients = new FrmBaseInfoMaterialIngredients();
+            frmBaseInfoMaterialIngredients.Show();
 
         }
     }
