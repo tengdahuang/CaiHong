@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChildCafe.Bll;
 using ChildCafe.Common;
 using ChildCafe.Dal;
 using XSolo.Common;
@@ -38,7 +39,12 @@ namespace ChildCafe
                 var obj = BaseInfoMaterial.FindById(long.Parse(ItemID));
                 BindControlsDecimal.BindObjectToControls(obj, tabPage1);
                 //ReSetNumbericUpDownStatus();
+                bsIngredients.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, ItemID);
+                dgvIngredients.DataSource = bsIngredients;
+
             }
+
+
             
         }
 
@@ -131,9 +137,20 @@ namespace ChildCafe
 
         private void chooseIngredient_Click(object sender, EventArgs e)
         {
-            FrmBaseInfoMaterialIngredients frmBaseInfoMaterialIngredients = new FrmBaseInfoMaterialIngredients();
-            frmBaseInfoMaterialIngredients.Show();
+            if (!IsAdd)
+            {
+                FrmBaseInfoMaterialIngredients frmBaseInfoMaterialIngredients = new FrmBaseInfoMaterialIngredients();
+                frmBaseInfoMaterialIngredients.BaseParentId = ItemID;
+                frmBaseInfoMaterialIngredients.ShowDialog();
+                bsIngredients.DataSource = null;
+                bsIngredients.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, ItemID);
+                dgvIngredients.DataSource = bsIngredients;
 
+            }
+            else
+            {
+                MessageBox.Show("请先保存该商品!");
+            }
         }
     }
 }

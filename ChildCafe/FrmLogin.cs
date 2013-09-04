@@ -15,7 +15,7 @@ namespace ChildCafe
         public FrmLogin()
         {
             InitializeComponent();
-            //BackgroundImage = Properties.Resources.background;
+            BackgroundImage = Properties.Resources.background;
             cbUser.DataSource = BllUserLogin.GetUserNameList();
         }
 

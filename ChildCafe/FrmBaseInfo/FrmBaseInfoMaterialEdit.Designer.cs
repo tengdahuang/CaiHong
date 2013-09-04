@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ctShortCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ctName = new System.Windows.Forms.TextBox();
@@ -79,6 +80,7 @@
             this.IsIncludeIngredient = new System.Windows.Forms.CheckBox();
             this.ctRemark = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.bsIngredients = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -94,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctInventoryCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctBonusPoint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsIngredients)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -655,11 +658,19 @@
             // 
             // dgvIngredients
             // 
+            this.dgvIngredients.AllowUserToAddRows = false;
+            this.dgvIngredients.AllowUserToOrderColumns = true;
+            this.dgvIngredients.AllowUserToResizeRows = false;
+            this.dgvIngredients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvIngredients.BackgroundColor = System.Drawing.Color.White;
+            this.dgvIngredients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIngredients.Location = new System.Drawing.Point(19, 252);
             this.dgvIngredients.Name = "dgvIngredients";
             this.dgvIngredients.RowTemplate.Height = 23;
+            this.dgvIngredients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvIngredients.Size = new System.Drawing.Size(565, 104);
+            this.dgvIngredients.StandardTab = true;
             this.dgvIngredients.TabIndex = 130;
             // 
             // chooseIngredient
@@ -720,6 +731,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctInventoryCost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctBonusPoint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsIngredients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -778,5 +790,6 @@
         private System.Windows.Forms.Button chooseIngredient;
         private System.Windows.Forms.TextBox ctRemark;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.BindingSource bsIngredients;
     }
 }

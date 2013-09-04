@@ -32,6 +32,17 @@ namespace ChildCafe
             //mb.StartPosition = FormStartPosition.CenterScreen;
             //mb.Tag = "FrmMainBoard";
             //mb.Show();
+
+            if (BllBaseInfoMember.IfHasBirthdayMember(UserStatics.OptrType, 7))
+            {
+                FrmBaseInfoMemberBirthReminder fimbr = new FrmBaseInfoMemberBirthReminder();
+                fimbr.MdiParent = this;
+                fimbr.StartPosition = FormStartPosition.CenterScreen;
+                fimbr.baseToolStrip.Visible = false;
+                fimbr.panelFind.Visible = false;
+                fimbr.Show();
+                fimbr.Activate();
+            }
         }
 
         /// <summary>

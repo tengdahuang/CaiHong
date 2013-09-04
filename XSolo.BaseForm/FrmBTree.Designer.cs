@@ -263,8 +263,6 @@
         protected System.Windows.Forms.SplitContainer splitContainer1;
         protected System.Windows.Forms.BindingSource baseBindingSource;
         private System.Windows.Forms.Panel panelMain;
-        protected System.Windows.Forms.Panel panelFind;
-        protected System.Windows.Forms.ToolStrip baseToolStrip;
         private System.Windows.Forms.ImageList baseImageList;
         protected System.Windows.Forms.TextBox tbFind;
         protected System.Windows.Forms.Label lbFind;
@@ -272,5 +270,7 @@
         protected System.Windows.Forms.Button btnFind;
         protected System.Windows.Forms.StatusStrip baseStatusStrip;
         protected System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
+        public System.Windows.Forms.ToolStrip baseToolStrip;
+        public System.Windows.Forms.Panel panelFind;
     }
 }
