@@ -237,7 +237,7 @@
             this.ctPurchaseUnitName.Location = new System.Drawing.Point(75, 87);
             this.ctPurchaseUnitName.Name = "ctPurchaseUnitName";
             this.ctPurchaseUnitName.Size = new System.Drawing.Size(121, 20);
-            this.ctPurchaseUnitName.TabIndex = 20;
+            this.ctPurchaseUnitName.TabIndex = 15;
             this.ctPurchaseUnitName.TextChanged += new System.EventHandler(this.ctPurchaseUnitName_TextChanged);
             // 
             // label9
@@ -282,7 +282,7 @@
             0});
             this.ctUnitConvValue.Name = "ctUnitConvValue";
             this.ctUnitConvValue.Size = new System.Drawing.Size(120, 21);
-            this.ctUnitConvValue.TabIndex = 15;
+            this.ctUnitConvValue.TabIndex = 20;
             this.ctUnitConvValue.ValueChanged += new System.EventHandler(this.ctUnitConvValue_ValueChanged);
             // 
             // label11
