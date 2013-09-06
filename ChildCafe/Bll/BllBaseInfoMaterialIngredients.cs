@@ -13,7 +13,9 @@ namespace ChildCafe.Bll
 
         public static DataTable GetSrcTable(string optrType)
         {
-            SqlStatement ss = new SqlStatement("Select * from v_BaseInfoMaterialSrc where 分类='半成品-小吃' or 分类 = '半成品-茶' or 分类 = '其他'");
+            //SqlStatement ss = new SqlStatement("Select * from v_BaseInfoMaterialSrc where 分类='半成品-小吃' or 分类 = '半成品-茶' or 分类 = '其他'");
+            SqlStatement ss = new SqlStatement("Select * from v_BaseInfoMaterialSrc where 是否耗材 = true");
+
             return DbEntry.Context.ExecuteDataset(ss).Tables[0];
         }
 

@@ -516,9 +516,9 @@
             this.ctIsIngredient.AutoSize = true;
             this.ctIsIngredient.Location = new System.Drawing.Point(122, 282);
             this.ctIsIngredient.Name = "ctIsIngredient";
-            this.ctIsIngredient.Size = new System.Drawing.Size(84, 16);
+            this.ctIsIngredient.Size = new System.Drawing.Size(72, 16);
             this.ctIsIngredient.TabIndex = 110;
-            this.ctIsIngredient.Text = "是否半成品";
+            this.ctIsIngredient.Text = "是否耗材";
             this.ctIsIngredient.UseVisualStyleBackColor = true;
             // 
             // dgvIngredients
