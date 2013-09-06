@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace ChildCafe.Common
+namespace XSolo.Common
 {
     ///<summary>     
     /// 自定义特性 属性或者类可用  支持继承     

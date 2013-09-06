@@ -129,7 +129,7 @@ namespace ChildCafe
 
         protected override string SetFilterString()
         {
-            return "简拼 like '%" + tbFind.Text + "%'";
+            return "简拼 like '%" + tbFind.Text + "%' or 姓名 like '%" + tbFind.Text + "%' or 卡号 like '%" + tbFind.Text + "%'";
         }
     }
 }

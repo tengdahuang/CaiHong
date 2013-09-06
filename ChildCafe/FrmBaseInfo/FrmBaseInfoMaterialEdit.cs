@@ -38,6 +38,8 @@ namespace ChildCafe
             {
                 var obj = BaseInfoMaterial.FindById(long.Parse(ItemID));
                 BindControlsDecimal.BindObjectToControls(obj, tabPage1);
+                BindControlsDecimal.BindObjectToControls(obj, tabPage2);
+
                 //ReSetNumbericUpDownStatus();
                 bsIngredients.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, ItemID);
                 dgvIngredients.DataSource = bsIngredients;
@@ -54,12 +56,14 @@ namespace ChildCafe
             {
                 var obj = BaseInfoMaterial.FindById(long.Parse(ItemID));
                 BindControlsDecimal.BindControlsToObject(obj, tabPage1);
+                BindControlsDecimal.BindControlsToObject(obj, tabPage2);
                 obj.Save();
             }
             else
             {
                 var obj = BaseInfoMaterial.New;
                 BindControlsDecimal.BindControlsToObject(obj, tabPage1);
+                BindControlsDecimal.BindControlsToObject(obj, tabPage2);
                 obj.OptrType = UserStatics.OptrType;
                 obj.Save();
             }

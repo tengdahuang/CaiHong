@@ -451,7 +451,7 @@ namespace XSolo.BaseForm
 
                             foreach (DataGridViewRow row in baseDataGridView.SelectedRows)
                             {
-                                DeletingRowId = long.Parse(row.Cells[0].Value.ToString());
+                                DeletingRowId = long.Parse(row.Cells[IdNameInTable].Value.ToString());
                                 DeleteCurrentRow();
                                 count++;
                             }
@@ -547,6 +547,17 @@ namespace XSolo.BaseForm
             }
 
             #endregion 充值结束
+
+            #region 耗材
+
+            if (fullName == "耗材" && AsmName != "")
+            {
+                SetIngredientOptration();
+                resetDataGridView();
+                SetDataGridViewColumns();
+            }
+
+            #endregion 耗材结束
         }
 
 
@@ -565,6 +576,11 @@ namespace XSolo.BaseForm
         }
 
         virtual protected void SetRechargeOptration()
+        {
+            throw new NotImplementedException();
+        }
+
+        virtual protected void SetIngredientOptration()
         {
             throw new NotImplementedException();
         }

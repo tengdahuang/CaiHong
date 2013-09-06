@@ -36,6 +36,13 @@ namespace ChildCafe
 
         }
 
+        protected override void SetIngredientOptration()
+        {
+            FrmBaseInfoMaterialIngredients frmBaseInfoMaterialIngredients = new FrmBaseInfoMaterialIngredients();
+            frmBaseInfoMaterialIngredients.BaseParentId = baseDataGridView.SelectedRows[0].Cells[IdNameInTable].Value.ToString();
+            frmBaseInfoMaterialIngredients.ShowDialog();
+        }
+
         override protected void DeleteCurrentRow()
         {
             BllBaseInfoMaterial.DelCell(DeletingRowId);
@@ -49,7 +56,7 @@ namespace ChildCafe
 
         protected override string SetFilterString()
         {
-            return "简拼 like '%" + tbFind.Text + "%' or 物料编码 like '%" + tbFind.Text + "%'";
+            return "简拼 like '%" + tbFind.Text + "%' or 商品编码 like '%" + tbFind.Text + "%' or 商品名称 like '%" + tbFind.Text + "%' or 商品分类 like '%" + tbFind.Text + "%'";
         }
     }
 }

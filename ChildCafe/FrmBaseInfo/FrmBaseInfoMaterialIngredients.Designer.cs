@@ -68,7 +68,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Size = new System.Drawing.Size(584, 361);
-            this.splitContainer1.SplitterDistance = 280;
+            this.splitContainer1.SplitterDistance = 270;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox1
@@ -82,7 +82,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(280, 361);
+            this.groupBox1.Size = new System.Drawing.Size(270, 361);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "单品清单";
@@ -117,17 +117,18 @@
             // dgvSrc
             // 
             this.dgvSrc.AllowUserToAddRows = false;
+            this.dgvSrc.AllowUserToResizeRows = false;
             this.dgvSrc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSrc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvSrc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvSrc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvSrc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSrc.Location = new System.Drawing.Point(0, 50);
             this.dgvSrc.Name = "dgvSrc";
+            this.dgvSrc.ReadOnly = true;
             this.dgvSrc.RowTemplate.Height = 23;
             this.dgvSrc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSrc.Size = new System.Drawing.Size(280, 254);
+            this.dgvSrc.Size = new System.Drawing.Size(270, 254);
             this.dgvSrc.TabIndex = 50;
+            this.dgvSrc.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSrc_CellDoubleClick);
             this.dgvSrc.SelectionChanged += new System.EventHandler(this.dgvSrc_SelectionChanged);
             // 
             // tbShortCode
@@ -156,7 +157,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(300, 361);
+            this.groupBox2.Size = new System.Drawing.Size(310, 361);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "组成清单";
@@ -184,16 +185,19 @@
             // dgvDest
             // 
             this.dgvDest.AllowUserToAddRows = false;
+            this.dgvDest.AllowUserToOrderColumns = true;
+            this.dgvDest.AllowUserToResizeRows = false;
             this.dgvDest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvDest.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDest.Location = new System.Drawing.Point(0, 17);
             this.dgvDest.Name = "dgvDest";
+            this.dgvDest.ReadOnly = true;
             this.dgvDest.RowTemplate.Height = 23;
             this.dgvDest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDest.Size = new System.Drawing.Size(300, 287);
+            this.dgvDest.Size = new System.Drawing.Size(310, 287);
             this.dgvDest.TabIndex = 51;
+            this.dgvDest.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDest_CellDoubleClick);
             // 
             // FrmBaseInfoMaterialIngredients
             // 

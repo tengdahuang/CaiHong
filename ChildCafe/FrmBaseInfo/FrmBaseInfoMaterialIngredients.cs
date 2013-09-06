@@ -89,6 +89,31 @@ namespace ChildCafe
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            AddIngredients();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DelIngredient();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvDest_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DelIngredient();
+        }
+
+        private void dgvSrc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddIngredients();
+        }
+
+        private void AddIngredients()
+        {
             //1.判断右边有无该编码
             if (
                 BaseInfoMaterialIngredient.GetCount(CK.K["BaseInfoMaterial_Id"] == BaseParentId &&
@@ -105,20 +130,24 @@ namespace ChildCafe
                 baseInfoMaterialIngredient.IngredientId = long.Parse(_itemId);
                 baseInfoMaterialIngredient.MaterialName = bimChild.Name;
                 baseInfoMaterialIngredient.Price = bimChild.ConvPrice;
-                baseInfoMaterialIngredient.Quantity = Decimal.Parse(tbAmount.Text);
+                if (tbAmount.Text == "") baseInfoMaterialIngredient.Quantity = 1;
+                else baseInfoMaterialIngredient.Quantity = Decimal.Parse(tbAmount.Text);
                 baseInfoMaterialIngredient.Cost = baseInfoMaterialIngredient.Price * baseInfoMaterialIngredient.Quantity;
                 baseInfoMaterialIngredient.OptrType = UserStatics.OptrType;
                 baseInfoMaterialIngredient.Save();
                 bim.BaseInfoMaterialIngredients.Add(baseInfoMaterialIngredient);
+                bim.IsIngredient = true;
+                bim.IsAddToInventory = false;
                 bim.Save();
             }
             //3.刷新右边的dgv
             bsDest.DataSource = null;
             bsDest.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, BaseParentId);
             dgvDest.DataSource = bsDest;
+
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void DelIngredient()
         {
             //删除记录
             if (MessageBox.Show("确认删除这(条/些)记录吗？", "询问",
@@ -143,6 +172,15 @@ namespace ChildCafe
                         MessageBox.Show("没有可删除的数据", "提示",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+
+                    BaseInfoMaterial bim = BaseInfoMaterial.FindById(long.Parse(BaseParentId));
+                    if (bim.BaseInfoMaterialIngredients.Count == 0)
+                    {
+                        bim.IsIngredient = false;
+                        bim.IsAddToInventory = true;
+                        bim.Save();
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -154,14 +192,9 @@ namespace ChildCafe
             bsDest.DataSource = null;
             bsDest.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, BaseParentId);
             dgvDest.DataSource = bsDest;
-
-
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
 
     }
