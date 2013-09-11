@@ -154,6 +154,12 @@
     <Compile Include="FrmBaseInfo\FrmBaseInfoMember.Designer.cs">
       <DependentUpon>FrmBaseInfoMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSupplyChain\FrmSupplyChainPos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSupplyChain\FrmSupplyChainPos.Designer.cs">
+      <DependentUpon>FrmSupplyChainPos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSys\FrmMainDict.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoVendorEdit.resx">
       <DependentUpon>FrmBaseInfoVendorEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSupplyChain\FrmSupplyChainPos.resx">
+      <DependentUpon>FrmSupplyChainPos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSys\FrmMainDict.resx">
       <DependentUpon>FrmMainDict.cs</DependentUpon>
