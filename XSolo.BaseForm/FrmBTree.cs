@@ -455,7 +455,7 @@ namespace XSolo.BaseForm
                                 DeleteCurrentRow();
                                 count++;
                             }
-                            MessageBox.Show("已删除" + count + "条记录！");
+                            delCountToolStripStatusLabel.Text = "已删除" + count + "条记录！";
                             
                             resetDataGridView();
                             SetDataGridViewColumns();

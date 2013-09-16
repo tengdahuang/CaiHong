@@ -14,6 +14,8 @@ namespace ChildCafe
 {
     public partial class FrmBaseInfoMaterialEdit : XSolo.BaseForm.FrmAddEdit
     {
+        private bool IsSaved = false;
+
         public FrmBaseInfoMaterialEdit()
         {
             InitializeComponent();
@@ -34,13 +36,11 @@ namespace ChildCafe
             ctSaleUnitName.DisplayMember = "Name";
 
 
-            if (!IsAdd)
+            if (!IsAdd || IsSaved)
             {
                 var obj = BaseInfoMaterial.FindById(long.Parse(ItemID));
                 BindControlsDecimal.BindObjectToControls(obj, tabPage1);
                 BindControlsDecimal.BindObjectToControls(obj, tabPage2);
-
-                //ReSetNumbericUpDownStatus();
                 bsIngredients.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, ItemID);
                 dgvIngredients.DataSource = bsIngredients;
 
@@ -66,6 +66,8 @@ namespace ChildCafe
                 BindControlsDecimal.BindControlsToObject(obj, tabPage2);
                 obj.OptrType = UserStatics.OptrType;
                 obj.Save();
+                ItemID = obj.Id.ToString();
+                IsSaved = true;
             }
 
         }
@@ -141,7 +143,7 @@ namespace ChildCafe
 
         private void chooseIngredient_Click(object sender, EventArgs e)
         {
-            if (!IsAdd)
+            if (!IsAdd || IsSaved )
             {
                 FrmBaseInfoMaterialIngredients frmBaseInfoMaterialIngredients = new FrmBaseInfoMaterialIngredients();
                 frmBaseInfoMaterialIngredients.BaseParentId = ItemID;
@@ -149,7 +151,7 @@ namespace ChildCafe
                 bsIngredients.DataSource = null;
                 bsIngredients.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, ItemID);
                 dgvIngredients.DataSource = bsIngredients;
-
+                Loading();
             }
             else
             {

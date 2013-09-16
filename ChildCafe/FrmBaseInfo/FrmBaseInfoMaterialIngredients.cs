@@ -136,7 +136,7 @@ namespace ChildCafe
                 baseInfoMaterialIngredient.OptrType = UserStatics.OptrType;
                 baseInfoMaterialIngredient.Save();
                 bim.BaseInfoMaterialIngredients.Add(baseInfoMaterialIngredient);
-                bim.IsIngredient = true;
+                bim.ConvPrice += baseInfoMaterialIngredient.Price*baseInfoMaterialIngredient.Quantity;
                 bim.IsAddToInventory = false;
                 bim.Save();
             }
@@ -144,6 +144,8 @@ namespace ChildCafe
             bsDest.DataSource = null;
             bsDest.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, BaseParentId);
             dgvDest.DataSource = bsDest;
+            //4.更新主物料的成本
+
 
         }
 
@@ -155,6 +157,8 @@ namespace ChildCafe
             {
                 try
                 {
+                    BaseInfoMaterial bim = BaseInfoMaterial.FindById(long.Parse(BaseParentId));
+
                     if (dgvDest.Rows.Count > 0)
                     {
                         int count = 0;
@@ -162,6 +166,7 @@ namespace ChildCafe
                         foreach (DataGridViewRow row in dgvDest.SelectedRows)
                         {
                             string delId = row.Cells["Id"].Value.ToString();
+                            bim.ConvPrice -= (Decimal)row.Cells["单价"].Value * (Decimal)row.Cells["数量"].Value;
                             BaseInfoMaterialIngredient.DeleteAll(CK.K["Id"] == delId);
                             count++;
                         }
@@ -173,11 +178,13 @@ namespace ChildCafe
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    BaseInfoMaterial bim = BaseInfoMaterial.FindById(long.Parse(BaseParentId));
                     if (bim.BaseInfoMaterialIngredients.Count == 0)
                     {
-                        bim.IsIngredient = false;
                         bim.IsAddToInventory = true;
+                        bim.Save();
+                    }
+                    else
+                    {
                         bim.Save();
                     }
 
