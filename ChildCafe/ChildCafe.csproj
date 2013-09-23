@@ -88,6 +88,8 @@
     <Compile Include="Dal\MainOptr.cs" />
     <Compile Include="Dal\MainOptrType.cs" />
     <Compile Include="Dal\MainRole.cs" />
+    <Compile Include="Dal\SupplyChainPos.cs" />
+    <Compile Include="Dal\SupplyChainPosDetail.cs" />
     <Compile Include="FrmBaseInfo\FrmBaseInfoMaterialIngredients.cs">
       <SubType>Form</SubType>
     </Compile>
