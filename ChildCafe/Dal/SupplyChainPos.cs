@@ -13,8 +13,7 @@ namespace ChildCafe.Dal
         [AllowNull,Length(30)]
         public abstract string TableNo { get; set; }
 
-        [BelongsTo, DbColumn("BaseInfoMemberId")]
-        public abstract BaseInfoMember BaseInfoMember { get; set; }
+        public abstract long? MemberId { get; set; }
 
         /// <summary>
         /// 收银日期
@@ -84,9 +83,14 @@ namespace ChildCafe.Dal
         public abstract decimal PosProfit { get; set; }
 
         /// <summary>
-        /// 是否已结完/挂单
+        /// 是否已结完
         /// </summary>
         public abstract bool IsAllPaid { get; set; }
+
+        /// <summary>
+        /// 是否已挂单
+        /// </summary>
+        public abstract bool IsHolded { get; set; }
 
         /// <summary>
         /// 备注

@@ -15,6 +15,7 @@ namespace ChildCafe.Common
         public static long OptrId;
         public static string OptrType = "";
         public static string WorkShop = "";
+        public static string ChineseName = "";
 
         public static DataTable GetUserActions(long moduleId)
         {

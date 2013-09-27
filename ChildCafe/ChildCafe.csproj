@@ -69,6 +69,7 @@
     <Compile Include="Bll\BllFrmAppMain.cs" />
     <Compile Include="Bll\BllMainDict.cs" />
     <Compile Include="Bll\BllMainDictType.cs" />
+    <Compile Include="Bll\BllSupplyChainPos.cs" />
     <Compile Include="Bll\BllUserLogin.cs" />
     <Compile Include="Common\CommonStatics.cs" />
     <Compile Include="Common\ExcelToAccess.cs" />

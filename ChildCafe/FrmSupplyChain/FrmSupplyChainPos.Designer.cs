@@ -32,22 +32,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ctSerialNumber = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.ctMemberName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvPosDetail = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.ctMember = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvSelectItem = new System.Windows.Forms.DataGridView();
             this.ssPos = new System.Windows.Forms.StatusStrip();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.toolStripStatusPos = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panelBotton = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -68,13 +69,13 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.toolStripStatusPos = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosDetail)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelTop.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectItem)).BeginInit();
             this.ssPos.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelBotton.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -113,14 +114,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "会员号";
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(359, 6);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 20);
-            this.comboBox2.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -135,9 +128,9 @@
             this.ctSerialNumber.AutoSize = true;
             this.ctSerialNumber.Location = new System.Drawing.Point(557, 9);
             this.ctSerialNumber.Name = "ctSerialNumber";
-            this.ctSerialNumber.Size = new System.Drawing.Size(41, 12);
+            this.ctSerialNumber.Size = new System.Drawing.Size(71, 12);
             this.ctSerialNumber.TabIndex = 6;
-            this.ctSerialNumber.Text = "label4";
+            this.ctSerialNumber.Text = "00000000000";
             // 
             // label5
             // 
@@ -164,14 +157,14 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "姓名";
             // 
-            // label7
+            // ctMemberName
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(240, 35);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 12);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "姓名";
+            this.ctMemberName.AutoSize = true;
+            this.ctMemberName.Location = new System.Drawing.Point(240, 35);
+            this.ctMemberName.Name = "ctMemberName";
+            this.ctMemberName.Size = new System.Drawing.Size(29, 12);
+            this.ctMemberName.TabIndex = 10;
+            this.ctMemberName.Text = "    ";
             // 
             // label8
             // 
@@ -210,27 +203,36 @@
             this.dgvPosDetail.Size = new System.Drawing.Size(744, 166);
             this.dgvPosDetail.TabIndex = 14;
             // 
-            // panel1
+            // panelTop
             // 
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.ctSerialNumber);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(744, 63);
-            this.panel1.TabIndex = 15;
+            this.panelTop.Controls.Add(this.ctMember);
+            this.panelTop.Controls.Add(this.label10);
+            this.panelTop.Controls.Add(this.label9);
+            this.panelTop.Controls.Add(this.label8);
+            this.panelTop.Controls.Add(this.ctMemberName);
+            this.panelTop.Controls.Add(this.label6);
+            this.panelTop.Controls.Add(this.label5);
+            this.panelTop.Controls.Add(this.ctSerialNumber);
+            this.panelTop.Controls.Add(this.label3);
+            this.panelTop.Controls.Add(this.label2);
+            this.panelTop.Controls.Add(this.label1);
+            this.panelTop.Controls.Add(this.textBox1);
+            this.panelTop.Controls.Add(this.checkBox1);
+            this.panelTop.Controls.Add(this.comboBox1);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(744, 63);
+            this.panelTop.TabIndex = 15;
+            // 
+            // ctMember
+            // 
+            this.ctMember.Location = new System.Drawing.Point(359, 6);
+            this.ctMember.Name = "ctMember";
+            this.ctMember.Size = new System.Drawing.Size(100, 21);
+            this.ctMember.TabIndex = 14;
+            this.ctMember.Click += new System.EventHandler(this.ctMember_Click);
+            this.ctMember.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ctMember_KeyDown);
             // 
             // panel2
             // 
@@ -262,33 +264,40 @@
             this.ssPos.TabIndex = 17;
             this.ssPos.Text = "statusStrip1";
             // 
-            // panel3
+            // toolStripStatusPos
             // 
-            this.panel3.Controls.Add(this.button7);
-            this.panel3.Controls.Add(this.button6);
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.label23);
-            this.panel3.Controls.Add(this.label22);
-            this.panel3.Controls.Add(this.label21);
-            this.panel3.Controls.Add(this.label20);
-            this.panel3.Controls.Add(this.label19);
-            this.panel3.Controls.Add(this.label18);
-            this.panel3.Controls.Add(this.label17);
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 351);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(744, 210);
-            this.panel3.TabIndex = 18;
+            this.toolStripStatusPos.Name = "toolStripStatusPos";
+            this.toolStripStatusPos.Size = new System.Drawing.Size(31, 17);
+            this.toolStripStatusPos.Text = "欢迎";
+            // 
+            // panelBotton
+            // 
+            this.panelBotton.Controls.Add(this.btnClose);
+            this.panelBotton.Controls.Add(this.button7);
+            this.panelBotton.Controls.Add(this.button6);
+            this.panelBotton.Controls.Add(this.button5);
+            this.panelBotton.Controls.Add(this.button4);
+            this.panelBotton.Controls.Add(this.button3);
+            this.panelBotton.Controls.Add(this.button2);
+            this.panelBotton.Controls.Add(this.button1);
+            this.panelBotton.Controls.Add(this.label23);
+            this.panelBotton.Controls.Add(this.label22);
+            this.panelBotton.Controls.Add(this.label21);
+            this.panelBotton.Controls.Add(this.label20);
+            this.panelBotton.Controls.Add(this.label19);
+            this.panelBotton.Controls.Add(this.label18);
+            this.panelBotton.Controls.Add(this.label17);
+            this.panelBotton.Controls.Add(this.label16);
+            this.panelBotton.Controls.Add(this.label15);
+            this.panelBotton.Controls.Add(this.label14);
+            this.panelBotton.Controls.Add(this.label13);
+            this.panelBotton.Controls.Add(this.label12);
+            this.panelBotton.Controls.Add(this.label11);
+            this.panelBotton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBotton.Location = new System.Drawing.Point(0, 351);
+            this.panelBotton.Name = "panelBotton";
+            this.panelBotton.Size = new System.Drawing.Size(744, 210);
+            this.panelBotton.TabIndex = 18;
             // 
             // button7
             // 
@@ -332,7 +341,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(86, 23);
             this.button3.TabIndex = 27;
-            this.button3.Text = "退菜(R)";
+            this.button3.Text = "退菜(ctrl+R)";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -341,7 +350,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 23);
             this.button2.TabIndex = 26;
-            this.button2.Text = "赠送(G)";
+            this.button2.Text = "赠送(ctrl+G)";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -470,33 +479,39 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "商品数量";
             // 
-            // toolStripStatusPos
+            // btnClose
             // 
-            this.toolStripStatusPos.Name = "toolStripStatusPos";
-            this.toolStripStatusPos.Size = new System.Drawing.Size(31, 17);
-            this.toolStripStatusPos.Text = "欢迎";
+            this.btnClose.Location = new System.Drawing.Point(643, 122);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(86, 23);
+            this.btnClose.TabIndex = 32;
+            this.btnClose.Text = "关闭(&C)";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FrmSupplyChainPos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(744, 561);
             this.Controls.Add(this.ssPos);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelBotton);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelTop);
             this.Name = "FrmSupplyChainPos";
+            this.Text = "收银台";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSupplyChainPos_FormClosing);
             this.Load += new System.EventHandler(this.FrmSupplyChainPos_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSupplyChainPos_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosDetail)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectItem)).EndInit();
             this.ssPos.ResumeLayout(false);
             this.ssPos.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelBotton.ResumeLayout(false);
+            this.panelBotton.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,22 +523,21 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ctSerialNumber;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label ctMemberName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgvPosDetail;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvSelectItem;
         private System.Windows.Forms.StatusStrip ssPos;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelBotton;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
@@ -545,5 +559,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusPos;
+        private System.Windows.Forms.TextBox ctMember;
+        private System.Windows.Forms.Button btnClose;
     }
 }

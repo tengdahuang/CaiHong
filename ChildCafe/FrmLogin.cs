@@ -28,6 +28,7 @@ namespace ChildCafe
                 DialogResult = DialogResult.OK;
                 var usr = BllUserLogin.GetUser(cbUser.Text);
                 UserStatics.OptrName = usr.Name;
+                UserStatics.ChineseName = usr.ChineseName;
                 UserStatics.OptrId = usr.Id;
                 UserStatics.OptrType = usr.MainOptrType;
 
