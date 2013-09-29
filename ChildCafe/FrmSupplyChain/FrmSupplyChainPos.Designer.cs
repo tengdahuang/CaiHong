@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ctMealTableName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,6 +52,8 @@
             this.ssPos = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusPos = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.ctUnderPay = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.ctUnPayAmount = new System.Windows.Forms.Label();
             this.PosAmount = new System.Windows.Forms.Label();
@@ -84,9 +86,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.bsPosDetail = new System.Windows.Forms.BindingSource(this.components);
             this.bsSelectItem = new System.Windows.Forms.BindingSource(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.ctUnderPay = new System.Windows.Forms.Label();
-            this.numericUpDownEx1 = new XSolo.ExtendedControls.NumericUpDownEx();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosDetail)).BeginInit();
             this.panelTop.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -96,16 +96,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctConvPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPosDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSelectItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEx1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // ctMealTableName
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(59, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 0;
+            this.ctMealTableName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ctMealTableName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ctMealTableName.FormattingEnabled = true;
+            this.ctMealTableName.Location = new System.Drawing.Point(59, 6);
+            this.ctMealTableName.Name = "ctMealTableName";
+            this.ctMealTableName.Size = new System.Drawing.Size(121, 20);
+            this.ctMealTableName.TabIndex = 0;
             // 
             // label1
             // 
@@ -157,7 +158,9 @@
             this.tbSelectItem.Location = new System.Drawing.Point(59, 32);
             this.tbSelectItem.Name = "tbSelectItem";
             this.tbSelectItem.Size = new System.Drawing.Size(100, 21);
-            this.tbSelectItem.TabIndex = 8;
+            this.tbSelectItem.TabIndex = 2;
+            this.tbSelectItem.TextChanged += new System.EventHandler(this.tbSelectItem_TextChanged);
+            this.tbSelectItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSelectItem_KeyDown);
             // 
             // label6
             // 
@@ -206,13 +209,19 @@
             // 
             // dgvPosDetail
             // 
+            this.dgvPosDetail.AllowUserToAddRows = false;
+            this.dgvPosDetail.AllowUserToResizeRows = false;
+            this.dgvPosDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvPosDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPosDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPosDetail.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvPosDetail.Location = new System.Drawing.Point(0, 0);
             this.dgvPosDetail.Name = "dgvPosDetail";
+            this.dgvPosDetail.ReadOnly = true;
             this.dgvPosDetail.RowTemplate.Height = 23;
+            this.dgvPosDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPosDetail.Size = new System.Drawing.Size(744, 166);
-            this.dgvPosDetail.TabIndex = 14;
+            this.dgvPosDetail.TabIndex = 10;
             // 
             // panelTop
             // 
@@ -231,7 +240,7 @@
             this.panelTop.Controls.Add(this.label2);
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Controls.Add(this.tbSelectItem);
-            this.panelTop.Controls.Add(this.comboBox1);
+            this.panelTop.Controls.Add(this.ctMealTableName);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
@@ -270,9 +279,7 @@
             this.ctCardNumber.Location = new System.Drawing.Point(242, 6);
             this.ctCardNumber.Name = "ctCardNumber";
             this.ctCardNumber.Size = new System.Drawing.Size(100, 21);
-            this.ctCardNumber.TabIndex = 14;
-            this.ctCardNumber.Click += new System.EventHandler(this.ctMember_Click);
-            this.ctCardNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ctMember_KeyDown);
+            this.ctCardNumber.TabIndex = 1;
             // 
             // panel2
             // 
@@ -286,13 +293,20 @@
             // 
             // dgvSelectItem
             // 
+            this.dgvSelectItem.AllowUserToAddRows = false;
+            this.dgvSelectItem.AllowUserToResizeRows = false;
+            this.dgvSelectItem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvSelectItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSelectItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSelectItem.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvSelectItem.Location = new System.Drawing.Point(0, 172);
             this.dgvSelectItem.Name = "dgvSelectItem";
+            this.dgvSelectItem.ReadOnly = true;
             this.dgvSelectItem.RowTemplate.Height = 23;
+            this.dgvSelectItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSelectItem.Size = new System.Drawing.Size(744, 116);
-            this.dgvSelectItem.TabIndex = 15;
+            this.dgvSelectItem.TabIndex = 11;
+            this.dgvSelectItem.SelectionChanged += new System.EventHandler(this.dgvSelectItem_SelectionChanged);
             // 
             // ssPos
             // 
@@ -312,7 +326,7 @@
             // 
             // panelBottom
             // 
-            this.panelBottom.Controls.Add(this.numericUpDownEx1);
+            this.panelBottom.Controls.Add(this.label7);
             this.panelBottom.Controls.Add(this.ctUnderPay);
             this.panelBottom.Controls.Add(this.label4);
             this.panelBottom.Controls.Add(this.label27);
@@ -350,6 +364,28 @@
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(744, 275);
             this.panelBottom.TabIndex = 18;
+            // 
+            // ctUnderPay
+            // 
+            this.ctUnderPay.AutoSize = true;
+            this.ctUnderPay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ctUnderPay.Font = new System.Drawing.Font("SimSun", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctUnderPay.ForeColor = System.Drawing.Color.Blue;
+            this.ctUnderPay.Location = new System.Drawing.Point(170, 46);
+            this.ctUnderPay.Name = "ctUnderPay";
+            this.ctUnderPay.Size = new System.Drawing.Size(59, 42);
+            this.ctUnderPay.TabIndex = 70;
+            this.ctUnderPay.Text = "  ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(138, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 27);
+            this.label4.TabIndex = 69;
+            this.label4.Text = "¥";
             // 
             // label27
             // 
@@ -419,12 +455,13 @@
             // 
             this.ctConvPrice.DecimalPlaces = 2;
             this.ctConvPrice.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctConvPrice.ForeColor = System.Drawing.Color.Red;
             this.ctConvPrice.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.ctConvPrice.Location = new System.Drawing.Point(447, 55);
+            this.ctConvPrice.Location = new System.Drawing.Point(471, 50);
             this.ctConvPrice.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -432,7 +469,7 @@
             0});
             this.ctConvPrice.Name = "ctConvPrice";
             this.ctConvPrice.Size = new System.Drawing.Size(80, 38);
-            this.ctConvPrice.TabIndex = 61;
+            this.ctConvPrice.TabIndex = 20;
             // 
             // button8
             // 
@@ -441,6 +478,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(86, 23);
             this.button8.TabIndex = 33;
+            this.button8.TabStop = false;
             this.button8.Text = "部分结算(F6)";
             this.button8.UseVisualStyleBackColor = true;
             // 
@@ -451,6 +489,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(86, 23);
             this.btnClose.TabIndex = 32;
+            this.btnClose.TabStop = false;
             this.btnClose.Text = "关闭(ESC)";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -462,6 +501,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(86, 23);
             this.button7.TabIndex = 31;
+            this.button7.TabStop = false;
             this.button7.Text = "备注(ctrl+B)";
             this.button7.UseVisualStyleBackColor = true;
             // 
@@ -472,6 +512,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(86, 23);
             this.button6.TabIndex = 30;
+            this.button6.TabStop = false;
             this.button6.Text = "删单(ctrl+3)";
             this.button6.UseVisualStyleBackColor = true;
             // 
@@ -482,6 +523,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(86, 23);
             this.button5.TabIndex = 29;
+            this.button5.TabStop = false;
             this.button5.Text = "取单(ctrl+2)";
             this.button5.UseVisualStyleBackColor = true;
             // 
@@ -492,6 +534,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(86, 23);
             this.button4.TabIndex = 28;
+            this.button4.TabStop = false;
             this.button4.Text = "挂单(ctrl+1)";
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -502,6 +545,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(86, 23);
             this.button3.TabIndex = 27;
+            this.button3.TabStop = false;
             this.button3.Text = "退菜(ctrl+R)";
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -512,6 +556,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 23);
             this.button2.TabIndex = 26;
+            this.button2.TabStop = false;
             this.button2.Text = "赠送(ctrl+G)";
             this.button2.UseVisualStyleBackColor = true;
             // 
@@ -522,6 +567,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 23);
             this.button1.TabIndex = 25;
+            this.button1.TabStop = false;
             this.button1.Text = "整单结算(F5)";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -529,7 +575,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(364, 110);
+            this.label23.Location = new System.Drawing.Point(374, 105);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(42, 16);
             this.label23.TabIndex = 24;
@@ -538,7 +584,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(92, 94);
+            this.label22.Location = new System.Drawing.Point(108, 193);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(41, 12);
             this.label22.TabIndex = 23;
@@ -547,7 +593,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(12, 94);
+            this.label21.Location = new System.Drawing.Point(28, 193);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(47, 12);
             this.label21.TabIndex = 22;
@@ -566,7 +612,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(364, 66);
+            this.label19.Location = new System.Drawing.Point(374, 61);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(76, 16);
             this.label19.TabIndex = 20;
@@ -646,44 +692,17 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "商品数量";
             // 
-            // label4
+            // label7
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(138, 57);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 27);
-            this.label4.TabIndex = 69;
-            this.label4.Text = "¥";
-            // 
-            // ctUnderPay
-            // 
-            this.ctUnderPay.AutoSize = true;
-            this.ctUnderPay.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ctUnderPay.Location = new System.Drawing.Point(170, 57);
-            this.ctUnderPay.Name = "ctUnderPay";
-            this.ctUnderPay.Size = new System.Drawing.Size(137, 27);
-            this.ctUnderPay.TabIndex = 70;
-            this.ctUnderPay.Text = "       元";
-            // 
-            // numericUpDownEx1
-            // 
-            this.numericUpDownEx1.DecimalPlaces = 2;
-            this.numericUpDownEx1.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.numericUpDownEx1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDownEx1.Location = new System.Drawing.Point(447, 99);
-            this.numericUpDownEx1.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numericUpDownEx1.Name = "numericUpDownEx1";
-            this.numericUpDownEx1.Size = new System.Drawing.Size(80, 38);
-            this.numericUpDownEx1.TabIndex = 71;
+            this.label7.AutoSize = true;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(471, 96);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 29);
+            this.label7.TabIndex = 71;
+            this.label7.Text = "    ";
             // 
             // FrmSupplyChainPos
             // 
@@ -710,7 +729,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ctConvPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPosDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSelectItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEx1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -718,7 +736,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ctMealTableName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -773,8 +791,8 @@
         private System.Windows.Forms.Label ctFrequency;
         private System.Windows.Forms.Label ctTotalSpending;
         private System.Windows.Forms.Label ctRemainingSum;
-        private XSolo.ExtendedControls.NumericUpDownEx numericUpDownEx1;
         private System.Windows.Forms.Label ctUnderPay;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
     }
 }

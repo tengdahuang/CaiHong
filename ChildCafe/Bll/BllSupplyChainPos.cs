@@ -37,5 +37,11 @@ namespace ChildCafe.Bll
             }
 
         }
+
+        public static DataTable GetPosDetail(long PosId)
+        {
+            SqlStatement ss = new SqlStatement("Select * from v_SupplyChainPosDetail where SupplyChainPosId = @SupplyChainPosId", new DataParameter("@SupplyChainPosId", PosId));
+            return DbEntry.Context.ExecuteDataset(ss).Tables[0];
+        }
     }
 }
