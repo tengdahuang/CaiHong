@@ -728,7 +728,7 @@ namespace XSolo.BaseForm
         /// </summary>
         virtual protected void GetSelectedValue()
         {
-            SelectedValue = (long)baseDataGridView.SelectedCells[0].Value;
+            SelectedValue = long.Parse(baseDataGridView.SelectedCells[0].Value.ToString());
         }
 
         virtual protected void baseDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
