@@ -101,8 +101,8 @@ namespace ChildCafe
                     BaseInfoMember bifm = BaseInfoMember.New;
                     bifm.JoinedDate = (DateTime)dt.Rows[iRow][0];
                     bifm.CardNumber = dt.Rows[iRow][1].ToString();
-                    bifm.Name = dt.Rows[iRow][2].ToString();
-                    bifm.PinYin = PinYinTransfer.GetInitials(bifm.Name, gb2312);
+                    bifm.MemberName = dt.Rows[iRow][2].ToString();
+                    bifm.PinYin = PinYinTransfer.GetInitials(bifm.MemberName, gb2312);
                     bifm.Password = dt.Rows[iRow][4].ToString();
                     bifm.Birth = (DateTime)dt.Rows[iRow][5];
                     bifm.Mobile = dt.Rows[iRow][6].ToString();

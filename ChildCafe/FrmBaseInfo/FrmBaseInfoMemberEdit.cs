@@ -61,15 +61,15 @@ namespace ChildCafe
         {
             if (ctCardNumber.Text == "") errorProvider.SetError(ctCardNumber, "卡号不能为空");
             else errorProvider.SetError(ctCardNumber, "");
-            if (ctName.Text == "") errorProvider.SetError(ctName, "姓名不能为空");
-            else errorProvider.SetError(ctName, "");
+            if (ctMemberName.Text == "") errorProvider.SetError(ctMemberName, "姓名不能为空");
+            else errorProvider.SetError(ctMemberName, "");
             if (ctMobile.Text == "") errorProvider.SetError(ctMobile, "手机不能为空");
             else errorProvider.SetError(ctMobile, "");
         }
 
         private void ctName_TextChanged(object sender, EventArgs e)
         {
-            ctPinYin.Text = AutoPinYin.GetPinYin(ctName.Text);
+            ctPinYin.Text = AutoPinYin.GetPinYin(ctMemberName.Text);
         }
 
         protected override void AfterSave()

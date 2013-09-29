@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctName = new System.Windows.Forms.TextBox();
+            this.ctMemberName = new System.Windows.Forms.TextBox();
             this.ctCardNumber = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -96,19 +96,19 @@
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.ctPinYin);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.ctName);
+            this.tabPage1.Controls.Add(this.ctMemberName);
             this.tabPage1.Controls.Add(this.ctCardNumber);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Size = new System.Drawing.Size(598, 238);
             // 
-            // ctName
+            // ctMemberName
             // 
-            this.ctName.Location = new System.Drawing.Point(259, 6);
-            this.ctName.Name = "ctName";
-            this.ctName.Size = new System.Drawing.Size(121, 21);
-            this.ctName.TabIndex = 34;
-            this.ctName.TextChanged += new System.EventHandler(this.ctName_TextChanged);
+            this.ctMemberName.Location = new System.Drawing.Point(259, 6);
+            this.ctMemberName.Name = "ctMemberName";
+            this.ctMemberName.Size = new System.Drawing.Size(121, 21);
+            this.ctMemberName.TabIndex = 34;
+            this.ctMemberName.TextChanged += new System.EventHandler(this.ctName_TextChanged);
             // 
             // ctCardNumber
             // 
@@ -400,7 +400,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox ctName;
+        private System.Windows.Forms.TextBox ctMemberName;
         private System.Windows.Forms.TextBox ctCardNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

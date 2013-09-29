@@ -30,7 +30,7 @@
         {
             this.ctRechargeDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.ctName = new System.Windows.Forms.TextBox();
+            this.ctMemberName = new System.Windows.Forms.TextBox();
             this.ctCardNumber = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,7 +68,7 @@
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.ctSerialNumber);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.ctName);
+            this.tabPage1.Controls.Add(this.ctMemberName);
             this.tabPage1.Controls.Add(this.ctCardNumber);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
@@ -97,13 +97,13 @@
             this.label4.TabIndex = 61;
             this.label4.Text = "充值日期";
             // 
-            // ctName
+            // ctMemberName
             // 
-            this.ctName.Enabled = false;
-            this.ctName.Location = new System.Drawing.Point(92, 52);
-            this.ctName.Name = "ctName";
-            this.ctName.Size = new System.Drawing.Size(121, 21);
-            this.ctName.TabIndex = 65;
+            this.ctMemberName.Enabled = false;
+            this.ctMemberName.Location = new System.Drawing.Point(92, 52);
+            this.ctMemberName.Name = "ctMemberName";
+            this.ctMemberName.Size = new System.Drawing.Size(121, 21);
+            this.ctMemberName.TabIndex = 65;
             // 
             // ctCardNumber
             // 
@@ -261,7 +261,7 @@
 
         private System.Windows.Forms.DateTimePicker ctRechargeDate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox ctName;
+        private System.Windows.Forms.TextBox ctMemberName;
         private System.Windows.Forms.TextBox ctCardNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
