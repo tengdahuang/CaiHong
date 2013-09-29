@@ -59,7 +59,7 @@ namespace ChildCafe.Dal
         public abstract decimal Amount { get; set; }
 
         /// <summary>
-        /// 是否退货
+        /// 是否退菜
         /// </summary>
         public abstract bool IsReturns { get; set; }
 

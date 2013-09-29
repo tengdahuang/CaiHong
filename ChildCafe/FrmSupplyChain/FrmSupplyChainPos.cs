@@ -16,6 +16,7 @@ namespace ChildCafe
     public partial class FrmSupplyChainPos : XSolo.BaseForm.FrmBCommonBlank
     {
         private long PosId;
+        private long MemberId;
 
         public FrmSupplyChainPos()
         {
@@ -30,22 +31,25 @@ namespace ChildCafe
             //fscp.SerialNumber = "00000000000";
             fscp.PosDateTime = DateTime.Now;
             fscp.Cashier = UserStatics.ChineseName;
-            fscp.Quantity = 0;
-            fscp.PaidQuantity = 0;
-            fscp.UnPaidQuantity = 0;
-            fscp.PosAmount = 0;
-            fscp.PayInAmount = 0;
-            fscp.PayByStoredValueCard = 0;
-            fscp.PayByCash = 0;
-            fscp.PayByCoupons = 0;
-            fscp.PayByBank = 0;
-            fscp.PosProfit = 0;
+            //fscp.Quantity = 0;
+            //fscp.PaidQuantity = 0;
+            //fscp.UnPaidQuantity = 0;
+            //fscp.GiftQuantity = 0;
+            //fscp.PosAmount = 0;
+            //fscp.UnPayAmount = 0;
+            //fscp.PayInAmount = 0;
+            //fscp.PayByStoredValueCard = 0;
+            //fscp.PayByCash = 0;
+            //fscp.PayByCoupons = 0;
+            //fscp.PayByBank = 0;
+            //fscp.PosProfit = 0;
             fscp.IsAllPaid = false;
             fscp.IsHolded = false;
             fscp.Save();
             PosId = fscp.Id;
 
             FrmAddEditBindComboBoxText.BindObjectToControls(fscp, panelTop);
+            FrmAddEditBindComboBoxText.BindObjectToControls(fscp, panelBottom);
 
 
         }
@@ -71,14 +75,16 @@ namespace ChildCafe
 
         private void RaiseMemberSearchWindow()
         {
-            //FrmEquipmentInformation fei = new FrmEquipmentInformation(); ;
-            //fei.IsSelect = true;
-            //fei.ShowDialog();
-            ////返回的SelectedValue,取出SelectedValue的EquipmentInformation
-            //EquipmentInformation ei = EquipmentInformation.FindById(fei.SelectedValue);
-            ////绑定各个控件
-            //FrmAddEditBindComboBoxText.BindObjectToControls(ei, tabPage1);
-            //fei.Dispose();
+            FrmBaseInfoMember fim = new FrmBaseInfoMember(); ;
+            fim.IsSelect = true;
+            fim.Text = "请选择会员";
+            fim.ShowDialog();
+            MemberId = fim.SelectedValue;
+            //返回的SelectedValue,取出SelectedValue的EquipmentInformation
+            BaseInfoMember bim = BaseInfoMember.FindById(fim.SelectedValue);
+            //绑定各个控件
+            FrmAddEditBindComboBoxText.BindObjectToControls(bim, panelTop);
+            fim.Dispose();
         }
 
 

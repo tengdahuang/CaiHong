@@ -48,9 +48,19 @@ namespace ChildCafe.Dal
         public abstract decimal UnPaidQuantity { get; set; }
 
         /// <summary>
-        /// 金额
+        /// 赠送数量
+        /// </summary>
+        public abstract decimal GiftQuantity { get; set; }
+
+        /// <summary>
+        /// 本单总额
         /// </summary>
         public abstract decimal PosAmount { get; set; }
+
+        /// <summary>
+        /// 待付金额
+        /// </summary>
+        public abstract decimal UnPayAmount { get; set; }
 
         /// <summary>
         /// 实收
