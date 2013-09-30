@@ -16,11 +16,11 @@ namespace ChildCafe
     public partial class FrmSupplyChainPos : XSolo.BaseForm.FrmBCommonBlank
     {
         private long PosId;
-        private long MemberId;
+        private long MemberId = 0;
         private DataTable TableForSelectItem;
         private DataTable TableForPosDetail;
 
-        private long MaterialId ;
+        private long MaterialId;
 
         public FrmSupplyChainPos()
         {
@@ -30,10 +30,10 @@ namespace ChildCafe
         private void FrmSupplyChainPos_Load(object sender, EventArgs e)
         {
             TableForSelectItem = BllBaseInfoMaterial.GetTable(UserStatics.OptrType);
-            ReloadDgvSelectItem();
+            dgvSelectItem.DataSource = null;
+            bsSelectItem.DataSource = TableForSelectItem;
+            //dgvSelectItem.DataSource = bsSelectItem;
 
-
-            
             ctMealTableName.DataSource = CommonStatics.GetDict(UserStatics.OptrType, "桌号");
             ctMealTableName.DisplayMember = "Name";
 
@@ -43,18 +43,18 @@ namespace ChildCafe
             //fscp.SerialNumber = "00000000000";
             fscp.PosDateTime = DateTime.Now;
             fscp.Cashier = UserStatics.ChineseName;
-            //fscp.Quantity = 0;
-            //fscp.PaidQuantity = 0;
-            //fscp.UnPaidQuantity = 0;
-            //fscp.GiftQuantity = 0;
-            //fscp.PosAmount = 0;
-            //fscp.UnPayAmount = 0;
-            //fscp.PayInAmount = 0;
-            //fscp.PayByStoredValueCard = 0;
-            //fscp.PayByCash = 0;
-            //fscp.PayByCoupons = 0;
-            //fscp.PayByBank = 0;
-            //fscp.PosProfit = 0;
+            fscp.Quantity = 0;
+            fscp.PaidQuantity = 0;
+            fscp.UnPaidQuantity = 0;
+            fscp.GiftQuantity = 0;
+            fscp.PosAmount = 0;
+            fscp.UnPayAmount = 0;
+            fscp.PayInAmount = 0;
+            fscp.PayByStoredValueCard = 0;
+            fscp.PayByCash = 0;
+            fscp.PayByCoupons = 0;
+            fscp.PayByBank = 0;
+            fscp.PosProfit = 0;
             fscp.IsAllPaid = false;
             fscp.IsHolded = false;
             fscp.Save();
@@ -62,7 +62,6 @@ namespace ChildCafe
 
             FrmAddEditBindComboBoxText.BindObjectToControls(fscp, panelTop);
             FrmAddEditBindComboBoxText.BindObjectToControls(fscp, panelBottom);
-
 
         }
 
@@ -77,19 +76,24 @@ namespace ChildCafe
             //{
             //    SendKeys.Send("{Tab}");
             //}
-            if (e.KeyCode == Keys.F2)
+            if (e.KeyCode == Keys.F1)
             {
                 RaiseMemberSearchWindow();
             }
-            if (e.KeyCode == Keys.F1)
+
+            if (e.KeyCode == Keys.F2)
             {
                 ctMealTableName.Focus();
             }
-            if (e.KeyCode == Keys.F7)
+
+            if (e.KeyCode == Keys.F3)
             {
                 tbSelectItem.Focus();
             }
-
+            if (e.KeyCode == Keys.F4)
+            {
+                ctRealPay.Focus();
+            }
         }
 
         private void RaiseMemberSearchWindow()
@@ -100,9 +104,19 @@ namespace ChildCafe
             fim.ShowDialog();
             MemberId = fim.SelectedValue;
             //返回的SelectedValue,取出SelectedValue的EquipmentInformation
-            BaseInfoMember bim = BaseInfoMember.FindById(fim.SelectedValue);
-            //绑定各个控件
-            FrmAddEditBindComboBoxText.BindObjectToControls(bim, panelTop);
+            if (MemberId != 0)
+            {
+                BaseInfoMember bim = BaseInfoMember.FindById(MemberId);
+                //绑定各个控件
+                FrmAddEditBindComboBoxText.BindObjectToControls(bim, panelTop);
+                if (bim.RemainingSum > 0)
+                {
+                    ctRemainingSum.Text = bim.RemainingSum.ToString();
+                    lbRemainingSum.Visible = true;
+                    ctRemainingSum.Visible = true;
+                }
+            }
+
             fim.Dispose();
         }
 
@@ -114,15 +128,15 @@ namespace ChildCafe
                 SupplyChainPos fscp = SupplyChainPos.FindById(PosId);
 
                 //1.如果当前单据没有子项，则删单
-                if (fscp.Quantity == 0)
-                {
-                    fscp.Delete();
-                }
                 //2.如果当前单据有子项,
                 //2a.如果是挂单，则什么也不做
                 //2b.如果不是挂单，则提示是否要保留，
                 //2ba.如果保留则自动进入挂单
                 //2bb.否则删除子项和当前单据
+                if (fscp.Quantity == 0)
+                {
+                    fscp.Delete();
+                }
                 else if (fscp.Quantity != 0)
                 {
                     if (fscp.IsHolded == false)
@@ -136,6 +150,8 @@ namespace ChildCafe
                         }
                         else
                         {
+                            SupplyChainPosDetail.DeleteAll(CK.K["SupplyChainPosId"] == PosId);
+                            fscp.SupplyChainPosDetails.Clear();
                             fscp.Delete();
                         }
 
@@ -151,7 +167,8 @@ namespace ChildCafe
 
         private void tbSelectItem_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+
+            if (e.KeyCode == Keys.Enter && tbSelectItem.Text != "")
             {
                 SupplyChainPos scp = SupplyChainPos.FindById(PosId);
                 SupplyChainPosDetail scpd = SupplyChainPosDetail.New;
@@ -161,10 +178,17 @@ namespace ChildCafe
                 scpd.MaterialName = bim.Name;
                 scpd.MaterialCategory = bim.Category;
                 scpd.UnitName = bim.SaleUnitName;
-                scpd.UnitPrice = bim.ConvPrice;
+                if (scp.MemberId != 0)
+                {
+                    scpd.UnitPrice = bim.MemberPrice;
+                }
+                else
+                {
+                    scpd.UnitPrice = bim.RetailPrice;
+                }
                 scpd.Quantity = 1;
                 scpd.Discount = 0;
-                scpd.Amount = scpd.UnitPrice*scpd.Quantity;
+                scpd.Amount = scpd.UnitPrice * scpd.Quantity;
                 scpd.IsReturns = false;
                 scpd.IsGift = false;
                 scpd.OrderDateTime = DateTime.Now;
@@ -173,14 +197,23 @@ namespace ChildCafe
                 scp.Quantity += 1;
                 scp.UnPaidQuantity += 1;
                 scp.UnPayAmount += scpd.Amount;
+                scp.PosAmount += scpd.Amount;
                 scp.Cashier = UserStatics.ChineseName;
                 scp.Save();
                 bim.ConvQuantity -= 1;
-                bim.InvQuantity = bim.ConvQuantity/bim.UnitConvValue;
+                bim.InvQuantity = bim.ConvQuantity / bim.UnitConvValue;
                 bim.Save();
+
+                FrmAddEditBindComboBoxText.BindObjectToControls(scp, panelBottom);
 
                 TableForPosDetail = BllSupplyChainPos.GetPosDetail(PosId);
                 ReloadDgvPosDetail();
+                foreach (DataGridViewRow row in dgvPosDetail.Rows)
+                {
+                    row.Selected = true;
+                }
+                tbSelectItem.Text = "";
+                ctUnderPay.Text = scp.UnPayAmount.ToString();
             }
             if (e.KeyCode == Keys.Down)
             {
@@ -194,11 +227,19 @@ namespace ChildCafe
 
         private void tbSelectItem_TextChanged(object sender, EventArgs e)
         {
-            if (SetFilterString() != "")
+            if (tbSelectItem.Text == "")
             {
-                bsSelectItem.Filter = SetFilterString();
-                dgvSelectItem.DataSource = bsSelectItem;
+                dgvSelectItem.DataSource = null;
             }
+            else
+            {
+                if (SetFilterString() != "")
+                {
+                    bsSelectItem.Filter = SetFilterString();
+                    dgvSelectItem.DataSource = bsSelectItem;
+                }
+            }
+
 
         }
 
@@ -233,6 +274,97 @@ namespace ChildCafe
                 {
                     this.MaterialId = long.Parse(this.dgvSelectItem.CurrentRow.Cells["Id"].Value.ToString());
 
+                }
+            }
+        }
+
+        private void btnFullPay_Click(object sender, EventArgs e)
+        {
+                                    BaseInfoMember bim = BaseInfoMember.FindById(MemberId);
+
+            if (ctCardNumber.Text == "" && ctMemberName.Text.Trim() != "")
+            {
+                MessageBox.Show("本单据看到会员名称，却看不到会员号，请确认会员号不能为空!");
+            }
+            else
+            {
+                //判断是否存在会员ID
+
+                //1.如果会员ID不存在
+                //1a.实收<应收，则提示实收款不足
+                //2b.实收>=应收，则完成正常结算
+                if (MemberId == 0)
+                {
+                    if (ctRealPay.Value < decimal.Parse(ctUnderPay.Text))
+                    {
+                        MessageBox.Show("实收不足以支付当前应收金额！");
+                    }
+                    else
+                    {
+                        PayAllDue();
+
+                        //3.弹出支付完成提示窗口
+                        //todo 需要初始化POS数据，增加单号
+                        MessageBox.Show("已经完成结算！");
+                    }
+                }
+                //2.会员ID存在
+                //1a.会员存款>应收，直接扣除会员存款，完成结算
+                //1b.会员存款<应收，
+                //1ba.如果存款+实付 > 应收，完成结算，会员存款清零，并提示
+                    //todo 在这里提示会员是否充值
+                else
+                {
+                    if (decimal.Parse(ctRemainingSum.Text) >= decimal.Parse(ctUnderPay.Text))
+                    {
+                        PayAllDue();
+                        bim.Frequency += 1;
+                        bim.RemainingSum -= decimal.Parse(ctUnderPay.Text);
+                        bim.TotalSpending += decimal.Parse(ctUnderPay.Text);
+                        bim.Save();
+                    }
+                    else 
+                    {
+                        if (bim.RemainingSum + ctRealPay.Value >= decimal.Parse(ctUnderPay.Text))
+                        {
+                            PayAllDue();
+                            bim.RemainingSum = 0;
+                            bim.Save();
+                            MessageBox.Show("会员余额已经为零，是否要充值？");
+                        }
+                        else
+                        {
+                            MessageBox.Show("会员余额不足以支付当前应收金额！");
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        private void PayAllDue()
+        {
+            SupplyChainPos scp = SupplyChainPos.FindById(PosId);
+            SupplyChainPosDetail scpd;
+            //1.遍历表格，取出未付和非赠品，设置为已付
+            //2.将pos主表相关项填好，并设为已结
+            foreach (DataGridViewRow row in dgvPosDetail.Rows)
+            {
+                if (row.Selected || (bool)row.Cells["是否已付"].Value == false
+                    || (bool)row.Cells["是否退货"].Value == false
+                    || (bool)row.Cells["是否赠品"].Value == false)
+                {
+                    scpd = SupplyChainPosDetail.FindById(long.Parse(row.Cells["Id"].Value.ToString()));
+                    scpd.IsPaid = true;
+                    scpd.Save();
+                    scp.UnPaidQuantity -= 1;
+                    scp.UnPayAmount -= scpd.Amount;
+                    if (scp.UnPaidQuantity == 0 && scp.UnPayAmount == 0)
+                    {
+                        scp.IsAllPaid = true;
+                    }
+                    scp.Save();
                 }
             }
         }

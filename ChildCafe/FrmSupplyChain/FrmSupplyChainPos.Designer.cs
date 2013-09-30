@@ -40,7 +40,7 @@
             this.ctMemberName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbRemainingSum = new System.Windows.Forms.Label();
             this.dgvPosDetail = new System.Windows.Forms.DataGridView();
             this.panelTop = new System.Windows.Forms.Panel();
             this.ctRemainingSum = new System.Windows.Forms.Label();
@@ -52,17 +52,17 @@
             this.ssPos = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusPos = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.ctUnderPay = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.ctUnPayAmount = new System.Windows.Forms.Label();
-            this.PosAmount = new System.Windows.Forms.Label();
+            this.ctPosAmount = new System.Windows.Forms.Label();
             this.ctGiftQuantity = new System.Windows.Forms.Label();
             this.ctUnPaidQuantity = new System.Windows.Forms.Label();
             this.ctPaidQuantity = new System.Windows.Forms.Label();
             this.ctQuantity = new System.Windows.Forms.Label();
-            this.ctConvPrice = new XSolo.ExtendedControls.NumericUpDownEx();
-            this.button8 = new System.Windows.Forms.Button();
+            this.ctRealPay = new XSolo.ExtendedControls.NumericUpDownEx();
+            this.btnPartPay = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -70,7 +70,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFullPay = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -86,14 +86,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.bsPosDetail = new System.Windows.Forms.BindingSource(this.components);
             this.bsSelectItem = new System.Windows.Forms.BindingSource(this.components);
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPosDetail)).BeginInit();
             this.panelTop.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectItem)).BeginInit();
             this.ssPos.SuspendLayout();
             this.panelBottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ctConvPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctRealPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPosDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSelectItem)).BeginInit();
             this.SuspendLayout();
@@ -103,15 +102,15 @@
             this.ctMealTableName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ctMealTableName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ctMealTableName.FormattingEnabled = true;
-            this.ctMealTableName.Location = new System.Drawing.Point(59, 6);
+            this.ctMealTableName.Location = new System.Drawing.Point(243, 6);
             this.ctMealTableName.Name = "ctMealTableName";
             this.ctMealTableName.Size = new System.Drawing.Size(121, 20);
-            this.ctMealTableName.TabIndex = 0;
+            this.ctMealTableName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(205, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 1;
@@ -120,7 +119,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(195, 9);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 4;
@@ -198,14 +197,16 @@
             this.label9.TabIndex = 12;
             this.label9.Text = "消费次数";
             // 
-            // label10
+            // lbRemainingSum
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(558, 35);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 12);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "当前余额";
+            this.lbRemainingSum.AutoSize = true;
+            this.lbRemainingSum.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbRemainingSum.Location = new System.Drawing.Point(24, 111);
+            this.lbRemainingSum.Name = "lbRemainingSum";
+            this.lbRemainingSum.Size = new System.Drawing.Size(148, 27);
+            this.lbRemainingSum.TabIndex = 13;
+            this.lbRemainingSum.Text = "会员余额 ¥";
+            this.lbRemainingSum.Visible = false;
             // 
             // dgvPosDetail
             // 
@@ -225,11 +226,9 @@
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.ctRemainingSum);
             this.panelTop.Controls.Add(this.ctFrequency);
             this.panelTop.Controls.Add(this.ctTotalSpending);
             this.panelTop.Controls.Add(this.ctCardNumber);
-            this.panelTop.Controls.Add(this.label10);
             this.panelTop.Controls.Add(this.label9);
             this.panelTop.Controls.Add(this.label8);
             this.panelTop.Controls.Add(this.ctMemberName);
@@ -250,11 +249,14 @@
             // ctRemainingSum
             // 
             this.ctRemainingSum.AutoSize = true;
-            this.ctRemainingSum.Location = new System.Drawing.Point(617, 35);
+            this.ctRemainingSum.Font = new System.Drawing.Font("SimSun", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctRemainingSum.ForeColor = System.Drawing.Color.Red;
+            this.ctRemainingSum.Location = new System.Drawing.Point(169, 104);
             this.ctRemainingSum.Name = "ctRemainingSum";
-            this.ctRemainingSum.Size = new System.Drawing.Size(29, 12);
+            this.ctRemainingSum.Size = new System.Drawing.Size(37, 40);
             this.ctRemainingSum.TabIndex = 17;
-            this.ctRemainingSum.Text = "    ";
+            this.ctRemainingSum.Text = "0";
+            this.ctRemainingSum.Visible = false;
             // 
             // ctFrequency
             // 
@@ -276,10 +278,10 @@
             // 
             // ctCardNumber
             // 
-            this.ctCardNumber.Location = new System.Drawing.Point(242, 6);
+            this.ctCardNumber.Location = new System.Drawing.Point(59, 6);
             this.ctCardNumber.Name = "ctCardNumber";
             this.ctCardNumber.Size = new System.Drawing.Size(100, 21);
-            this.ctCardNumber.TabIndex = 1;
+            this.ctCardNumber.TabIndex = 0;
             // 
             // panel2
             // 
@@ -312,7 +314,7 @@
             // 
             this.ssPos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusPos});
-            this.ssPos.Location = new System.Drawing.Point(0, 599);
+            this.ssPos.Location = new System.Drawing.Point(0, 569);
             this.ssPos.Name = "ssPos";
             this.ssPos.Size = new System.Drawing.Size(744, 22);
             this.ssPos.TabIndex = 17;
@@ -321,23 +323,24 @@
             // toolStripStatusPos
             // 
             this.toolStripStatusPos.Name = "toolStripStatusPos";
-            this.toolStripStatusPos.Size = new System.Drawing.Size(458, 17);
-            this.toolStripStatusPos.Text = "快捷键: 桌号F1 会员F2 删行Del 商品F7 增加+ 减少- 修改F8 打折/ 移桌F11 关闭ESC";
+            this.toolStripStatusPos.Size = new System.Drawing.Size(523, 17);
+            this.toolStripStatusPos.Text = "快捷键: 会员F1 桌号F2 商品F3 现金实收F4 删行Del 增加+ 减少- 修改F8 打折/ 移桌F11 关闭ESC";
             // 
             // panelBottom
             // 
+            this.panelBottom.Controls.Add(this.ctRemainingSum);
             this.panelBottom.Controls.Add(this.label7);
             this.panelBottom.Controls.Add(this.ctUnderPay);
-            this.panelBottom.Controls.Add(this.label4);
             this.panelBottom.Controls.Add(this.label27);
+            this.panelBottom.Controls.Add(this.lbRemainingSum);
             this.panelBottom.Controls.Add(this.ctUnPayAmount);
-            this.panelBottom.Controls.Add(this.PosAmount);
+            this.panelBottom.Controls.Add(this.ctPosAmount);
             this.panelBottom.Controls.Add(this.ctGiftQuantity);
             this.panelBottom.Controls.Add(this.ctUnPaidQuantity);
             this.panelBottom.Controls.Add(this.ctPaidQuantity);
             this.panelBottom.Controls.Add(this.ctQuantity);
-            this.panelBottom.Controls.Add(this.ctConvPrice);
-            this.panelBottom.Controls.Add(this.button8);
+            this.panelBottom.Controls.Add(this.ctRealPay);
+            this.panelBottom.Controls.Add(this.btnPartPay);
             this.panelBottom.Controls.Add(this.btnClose);
             this.panelBottom.Controls.Add(this.button7);
             this.panelBottom.Controls.Add(this.button6);
@@ -345,7 +348,7 @@
             this.panelBottom.Controls.Add(this.button4);
             this.panelBottom.Controls.Add(this.button3);
             this.panelBottom.Controls.Add(this.button2);
-            this.panelBottom.Controls.Add(this.button1);
+            this.panelBottom.Controls.Add(this.btnFullPay);
             this.panelBottom.Controls.Add(this.label23);
             this.panelBottom.Controls.Add(this.label22);
             this.panelBottom.Controls.Add(this.label21);
@@ -362,35 +365,38 @@
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBottom.Location = new System.Drawing.Point(0, 346);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(744, 275);
+            this.panelBottom.Size = new System.Drawing.Size(744, 245);
             this.panelBottom.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(500, 111);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 27);
+            this.label7.TabIndex = 71;
+            this.label7.Text = "    ";
             // 
             // ctUnderPay
             // 
+            this.ctUnderPay.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ctUnderPay.AutoSize = true;
-            this.ctUnderPay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ctUnderPay.Font = new System.Drawing.Font("SimSun", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ctUnderPay.ForeColor = System.Drawing.Color.Blue;
-            this.ctUnderPay.Location = new System.Drawing.Point(170, 46);
+            this.ctUnderPay.Location = new System.Drawing.Point(169, 57);
             this.ctUnderPay.Name = "ctUnderPay";
-            this.ctUnderPay.Size = new System.Drawing.Size(59, 42);
+            this.ctUnderPay.Size = new System.Drawing.Size(37, 40);
             this.ctUnderPay.TabIndex = 70;
-            this.ctUnderPay.Text = "  ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(138, 57);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 27);
-            this.label4.TabIndex = 69;
-            this.label4.Text = "¥";
+            this.ctUnderPay.Text = "0";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(677, 25);
+            this.label27.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label27.Location = new System.Drawing.Point(403, 25);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(29, 12);
             this.label27.TabIndex = 68;
@@ -399,25 +405,28 @@
             // ctUnPayAmount
             // 
             this.ctUnPayAmount.AutoSize = true;
-            this.ctUnPayAmount.Location = new System.Drawing.Point(543, 25);
+            this.ctUnPayAmount.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctUnPayAmount.Location = new System.Drawing.Point(240, 25);
             this.ctUnPayAmount.Name = "ctUnPayAmount";
             this.ctUnPayAmount.Size = new System.Drawing.Size(29, 12);
             this.ctUnPayAmount.TabIndex = 67;
             this.ctUnPayAmount.Text = "    ";
             // 
-            // PosAmount
+            // ctPosAmount
             // 
-            this.PosAmount.AutoSize = true;
-            this.PosAmount.Location = new System.Drawing.Point(424, 25);
-            this.PosAmount.Name = "PosAmount";
-            this.PosAmount.Size = new System.Drawing.Size(29, 12);
-            this.PosAmount.TabIndex = 66;
-            this.PosAmount.Text = "    ";
+            this.ctPosAmount.AutoSize = true;
+            this.ctPosAmount.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctPosAmount.Location = new System.Drawing.Point(89, 25);
+            this.ctPosAmount.Name = "ctPosAmount";
+            this.ctPosAmount.Size = new System.Drawing.Size(29, 12);
+            this.ctPosAmount.TabIndex = 66;
+            this.ctPosAmount.Text = "    ";
             // 
             // ctGiftQuantity
             // 
             this.ctGiftQuantity.AutoSize = true;
-            this.ctGiftQuantity.Location = new System.Drawing.Point(677, 3);
+            this.ctGiftQuantity.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctGiftQuantity.Location = new System.Drawing.Point(634, 7);
             this.ctGiftQuantity.Name = "ctGiftQuantity";
             this.ctGiftQuantity.Size = new System.Drawing.Size(29, 12);
             this.ctGiftQuantity.TabIndex = 65;
@@ -426,7 +435,8 @@
             // ctUnPaidQuantity
             // 
             this.ctUnPaidQuantity.AutoSize = true;
-            this.ctUnPaidQuantity.Location = new System.Drawing.Point(543, 3);
+            this.ctUnPaidQuantity.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctUnPaidQuantity.Location = new System.Drawing.Point(403, 7);
             this.ctUnPaidQuantity.Name = "ctUnPaidQuantity";
             this.ctUnPaidQuantity.Size = new System.Drawing.Size(29, 12);
             this.ctUnPaidQuantity.TabIndex = 64;
@@ -435,7 +445,8 @@
             // ctPaidQuantity
             // 
             this.ctPaidQuantity.AutoSize = true;
-            this.ctPaidQuantity.Location = new System.Drawing.Point(424, 3);
+            this.ctPaidQuantity.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctPaidQuantity.Location = new System.Drawing.Point(240, 7);
             this.ctPaidQuantity.Name = "ctPaidQuantity";
             this.ctPaidQuantity.Size = new System.Drawing.Size(29, 12);
             this.ctPaidQuantity.TabIndex = 63;
@@ -444,48 +455,49 @@
             // ctQuantity
             // 
             this.ctQuantity.AutoSize = true;
-            this.ctQuantity.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ctQuantity.Location = new System.Drawing.Point(91, 7);
+            this.ctQuantity.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctQuantity.Location = new System.Drawing.Point(89, 7);
             this.ctQuantity.Name = "ctQuantity";
-            this.ctQuantity.Size = new System.Drawing.Size(40, 16);
+            this.ctQuantity.Size = new System.Drawing.Size(29, 12);
             this.ctQuantity.TabIndex = 62;
             this.ctQuantity.Text = "    ";
             // 
-            // ctConvPrice
+            // ctRealPay
             // 
-            this.ctConvPrice.DecimalPlaces = 2;
-            this.ctConvPrice.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ctConvPrice.ForeColor = System.Drawing.Color.Red;
-            this.ctConvPrice.Increment = new decimal(new int[] {
+            this.ctRealPay.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ctRealPay.DecimalPlaces = 2;
+            this.ctRealPay.Font = new System.Drawing.Font("SimSun", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ctRealPay.ForeColor = System.Drawing.Color.Red;
+            this.ctRealPay.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.ctConvPrice.Location = new System.Drawing.Point(471, 50);
-            this.ctConvPrice.Maximum = new decimal(new int[] {
+            this.ctRealPay.Location = new System.Drawing.Point(500, 51);
+            this.ctRealPay.Maximum = new decimal(new int[] {
             10000000,
             0,
             0,
             0});
-            this.ctConvPrice.Name = "ctConvPrice";
-            this.ctConvPrice.Size = new System.Drawing.Size(80, 38);
-            this.ctConvPrice.TabIndex = 20;
+            this.ctRealPay.Name = "ctRealPay";
+            this.ctRealPay.Size = new System.Drawing.Size(185, 53);
+            this.ctRealPay.TabIndex = 20;
             // 
-            // button8
+            // btnPartPay
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.Location = new System.Drawing.Point(367, 188);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(86, 23);
-            this.button8.TabIndex = 33;
-            this.button8.TabStop = false;
-            this.button8.Text = "部分结算(F6)";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnPartPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPartPay.Location = new System.Drawing.Point(358, 156);
+            this.btnPartPay.Name = "btnPartPay";
+            this.btnPartPay.Size = new System.Drawing.Size(86, 23);
+            this.btnPartPay.TabIndex = 33;
+            this.btnPartPay.TabStop = false;
+            this.btnPartPay.Text = "部分结算(F6)";
+            this.btnPartPay.UseVisualStyleBackColor = true;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(643, 188);
+            this.btnClose.Location = new System.Drawing.Point(634, 156);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(86, 23);
             this.btnClose.TabIndex = 32;
@@ -497,7 +509,7 @@
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Location = new System.Drawing.Point(551, 217);
+            this.button7.Location = new System.Drawing.Point(542, 185);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(86, 23);
             this.button7.TabIndex = 31;
@@ -508,7 +520,7 @@
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(459, 217);
+            this.button6.Location = new System.Drawing.Point(450, 185);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(86, 23);
             this.button6.TabIndex = 30;
@@ -519,7 +531,7 @@
             // button5
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.Location = new System.Drawing.Point(367, 217);
+            this.button5.Location = new System.Drawing.Point(358, 185);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(86, 23);
             this.button5.TabIndex = 29;
@@ -530,7 +542,7 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(275, 217);
+            this.button4.Location = new System.Drawing.Point(266, 185);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(86, 23);
             this.button4.TabIndex = 28;
@@ -541,7 +553,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(551, 188);
+            this.button3.Location = new System.Drawing.Point(542, 156);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(86, 23);
             this.button3.TabIndex = 27;
@@ -552,7 +564,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(459, 188);
+            this.button2.Location = new System.Drawing.Point(450, 156);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 23);
             this.button2.TabIndex = 26;
@@ -560,31 +572,34 @@
             this.button2.Text = "赠送(ctrl+G)";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnFullPay
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(275, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 25;
-            this.button1.TabStop = false;
-            this.button1.Text = "整单结算(F5)";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFullPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFullPay.Location = new System.Drawing.Point(266, 156);
+            this.btnFullPay.Name = "btnFullPay";
+            this.btnFullPay.Size = new System.Drawing.Size(86, 23);
+            this.btnFullPay.TabIndex = 25;
+            this.btnFullPay.TabStop = false;
+            this.btnFullPay.Text = "整单结算(F5)";
+            this.btnFullPay.UseVisualStyleBackColor = true;
+            this.btnFullPay.Click += new System.EventHandler(this.btnFullPay_Click);
             // 
             // label23
             // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(374, 105);
+            this.label23.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label23.Location = new System.Drawing.Point(400, 111);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(42, 16);
+            this.label23.Size = new System.Drawing.Size(94, 27);
             this.label23.TabIndex = 24;
-            this.label23.Text = "找零";
+            this.label23.Text = "找零 ¥";
             // 
             // label22
             // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(108, 193);
+            this.label22.Location = new System.Drawing.Point(118, 161);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(41, 12);
             this.label22.TabIndex = 23;
@@ -592,8 +607,9 @@
             // 
             // label21
             // 
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(28, 193);
+            this.label21.Location = new System.Drawing.Point(42, 161);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(47, 12);
             this.label21.TabIndex = 22;
@@ -602,7 +618,8 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(594, 57);
+            this.label20.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label20.Location = new System.Drawing.Point(524, 25);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(77, 12);
             this.label20.TabIndex = 21;
@@ -610,28 +627,31 @@
             // 
             // label19
             // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(374, 61);
+            this.label19.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label19.Location = new System.Drawing.Point(346, 64);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(76, 16);
+            this.label19.Size = new System.Drawing.Size(148, 27);
             this.label19.TabIndex = 20;
-            this.label19.Text = "现金实收";
+            this.label19.Text = "现金实收 ¥";
             // 
             // label18
             // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(12, 57);
+            this.label18.Location = new System.Drawing.Point(24, 64);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(120, 27);
+            this.label18.Size = new System.Drawing.Size(148, 27);
             this.label18.TabIndex = 19;
-            this.label18.Text = "本次应收";
+            this.label18.Text = "本次应收 ¥";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(594, 25);
+            this.label17.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.Location = new System.Drawing.Point(317, 25);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(77, 12);
             this.label17.TabIndex = 18;
@@ -640,7 +660,8 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(484, 25);
+            this.label16.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(162, 25);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(53, 12);
             this.label16.TabIndex = 17;
@@ -649,7 +670,8 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(365, 25);
+            this.label15.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Location = new System.Drawing.Point(11, 25);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 12);
             this.label15.TabIndex = 16;
@@ -658,7 +680,8 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(594, 3);
+            this.label14.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(524, 7);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(53, 12);
             this.label14.TabIndex = 15;
@@ -667,7 +690,8 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(484, 3);
+            this.label13.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(317, 7);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 14;
@@ -676,7 +700,8 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(365, 3);
+            this.label12.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(162, 7);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 13;
@@ -685,29 +710,17 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(14, 7);
+            this.label11.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(11, 7);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 16);
+            this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 12;
             this.label11.Text = "商品数量";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Font = new System.Drawing.Font("SimSun", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(471, 96);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 29);
-            this.label7.TabIndex = 71;
-            this.label7.Text = "    ";
             // 
             // FrmSupplyChainPos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(744, 621);
+            this.ClientSize = new System.Drawing.Size(744, 591);
             this.Controls.Add(this.ssPos);
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panel2);
@@ -726,7 +739,7 @@
             this.ssPos.PerformLayout();
             this.panelBottom.ResumeLayout(false);
             this.panelBottom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ctConvPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ctRealPay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPosDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsSelectItem)).EndInit();
             this.ResumeLayout(false);
@@ -747,7 +760,7 @@
         private System.Windows.Forms.Label ctMemberName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbRemainingSum;
         private System.Windows.Forms.DataGridView dgvPosDetail;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panel2;
@@ -767,7 +780,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFullPay;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button7;
@@ -777,14 +790,14 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusPos;
         private System.Windows.Forms.TextBox ctCardNumber;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnPartPay;
         private System.Windows.Forms.BindingSource bsPosDetail;
         private System.Windows.Forms.BindingSource bsSelectItem;
-        private XSolo.ExtendedControls.NumericUpDownEx ctConvPrice;
+        private XSolo.ExtendedControls.NumericUpDownEx ctRealPay;
         private System.Windows.Forms.Label ctQuantity;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label ctUnPayAmount;
-        private System.Windows.Forms.Label PosAmount;
+        private System.Windows.Forms.Label ctPosAmount;
         private System.Windows.Forms.Label ctGiftQuantity;
         private System.Windows.Forms.Label ctUnPaidQuantity;
         private System.Windows.Forms.Label ctPaidQuantity;
@@ -792,7 +805,6 @@
         private System.Windows.Forms.Label ctTotalSpending;
         private System.Windows.Forms.Label ctRemainingSum;
         private System.Windows.Forms.Label ctUnderPay;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
     }
 }
