@@ -38,6 +38,10 @@
     <Reference Include="DotNetSkin">
       <HintPath>..\TDReferences\DotNetSkin.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetSpeech">
+      <HintPath>..\TDReferences\DotNetSpeech.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Lephone.Data">
       <HintPath>..\TDReferences\Lephone.Data.dll</HintPath>
     </Reference>

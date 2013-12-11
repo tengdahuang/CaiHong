@@ -10,11 +10,15 @@ using ChildCafe.Common;
 using ChildCafe.Dal;
 using Lephone.Data;
 using Lephone.Data.Common;
+using DotNetSpeech;
 
 namespace ChildCafe
 {
     public partial class FrmBaseInfoMemberTesterInput : Form
     {
+        SpeechVoiceSpeakFlags spFlags = SpeechVoiceSpeakFlags.SVSFlagsAsync;
+        SpVoice sp = new SpVoice();
+
         public FrmBaseInfoMemberTesterInput()
         {
             InitializeComponent();
@@ -61,11 +65,15 @@ namespace ChildCafe
             
             DbObjectList<BaseInfoMemberTester> bimt = BaseInfoMemberTester.Find(CK.K["FinishedDate"] < DateTime.Now && CK.K["Status"] == 0);
             int count = bimt.Count;
+            string text = "";
             if (count > 0)
             {
                 for (int i = 0; i < count; i++)
                 {
-                    MessageBox.Show(bimt[i].Name + ",手机: " + bimt[i].Mobile + "\n 体验时间已到！请及时告知");
+                    text = bimt[i].Name + ",手机: " + bimt[i].Mobile + "\n 体验时间已到！请及时告知";
+                    MessageBox.Show(text);
+                    sp.Volume = 40;
+                    sp.Speak(text, spFlags);
                     bimt[i].Status = "1";
                     bimt[i].Save();
                 }
@@ -76,6 +84,9 @@ namespace ChildCafe
 
         private void FrmBaseInfoMemberTesterInput_Load(object sender, EventArgs e)
         {
+            sp.Volume = 40;
+            //sp.Rate = -4;
+            sp.Speak("彩虹乐园欢迎您!黄腾达,手机:1 3 5 5 6 4 2 6 4 9 6 体验时间已到！", spFlags);
             dgvTester.DataSource = BllBaseInfoMemberTester.ReturnFinishedTester(UserStatics.OptrType);
             timerWarning.Enabled = true;
         }

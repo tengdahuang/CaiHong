@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TDReferences", "TDReference
 	ProjectSection(SolutionItems) = preProject
 		TDReferences\1.ico = TDReferences\1.ico
 		TDReferences\DotNetSkin.dll = TDReferences\DotNetSkin.dll
+		TDReferences\DotNetSpeech.dll = TDReferences\DotNetSpeech.dll
 		TDReferences\Extensis-EXTENSIS.skn = TDReferences\Extensis-EXTENSIS.skn
 		TDReferences\Ionic.Zip.dll = TDReferences\Ionic.Zip.dll
 		TDReferences\Lephone.Data.dll = TDReferences\Lephone.Data.dll

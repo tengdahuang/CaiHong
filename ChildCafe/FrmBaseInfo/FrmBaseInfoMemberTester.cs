@@ -44,46 +44,41 @@ namespace ChildCafe
         {
             try
             {
-                ImportToAccess();
+                OpenFileDialog ofd = new OpenFileDialog();
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    DataSet ds = new DataSet();
+                    string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + ofd.FileName + ";" +
+                                     "Extended Properties='Excel 8.0;HDR=YES;IMEX=1'";
+                    OleDbConnection conn = new OleDbConnection(strConn);
+                    conn.Open();
+                    string strExcel = "";
+                    OleDbDataAdapter myCommand = null;
+                    strExcel = string.Format("select * from [{0}$]", "Sheet1"); //Sheet1为excel中工作薄
+                    myCommand = new OleDbDataAdapter(strExcel, strConn);
+                    myCommand.Fill(ds, "Sheet1");
+                    DataTable dt = ds.Tables["Sheet1"];
+
+                    for (int iRow = 0; iRow < dt.Rows.Count; iRow++)
+                    {
+                        BaseInfoMemberTester bifmt = BaseInfoMemberTester.New;
+                        bifmt.Mobile = dt.Rows[iRow][0].ToString();
+                        bifmt.Name = dt.Rows[iRow][1].ToString();
+                        bifmt.PinYin = dt.Rows[iRow][2].ToString();
+                        bifmt.TestDate = (DateTime)dt.Rows[iRow][3];
+                        bifmt.FinishedDate = (DateTime)dt.Rows[iRow][4];
+                        bifmt.Status = "0";
+                        bifmt.OptrType = UserStatics.OptrType;
+                        bifmt.Save();
+
+                    }
+                }
                 MessageBox.Show("导入成功！");
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("导入有问题，日期精确到秒,日期列要设为日期格式，并且数值类型如没有必须用0代替！\n" + ex);
-            }
-        }
-
-        public void ImportToAccess()
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                DataSet ds = new DataSet();
-                string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + ofd.FileName + ";" +
-                                 "Extended Properties='Excel 8.0;HDR=YES;IMEX=1'";
-                OleDbConnection conn = new OleDbConnection(strConn);
-                conn.Open();
-                string strExcel = "";
-                OleDbDataAdapter myCommand = null;
-                strExcel = string.Format("select * from [{0}$]", "Sheet1"); //Sheet1为excel中工作薄
-                myCommand = new OleDbDataAdapter(strExcel, strConn);
-                myCommand.Fill(ds, "Sheet1");
-                DataTable dt = ds.Tables["Sheet1"];
-
-                for (int iRow = 0; iRow < dt.Rows.Count; iRow++)
-                {
-                    BaseInfoMemberTester bifmt = BaseInfoMemberTester.New;
-                    bifmt.Mobile = dt.Rows[iRow][0].ToString();
-                    bifmt.Name = dt.Rows[iRow][1].ToString();
-                    bifmt.PinYin = dt.Rows[iRow][2].ToString();
-                    bifmt.TestDate = (DateTime)dt.Rows[iRow][3];
-                    bifmt.FinishedDate = (DateTime)dt.Rows[iRow][4];
-                    bifmt.Status = "0";
-                    bifmt.OptrType = UserStatics.OptrType;
-                    bifmt.Save();
-
-                }
             }
         }
 
