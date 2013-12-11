@@ -142,6 +142,12 @@ namespace XSolo.Common
                 #region 导出详细数据
                 //向Excel中逐行逐列写入表格中的数据 
                 IRow row2;
+
+                ICellStyle dateStyle = hssfworkbook.CreateCellStyle();
+                IDataFormat format = hssfworkbook.CreateDataFormat();
+                dateStyle.DataFormat = format.GetFormat("yyyy-mm-dd HH:mm:ss");
+
+
                 for (int row = 1; row <= dgv.RowCount; row++)
                 {
                     //tempProgressBar.PerformStep(); 
@@ -153,9 +159,25 @@ namespace XSolo.Common
                         {
                             try
                             {
-                                row2.CreateCell(displayColumnsCount).SetCellValue(dgv.Rows[row-1].Cells[col].Value.ToString().Trim());
+                                ICell cell2 = row2.CreateCell(displayColumnsCount);
+                                string drValue = dgv.Rows[row - 1].Cells[col].Value.ToString().Trim();
+                                //MessageBox.Show(dgv.Columns[col].ValueType.ToString());
+                                if (dgv.Columns[col].ValueType == typeof(DateTime))
+                                {
+                                    DateTime dateV;
+                                    DateTime.TryParse(drValue, out dateV);
+                                    cell2.SetCellValue(dateV);
+                                    cell2.CellStyle = dateStyle;
+                                }
+                                else
+                                {
+                                    cell2.SetCellValue(drValue);
+
+                                }
                                 //objExcel.Cells[row + 2, displayColumnsCount] = dgv.Rows[row].Cells[col].Value.ToString().Trim();
                                 displayColumnsCount++;
+
+
                             }
                             catch (Exception)
                             {

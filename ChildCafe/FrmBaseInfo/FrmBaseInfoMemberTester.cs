@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.OleDb;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using ChildCafe.Bll;
+using ChildCafe.Common;
+using ChildCafe.Dal;
+using XSolo.Common;
+
+namespace ChildCafe
+{
+    public partial class FrmBaseInfoMemberTester : XSolo.BaseForm.FrmBTree
+    {
+        public FrmBaseInfoMemberTester()
+        {
+            InitializeComponent();
+            splitContainer1.Panel1Collapsed = true;
+        }
+
+        private void FrmBaseInfoMemberTester_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected override void InitData()
+        {
+            ActionTable = UserStatics.GetUserActions(ModuleId);
+            TableForLoad = BllBaseInfoMemberTester.GetTable(UserStatics.OptrType);
+        }
+
+        protected override void SetDataGridViewColumns()
+        {
+            baseDataGridView.Columns[IdNameInTable].Visible = false;
+            baseDataGridView.Columns["用户类型"].Visible = false;
+
+        }
+
+        protected override void SetImportOptration()
+        {
+            try
+            {
+                ImportToAccess();
+                MessageBox.Show("导入成功！");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("导入有问题，请注意删除第一行中文标题，日期精确到秒，并且数值类型如没有必须用0代替！有问题请联系电脑室\n" + ex);
+            }
+        }
+
+        public void ImportToAccess()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                DataSet ds = new DataSet();
+                string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + ofd.FileName + ";" +
+                                 "Extended Properties='Excel 8.0;HDR=YES;IMEX=1'";
+                OleDbConnection conn = new OleDbConnection(strConn);
+                conn.Open();
+                string strExcel = "";
+                OleDbDataAdapter myCommand = null;
+                strExcel = string.Format("select * from [{0}$]", "Sheet1"); //Sheet1为excel中工作薄
+                myCommand = new OleDbDataAdapter(strExcel, strConn);
+                myCommand.Fill(ds, "Sheet1");
+                DataTable dt = ds.Tables["Sheet1"];
+
+                for (int iRow = 0; iRow < dt.Rows.Count; iRow++)
+                {
+                    BaseInfoMemberTester bifmt = BaseInfoMemberTester.New;
+                    bifmt.Mobile = dt.Rows[iRow][0].ToString();
+                    bifmt.Name = dt.Rows[iRow][1].ToString();
+                    bifmt.PinYin = dt.Rows[iRow][2].ToString();
+                    bifmt.TestDate = (DateTime)dt.Rows[iRow][3];
+                    bifmt.OptrType = UserStatics.OptrType;
+                    bifmt.Save();
+
+                }
+            }
+        }
+
+        override protected void DeleteCurrentRow()
+        {
+            BllBaseInfoMemberTester.DelCell(DeletingRowId);
+        }
+
+        protected override string SetFilterString()
+        {
+            return "简拼 like '%" + tbFind.Text + "%' or 姓名 like '%" + tbFind.Text + "%' or 手机 like '%" + tbFind.Text + "%' ";
+        }
+
+    }
+}

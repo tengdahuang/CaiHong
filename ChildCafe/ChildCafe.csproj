@@ -55,6 +55,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessSystem.cs" />
+    <Compile Include="Bll\BllBaseInfoMemberTester.cs" />
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTester.Designer.cs">
+      <DependentUpon>FrmBaseInfoMemberTester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput.Designer.cs">
+      <DependentUpon>FrmBaseInfoMemberTesterInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bll\BllACLAction.cs" />
     <Compile Include="Bll\BllACLModule.cs" />
     <Compile Include="Bll\BllACLModuleAction.cs" />
@@ -80,6 +93,7 @@
     <Compile Include="Dal\BaseInfoMaterialIngredient.cs" />
     <Compile Include="Dal\BaseInfoMember.cs" />
     <Compile Include="Dal\BaseInfoMemberRecharge.cs" />
+    <Compile Include="Dal\BaseInfoMemberTester.cs" />
     <Compile Include="Dal\BaseInfoStaff.cs" />
     <Compile Include="Dal\BaseInfoVendor.cs" />
     <Compile Include="Dal\MainAction.cs" />
@@ -91,6 +105,12 @@
     <Compile Include="Dal\MainRole.cs" />
     <Compile Include="Dal\SupplyChainPos.cs" />
     <Compile Include="Dal\SupplyChainPosDetail.cs" />
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput2.Designer.cs">
+      <DependentUpon>FrmBaseInfoMemberTesterInput2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoMaterialIngredients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +275,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberTester.resx">
+      <DependentUpon>FrmBaseInfoMemberTester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput.resx">
+      <DependentUpon>FrmBaseInfoMemberTesterInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput2.resx">
+      <DependentUpon>FrmBaseInfoMemberTesterInput2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMaterialIngredients.resx">
       <DependentUpon>FrmBaseInfoMaterialIngredients.cs</DependentUpon>
     </EmbeddedResource>
