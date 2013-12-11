@@ -35,6 +35,7 @@ namespace ChildCafe
         protected override void SetDataGridViewColumns()
         {
             baseDataGridView.Columns[IdNameInTable].Visible = false;
+            baseDataGridView.Columns["状态"].Visible = false;
             baseDataGridView.Columns["用户类型"].Visible = false;
 
         }
@@ -49,7 +50,7 @@ namespace ChildCafe
             }
             catch (Exception ex)
             {
-                MessageBox.Show("导入有问题，请注意删除第一行中文标题，日期精确到秒，并且数值类型如没有必须用0代替！有问题请联系电脑室\n" + ex);
+                MessageBox.Show("导入有问题，日期精确到秒,日期列要设为日期格式，并且数值类型如没有必须用0代替！\n" + ex);
             }
         }
 
@@ -77,6 +78,8 @@ namespace ChildCafe
                     bifmt.Name = dt.Rows[iRow][1].ToString();
                     bifmt.PinYin = dt.Rows[iRow][2].ToString();
                     bifmt.TestDate = (DateTime)dt.Rows[iRow][3];
+                    bifmt.FinishedDate = (DateTime)dt.Rows[iRow][4];
+                    bifmt.Status = "0";
                     bifmt.OptrType = UserStatics.OptrType;
                     bifmt.Save();
 

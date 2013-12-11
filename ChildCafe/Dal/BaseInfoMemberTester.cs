@@ -32,6 +32,17 @@ namespace ChildCafe.Dal
         public abstract DateTime TestDate { get; set; }
 
         /// <summary>
+        /// 结束日期
+        /// </summary>
+        public abstract DateTime FinishedDate { get; set; }
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        [Length(30)]
+        public abstract string Status { get; set; }
+
+        /// <summary>
         /// 操作类型
         /// </summary>
         [Length(30)]

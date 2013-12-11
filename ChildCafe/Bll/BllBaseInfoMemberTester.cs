@@ -20,5 +20,12 @@ namespace ChildCafe.Bll
         {
             BaseInfoMemberTester.DeleteAll(CK.K["Id"] == id);
         }
+
+        public static DataTable ReturnFinishedTester(string optrType)
+        {
+            SqlStatement ss = new SqlStatement("Select * from v_BaseInfoMemberTesterFinished where 用户类型 = @optrType", new DataParameter("@optrType", optrType));
+            return DbEntry.Context.ExecuteDataset(ss).Tables[0];
+
+        }
     }
 }

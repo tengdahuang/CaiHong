@@ -5,8 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChildCafe.Bll;
+using ChildCafe.Common;
 using ChildCafe.Dal;
 using Lephone.Data;
+using Lephone.Data.Common;
 
 namespace ChildCafe
 {
@@ -52,5 +55,30 @@ namespace ChildCafe
         {
             this.Close();
         }
+
+        private void timerWarning_Tick(object sender, EventArgs e)
+        {
+            
+            DbObjectList<BaseInfoMemberTester> bimt = BaseInfoMemberTester.Find(CK.K["FinishedDate"] < DateTime.Now && CK.K["Status"] == 0);
+            int count = bimt.Count;
+            if (count > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    MessageBox.Show(bimt[i].Name + ",手机: " + bimt[i].Mobile + "\n 体验时间已到！请及时告知");
+                    bimt[i].Status = "1";
+                    bimt[i].Save();
+                }
+            }
+            dgvTester.DataSource = null;
+            dgvTester.DataSource = BllBaseInfoMemberTester.ReturnFinishedTester(UserStatics.OptrType);
+        }
+
+        private void FrmBaseInfoMemberTesterInput_Load(object sender, EventArgs e)
+        {
+            dgvTester.DataSource = BllBaseInfoMemberTester.ReturnFinishedTester(UserStatics.OptrType);
+            timerWarning.Enabled = true;
+        }
+
     }
 }

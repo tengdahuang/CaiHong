@@ -23,12 +23,15 @@ namespace ChildCafe
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            DateTime nowTime = DateTime.Now;
             string name = textBox1.Text;
             BaseInfoMemberTester bimt = BaseInfoMemberTester.New;
             bimt.Name = name;
             bimt.PinYin = AutoPinYin.GetPinYin(name);
             bimt.Mobile = Mobile;
-            bimt.TestDate = DateTime.Now;
+            bimt.TestDate = nowTime;
+            bimt.FinishedDate = nowTime.AddHours(1);
+            bimt.Status = "0";
             bimt.OptrType = UserStatics.OptrType;
             bimt.Save();
             MessageBox.Show("录入完成，请您入园体验！");
