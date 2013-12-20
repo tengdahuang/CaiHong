@@ -84,9 +84,9 @@ namespace ChildCafe
 
         private void FrmBaseInfoMemberTesterInput_Load(object sender, EventArgs e)
         {
-            sp.Volume = 40;
+            //sp.Volume = 40;
             //sp.Rate = -4;
-            sp.Speak("彩虹乐园欢迎您!黄腾达,手机:1 3 5 5 6 4 2 6 4 9 6 体验时间已到！", spFlags);
+            //sp.Speak("彩虹乐园欢迎您!黄腾达,手机:1 3 5 5 6 4 2 6 4 9 6 体验时间已到！", spFlags);
             dgvTester.DataSource = BllBaseInfoMemberTester.ReturnFinishedTester(UserStatics.OptrType);
             timerWarning.Enabled = true;
         }
