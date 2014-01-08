@@ -30,12 +30,21 @@ namespace ChildCafe
         private void FrmSupplyChainPos_Load(object sender, EventArgs e)
         {
             TableForSelectItem = BllBaseInfoMaterial.GetTable(UserStatics.OptrType);
-            dgvSelectItem.DataSource = null;
             bsSelectItem.DataSource = TableForSelectItem;
-            //dgvSelectItem.DataSource = bsSelectItem;
 
             ctMealTableName.DataSource = CommonStatics.GetDict(UserStatics.OptrType, "桌号");
             ctMealTableName.DisplayMember = "Name";
+
+            InitialPos();
+
+        }
+
+        private void InitialPos()
+        {
+            dgvSelectItem.DataSource = null;
+
+            bsPosDetail.DataSource = null;
+            dgvPosDetail.DataSource = null;
 
             //1.取出最新的流水号，新增并保存一张未结算pos单
             SupplyChainPos fscp = SupplyChainPos.New;
@@ -167,7 +176,7 @@ namespace ChildCafe
 
         private void tbSelectItem_KeyDown(object sender, KeyEventArgs e)
         {
-
+            //选好单品，并且回车
             if (e.KeyCode == Keys.Enter && tbSelectItem.Text != "")
             {
                 SupplyChainPos scp = SupplyChainPos.FindById(PosId);
@@ -312,7 +321,6 @@ namespace ChildCafe
                 //1a.会员存款>应收，直接扣除会员存款，完成结算
                 //1b.会员存款<应收，
                 //1ba.如果存款+实付 > 应收，完成结算，会员存款清零，并提示
-                    //todo 在这里提示会员是否充值
                 else
                 {
                     if (decimal.Parse(ctRemainingSum.Text) >= decimal.Parse(ctUnderPay.Text))
@@ -322,6 +330,8 @@ namespace ChildCafe
                         bim.RemainingSum -= decimal.Parse(ctUnderPay.Text);
                         bim.TotalSpending += decimal.Parse(ctUnderPay.Text);
                         bim.Save();
+                        MessageBox.Show("已经完成结算！");
+                        InitialPos();
                     }
                     else 
                     {
@@ -330,6 +340,7 @@ namespace ChildCafe
                             PayAllDue();
                             bim.RemainingSum = 0;
                             bim.Save();
+                            //todo 在这里提示会员是否充值
                             MessageBox.Show("会员余额已经为零，是否要充值？");
                         }
                         else
@@ -349,6 +360,7 @@ namespace ChildCafe
             SupplyChainPosDetail scpd;
             //1.遍历表格，取出未付和非赠品，设置为已付
             //2.将pos主表相关项填好，并设为已结
+            //3.区分保存储值卡、实付等数据，方便以后统计。
             foreach (DataGridViewRow row in dgvPosDetail.Rows)
             {
                 if (row.Selected || (bool)row.Cells["是否已付"].Value == false
@@ -367,6 +379,21 @@ namespace ChildCafe
                     scp.Save();
                 }
             }
+
+            if (decimal.Parse(ctRemainingSum.Text) >= decimal.Parse(ctUnderPay.Text))
+            {
+                scp.PayByStoredValueCard = decimal.Parse(ctUnderPay.Text);
+                scp.Save();
+            }
+            else if (decimal.Parse(ctRemainingSum.Text) + ctRealPay.Value == decimal.Parse(ctUnderPay.Text))
+            {
+                scp.PayByStoredValueCard = decimal.Parse(ctUnderPay.Text) - ctRealPay.Value;
+                scp.PayInAmount = ctRealPay.Value;
+                scp.Save();
+            }
+            
+
+
         }
 
 

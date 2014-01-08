@@ -60,10 +60,10 @@
   <ItemGroup>
     <Compile Include="AccessSystem.cs" />
     <Compile Include="Bll\BllBaseInfoMemberTester.cs" />
-    <Compile Include="FrmBaseInfoTextToSpeech.cs">
+    <Compile Include="FrmBaseInfo\FrmBaseInfoTextToSpeech.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBaseInfoTextToSpeech.Designer.cs">
+    <Compile Include="FrmBaseInfo\FrmBaseInfoTextToSpeech.Designer.cs">
       <DependentUpon>FrmBaseInfoTextToSpeech.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTester.cs">
@@ -285,7 +285,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBaseInfoTextToSpeech.resx">
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoTextToSpeech.resx">
       <DependentUpon>FrmBaseInfoTextToSpeech.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberTester.resx">

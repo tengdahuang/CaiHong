@@ -70,7 +70,7 @@ namespace ChildCafe
             {
                 for (int i = 0; i < count; i++)
                 {
-                    text = bimt[i].Name + ",手机: " + bimt[i].Mobile + "\n 体验时间已到！请及时告知";
+                    text = bimt[i].Name + "\n 体验时间已到！";
                     MessageBox.Show(text);
                     sp.Volume = 40;
                     sp.Speak(text, spFlags);
