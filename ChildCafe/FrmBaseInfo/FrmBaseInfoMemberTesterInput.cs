@@ -71,11 +71,12 @@ namespace ChildCafe
                 for (int i = 0; i < count; i++)
                 {
                     text = bimt[i].Name + "\n 体验时间已到！";
+                    bimt[i].Status = "1";
+                    bimt[i].Save();
                     MessageBox.Show(text);
                     sp.Volume = 40;
                     sp.Speak(text, spFlags);
-                    bimt[i].Status = "1";
-                    bimt[i].Save();
+    
                 }
             }
             dgvTester.DataSource = null;
