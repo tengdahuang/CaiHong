@@ -25,8 +25,24 @@ namespace ChildCafe
         {
             DateTime nowTime = DateTime.Now;
             string name = textBox1.Text;
+            string description = textBox2.Text;
+            if (name == "")
+            {
+                MessageBox.Show("姓名不能为空!");
+                textBox1.SelectAll();
+                textBox1.Focus();
+                return;
+            }
             BaseInfoMemberTester bimt = BaseInfoMemberTester.New;
             bimt.Name = name;
+            if (description == "")
+            {
+                bimt.Description = "无";
+            }
+            else
+            {
+                bimt.Description = description;
+            }
             bimt.PinYin = AutoPinYin.GetPinYin(name);
             bimt.Mobile = Mobile;
             bimt.TestDate = nowTime;

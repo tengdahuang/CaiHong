@@ -26,14 +26,27 @@ namespace ChildCafe
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            string mobile = textBox1.Text;
-            long number;
-            bool result = long.TryParse(mobile, out number);
+            string mobile = textBox1.Text.Trim();
+
+            if (mobile.Length != 11)
+            {
+                MessageBox.Show("手机号长度必须是11位");
+                textBox1.SelectAll();
+                textBox1.Focus();
+                return;
+            }
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(mobile, @"^((0?1[358]\d{9})|((0(10|2[1-3]|[3-9]\d{2}))?[1-9]\d{6,7}))$"))
+            {
+                MessageBox.Show("手机号格式不正确，并且不能为除数字外的字符！");
+                textBox1.SelectAll();
+                textBox1.Focus();
+                return;
+            }
+            
             long count = BaseInfoMemberTester.GetCount(CK.K["Mobile"] == mobile);
 
-            if (result)
-            {
-                if (count == 0)
+               if (count == 0)
                 {
                     FrmBaseInfoMemberTesterInput2 fbimti2 = new FrmBaseInfoMemberTesterInput2();
                     fbimti2.Mobile = mobile;
@@ -48,12 +61,7 @@ namespace ChildCafe
                     MessageBox.Show("该手机号客户已于" + BaseInfoMemberTester.FindOne(CK.K["Mobile"] == mobile).TestDate +
                                     "进行过体验!");
                 }
-            }
-            else
-            {
-                MessageBox.Show("手机号只能为数字！");
-            }
-        }
+       }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -88,6 +96,16 @@ namespace ChildCafe
             //sp.Volume = 40;
             //sp.Rate = -4;
             //sp.Speak("彩虹乐园欢迎您!黄腾达,手机:1 3 5 5 6 4 2 6 4 9 6 体验时间已到！", spFlags);
+            DbObjectList<BaseInfoMemberTester> bimt = BaseInfoMemberTester.Find(CK.K["FinishedDate"] < DateTime.Now.AddDays(-1) && CK.K["Status"] == 0);
+            int count = bimt.Count;
+            if (count > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    bimt[i].Status = "1";
+                    bimt[i].Save();
+                }
+            }
             dgvTester.DataSource = BllBaseInfoMemberTester.ReturnFinishedTester(UserStatics.OptrType);
             timerWarning.Enabled = true;
         }

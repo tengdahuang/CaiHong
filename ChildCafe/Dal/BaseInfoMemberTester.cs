@@ -27,6 +27,12 @@ namespace ChildCafe.Dal
         public abstract string PinYin { get; set; }
 
         /// <summary>
+        /// 备注
+        /// </summary>
+        [AllowNull, Length(200)]
+        public abstract string Description { get; set; }
+       
+        /// <summary>
         /// 开卡日期
         /// </summary>
         public abstract DateTime TestDate { get; set; }

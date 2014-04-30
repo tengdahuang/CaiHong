@@ -49,7 +49,7 @@ namespace ChildCafe
                 {
                     DataSet ds = new DataSet();
                     string strConn = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source=" + ofd.FileName + ";" +
-                                     "Extended Properties='Excel 8.0;HDR=YES;IMEX=1'";
+                                     "Extended Properties='Excel 8.0;HDR=yes;IMEX=1'";
                     OleDbConnection conn = new OleDbConnection(strConn);
                     conn.Open();
                     string strExcel = "";
@@ -64,9 +64,10 @@ namespace ChildCafe
                         BaseInfoMemberTester bifmt = BaseInfoMemberTester.New;
                         bifmt.Mobile = dt.Rows[iRow][0].ToString();
                         bifmt.Name = dt.Rows[iRow][1].ToString();
-                        bifmt.PinYin = dt.Rows[iRow][2].ToString();
-                        bifmt.TestDate = (DateTime)dt.Rows[iRow][3];
-                        bifmt.FinishedDate = (DateTime)dt.Rows[iRow][4];
+                        bifmt.Description = dt.Rows[iRow][2].ToString();
+                        bifmt.PinYin = dt.Rows[iRow][3].ToString();
+                        bifmt.TestDate = (DateTime)dt.Rows[iRow][4];
+                        bifmt.FinishedDate = (DateTime)dt.Rows[iRow][5];
                         bifmt.Status = "0";
                         bifmt.OptrType = UserStatics.OptrType;
                         bifmt.Save();
