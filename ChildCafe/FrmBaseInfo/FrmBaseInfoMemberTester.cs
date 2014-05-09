@@ -59,6 +59,7 @@ namespace ChildCafe
                     myCommand = new OleDbDataAdapter(strExcel, strConn);
                     myCommand.Fill(ds, "Sheet1");
                     DataTable dt = ds.Tables["Sheet1"];
+                    Encoding gb2312 = Encoding.GetEncoding("GB2312");
 
                     for (int iRow = 0; iRow < dt.Rows.Count; iRow++)
                     {
@@ -66,9 +67,9 @@ namespace ChildCafe
                         bifmt.Mobile = dt.Rows[iRow][0].ToString();
                         bifmt.Name = dt.Rows[iRow][1].ToString();
                         bifmt.Description = dt.Rows[iRow][2].ToString();
-                        bifmt.PinYin = dt.Rows[iRow][3].ToString();
-                        bifmt.TestDate = (DateTime)dt.Rows[iRow][4];
-                        bifmt.FinishedDate = (DateTime)dt.Rows[iRow][5];
+                        bifmt.PinYin = PinYinTransfer.GetInitials(bifmt.Name, gb2312);
+                        bifmt.TestDate = (DateTime)dt.Rows[iRow][3];
+                        bifmt.FinishedDate = (DateTime)dt.Rows[iRow][4];
                         bifmt.Status = "0";
                         bifmt.OptrType = UserStatics.OptrType;
                         bifmt.Save();

@@ -97,5 +97,8 @@ namespace ChildCafe.Dal
         [HasMany(OrderBy = "Id")]
         public abstract IList<BaseInfoMemberRecharge> BaseInfoMemberRecharges { get; set; }
 
+        [HasMany(OrderBy = "Id")]
+        public abstract IList<BaseInfoCard> BaseInfoCards { get; set; }
+
     }
 }

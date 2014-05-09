@@ -59,7 +59,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessSystem.cs" />
+    <Compile Include="Bll\BllBaseInfoCard.cs" />
     <Compile Include="Bll\BllBaseInfoMemberTester.cs" />
+    <Compile Include="Dal\BaseInfoCard.cs" />
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCard.Designer.cs">
+      <DependentUpon>FrmBaseInfoCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCardEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCardEdit.Designer.cs">
+      <DependentUpon>FrmBaseInfoCardEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoTextToSpeech.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +299,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoCard.resx">
+      <DependentUpon>FrmBaseInfoCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoCardEdit.resx">
+      <DependentUpon>FrmBaseInfoCardEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoTextToSpeech.resx">
       <DependentUpon>FrmBaseInfoTextToSpeech.cs</DependentUpon>
     </EmbeddedResource>

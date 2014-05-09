@@ -55,7 +55,7 @@ namespace ChildCafe
                     fbimti2.Dispose();
                     textBox1.Text = "";
 
-                }
+               }
                 else
                 {
                     MessageBox.Show("该手机号客户已于" + BaseInfoMemberTester.FindOne(CK.K["Mobile"] == mobile).TestDate +
