@@ -23,7 +23,7 @@ namespace ChildCafe
 
         private void FrmBaseInfoCard_Load(object sender, EventArgs e)
         {
-
+            //MessageBox.Show(BllBaseInfoCard.GetBaseInfoCardMessage());
         }
 
         protected override void InitData()
@@ -43,13 +43,6 @@ namespace ChildCafe
             //    TableForLoad = BllBaseInfoCard.GetPartTable(UserStatics.OptrType);
             //else
             TableForLoad = BllBaseInfoCard.GetTable(UserStatics.OptrType);
-        }
-
-        protected override void SetDataGridViewColumns()
-        {
-            //baseDataGridView.Columns[IdNameInTable].Visible = false;
-            //baseDataGridView.Columns["用户类型"].Visible = false;
-
         }
 
         protected override void SetImportOptration()

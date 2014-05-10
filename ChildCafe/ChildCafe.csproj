@@ -61,6 +61,7 @@
     <Compile Include="AccessSystem.cs" />
     <Compile Include="Bll\BllBaseInfoCard.cs" />
     <Compile Include="Bll\BllBaseInfoMemberTester.cs" />
+    <Compile Include="Common\ChnColAttribute.cs" />
     <Compile Include="Dal\BaseInfoCard.cs" />
     <Compile Include="FrmBaseInfo\FrmBaseInfoCard.cs">
       <SubType>Form</SubType>

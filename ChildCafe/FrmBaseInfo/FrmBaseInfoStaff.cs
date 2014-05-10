@@ -29,13 +29,6 @@ namespace ChildCafe
             TableForLoad = BllBaseInfoStaff.GetTable(UserStatics.OptrType);
         }
 
-        protected override void SetDataGridViewColumns()
-        {
-            baseDataGridView.Columns[IdNameInTable].Visible = false;
-            baseDataGridView.Columns["用户类型"].Visible = false;
-
-        }
-
         override protected void DeleteCurrentRow()
         {
             BllBaseInfoStaff.DelCell(DeletingRowId);

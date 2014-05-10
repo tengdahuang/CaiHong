@@ -33,16 +33,17 @@ namespace ChildCafe
             //mb.Tag = "FrmMainBoard";
             //mb.Show();
 
-            if (BllBaseInfoMember.IfHasBirthdayMember(UserStatics.OptrType, 7))
-            {
-                FrmBaseInfoMemberBirthReminder fimbr = new FrmBaseInfoMemberBirthReminder();
-                fimbr.MdiParent = this;
-                fimbr.StartPosition = FormStartPosition.CenterScreen;
-                fimbr.baseToolStrip.Visible = false;
-                fimbr.panelFind.Visible = false;
-                fimbr.Show();
-                fimbr.Activate();
-            }
+            //打开以后弹出时限内生日的会员
+            //if (BllBaseInfoMember.IfHasBirthdayMember(UserStatics.OptrType, 7))
+            //{
+            //    FrmBaseInfoMemberBirthReminder fimbr = new FrmBaseInfoMemberBirthReminder();
+            //    fimbr.MdiParent = this;
+            //    fimbr.StartPosition = FormStartPosition.CenterScreen;
+            //    fimbr.baseToolStrip.Visible = false;
+            //    fimbr.panelFind.Visible = false;
+            //    fimbr.Show();
+            //    fimbr.Activate();
+            //}
         }
 
         /// <summary>

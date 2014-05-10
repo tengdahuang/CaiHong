@@ -32,7 +32,7 @@ namespace ChildCafe
 
         protected override void SetDataGridViewColumns()
         {
-            baseDataGridView.Columns["Id"].Visible = false;
+            //baseDataGridView.Columns["Id"].Visible = false;
 
         }
 

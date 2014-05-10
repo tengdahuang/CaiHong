@@ -114,6 +114,7 @@ namespace XSolo.BaseForm
                 InitTree();
                 reloadDataGridView();
                 SetCountToolStripStatusLabel();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 
@@ -176,6 +177,16 @@ namespace XSolo.BaseForm
 
         #endregion 加载时初始化设置
 
+        ///<summary>
+        ///设置GridView必需隐藏的行
+        /// </summary>
+        protected void DataGridViewMustHideColumns()
+        {
+            if (baseDataGridView.Columns["IsDeleted"] != null) baseDataGridView.Columns["IsDeleted"].Visible = false;
+            if (baseDataGridView.Columns[IdNameInTable] != null) baseDataGridView.Columns[IdNameInTable].Visible = false;
+            if (baseDataGridView.Columns["用户类型"] != null) baseDataGridView.Columns["用户类型"].Visible = false;
+        }
+        
         /// <summary>
         /// 设置GridView显示的行
         /// </summary>
@@ -398,6 +409,7 @@ namespace XSolo.BaseForm
                 }
                 InitData();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
                 if (IsTree)
                 {
@@ -428,6 +440,7 @@ namespace XSolo.BaseForm
                 }
                 InitData();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
                 if (IsTree)
                 {
@@ -458,6 +471,7 @@ namespace XSolo.BaseForm
                             delCountToolStripStatusLabel.Text = "已删除" + count + "条记录！";
                             
                             resetDataGridView();
+                            DataGridViewMustHideColumns();
                             SetDataGridViewColumns();
                             if (IsTree)
                             {
@@ -486,6 +500,7 @@ namespace XSolo.BaseForm
             {
                 InitData();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
                 if (IsTree)
                 {
@@ -521,6 +536,7 @@ namespace XSolo.BaseForm
             {
                 SetOperation();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 
@@ -532,6 +548,7 @@ namespace XSolo.BaseForm
             {
                 SetImportOptration();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 
@@ -543,6 +560,7 @@ namespace XSolo.BaseForm
             {
                 SetRechargeOptration();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 
@@ -554,6 +572,7 @@ namespace XSolo.BaseForm
             {
                 SetIngredientOptration();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 

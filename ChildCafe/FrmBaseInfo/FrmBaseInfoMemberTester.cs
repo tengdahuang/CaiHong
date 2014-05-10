@@ -34,9 +34,7 @@ namespace ChildCafe
 
         protected override void SetDataGridViewColumns()
         {
-            baseDataGridView.Columns[IdNameInTable].Visible = false;
             baseDataGridView.Columns["状态"].Visible = false;
-            baseDataGridView.Columns["用户类型"].Visible = false;
             baseDataGridView.Columns["简拼"].Visible = false;
 
         }

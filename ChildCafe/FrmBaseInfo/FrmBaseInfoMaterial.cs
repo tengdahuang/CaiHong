@@ -32,13 +32,6 @@ namespace ChildCafe
             TableForLoad = BllBaseInfoMaterial.GetTable(UserStatics.OptrType);
         }
 
-        protected override void SetDataGridViewColumns()
-        {
-            baseDataGridView.Columns[IdNameInTable].Visible = false;
-            baseDataGridView.Columns["用户类型"].Visible = false;
-
-        }
-
         protected override void SetIngredientOptration()
         {
             FrmBaseInfoMaterialIngredients frmBaseInfoMaterialIngredients = new FrmBaseInfoMaterialIngredients();
