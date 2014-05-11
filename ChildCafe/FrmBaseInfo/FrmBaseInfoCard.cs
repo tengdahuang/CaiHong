@@ -83,14 +83,14 @@ namespace ChildCafe
                     bic.JoinedDate = (DateTime)dt.Rows[iRow][0];
                     bic.CardNumber = dt.Rows[iRow][1].ToString();
                     bic.ChildName = dt.Rows[iRow][2].ToString();
-                    bic.Mobile = dt.Rows[iRow][3].ToString();
-                    bic.CardType = dt.Rows[iRow][4].ToString();
-                    bic.CountLeft = decimal.Parse(dt.Rows[iRow][5].ToString());
+                    bic.Mobile = dt.Rows[iRow][4].ToString();
+                    bic.CardType = dt.Rows[iRow][5].ToString();
+                    bic.CountLeft = decimal.Parse(dt.Rows[iRow][6].ToString());
 
                     DateTime dtime = (DateTime)dt.Rows[iRow][0];
                     bic.ExpirationDate = dtime.AddYears(1);
 
-                    bic.Remark = dt.Rows[iRow][7].ToString();
+                    bic.Remark = dt.Rows[iRow][8].ToString();
                     bic.CardStatus = 1;
                     bic.PinYin = PinYinTransfer.GetInitials(bic.ChildName, gb2312);
                     bic.SavedOn = DateTime.Now;
