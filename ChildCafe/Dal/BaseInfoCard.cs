@@ -71,7 +71,7 @@ namespace ChildCafe.Dal
         /// 到期日
         /// </summary>
         [ChnCol("到期日")]
-        public abstract DateTime ExpirationDate { get; set; }
+        public abstract DateTime? ExpirationDate { get; set; }
 
         /// <summary>
         /// 备注

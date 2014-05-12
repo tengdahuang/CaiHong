@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ctPinYin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ctBirth = new System.Windows.Forms.DateTimePicker();
+            this.ctExpirationDate = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.ctMobile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.ctMobile);
             this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.ctBirth);
+            this.tabPage1.Controls.Add(this.ctExpirationDate);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.ctPinYin);
             this.tabPage1.Controls.Add(this.label1);
@@ -132,16 +132,16 @@
             this.label1.TabIndex = 37;
             this.label1.Text = "简拼";
             // 
-            // ctBirth
+            // ctExpirationDate
             // 
-            this.ctBirth.CustomFormat = "";
-            this.ctBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ctBirth.Location = new System.Drawing.Point(259, 60);
-            this.ctBirth.Name = "ctBirth";
-            this.ctBirth.ShowUpDown = true;
-            this.ctBirth.Size = new System.Drawing.Size(121, 21);
-            this.ctBirth.TabIndex = 35;
-            this.ctBirth.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.ctExpirationDate.CustomFormat = "";
+            this.ctExpirationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ctExpirationDate.Location = new System.Drawing.Point(259, 60);
+            this.ctExpirationDate.Name = "ctExpirationDate";
+            this.ctExpirationDate.ShowUpDown = true;
+            this.ctExpirationDate.Size = new System.Drawing.Size(121, 21);
+            this.ctExpirationDate.TabIndex = 35;
+            this.ctExpirationDate.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // label13
             // 
@@ -242,6 +242,7 @@
             this.ctCardType.Name = "ctCardType";
             this.ctCardType.Size = new System.Drawing.Size(121, 20);
             this.ctCardType.TabIndex = 25;
+            this.ctCardType.SelectedIndexChanged += new System.EventHandler(this.ctCardType_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -292,7 +293,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ctPinYin;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker ctBirth;
+        private System.Windows.Forms.DateTimePicker ctExpirationDate;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox ctMobile;
         private System.Windows.Forms.Label label7;

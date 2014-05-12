@@ -21,7 +21,7 @@ namespace ChildCafe.Common
         }
     }
 
-    public class ChineseColumnName<T>
+    public class ChineseColumnName
     {
 
         public static List<string> GetListColumnNames<T>()
@@ -53,11 +53,11 @@ namespace ChildCafe.Common
 
         }
 
-        public static DataTable SetColumn(DataTable dt)
+        public static DataTable SetColumn<T>(DataTable dt)
         {
             foreach (DataColumn dc in dt.Columns)
             {
-                foreach (string s in ChineseColumnName<T>.GetListColumnNames<T>())
+                foreach (string s in ChineseColumnName.GetListColumnNames<T>())
                 {
                     if (dc.Caption == s.Split(',')[1].ToString())
                     {

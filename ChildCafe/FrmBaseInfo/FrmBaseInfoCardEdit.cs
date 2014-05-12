@@ -28,7 +28,7 @@ namespace ChildCafe
                 var obj = BaseInfoCard.FindById(long.Parse(ItemID));
                 FrmAddEditBindComboBoxText.BindObjectToControls(obj, tabPage1);
                 if (obj.BaseInfoMember != null) { ctMemberCardNumber.Text = obj.BaseInfoMember.CardNumber; }
-                
+
             }
             else
             {
@@ -47,6 +47,7 @@ namespace ChildCafe
                     var obj = BaseInfoCard.New;
                     FrmAddEditBindComboBoxText.BindControlsToObject(obj, tabPage1);
                     obj.OptrType = UserStatics.OptrType;
+                    obj.CardStatus = 1;
                     obj.Save();
                 }
                 else
@@ -56,6 +57,7 @@ namespace ChildCafe
                     var obj = BaseInfoCard.New;
                     FrmAddEditBindComboBoxText.BindControlsToObject(obj, tabPage1);
                     obj.OptrType = UserStatics.OptrType;
+                    obj.CardStatus = 1;
                     obj.Save();
                     member.BaseInfoCards.Add(obj);
                     member.Save();
@@ -69,6 +71,7 @@ namespace ChildCafe
                     var obj = BaseInfoCard.FindById(long.Parse(ItemID));
                     FrmAddEditBindComboBoxText.BindControlsToObject(obj, tabPage1);
                     obj.OptrType = UserStatics.OptrType;
+                    obj.CardStatus = 1;
                     obj.Save();
                 }
                 else
@@ -77,6 +80,7 @@ namespace ChildCafe
                     var obj = BaseInfoCard.FindById(long.Parse(ItemID));
                     FrmAddEditBindComboBoxText.BindControlsToObject(obj, tabPage1);
                     obj.OptrType = UserStatics.OptrType;
+                    obj.CardStatus = 1;
                     obj.Save();
                     member.BaseInfoCards.Add(obj);
                     member.Save();
@@ -89,10 +93,30 @@ namespace ChildCafe
         {
             if (ctCardNumber.Text == "") errorProvider.SetError(ctCardNumber, "卡号不能为空");
             else errorProvider.SetError(ctCardNumber, "");
-            if (ctChildName.Text == "") errorProvider.SetError(ctChildName, "姓名不能为空");
+            if (ctChildName.Text == "") errorProvider.SetError(ctChildName, "宝宝名不能为空");
             else errorProvider.SetError(ctChildName, "");
             if (ctMobile.Text == "") errorProvider.SetError(ctMobile, "手机不能为空");
             else errorProvider.SetError(ctMobile, "");
+            if (ctCardType.Text == "") errorProvider.SetError(ctCardType, "卡类型不能为空");
+            else errorProvider.SetError(ctCardType, "");
+
+            string mobile = ctMobile.Text.Trim();
+            if (mobile.Length != 11)
+            {
+                errorProvider.SetError(ctMobile, "手机长度必须是11位");
+                ctMobile.SelectAll();
+                ctMobile.Focus();
+            }
+            else errorProvider.SetError(ctMobile, "");
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(mobile, @"^((0?1[358]\d{9})|((0(10|2[1-3]|[3-9]\d{2}))?[1-9]\d{6,7}))$"))
+            {
+                errorProvider.SetError(ctMobile, "手机号格式不正确，并且不能为除数字外的字符！");
+                ctMobile.SelectAll();
+                ctMobile.Focus();
+            }
+            else errorProvider.SetError(ctMobile, "");
+
         }
 
 
@@ -125,6 +149,15 @@ namespace ChildCafe
             {
                 PerformClick();
             }
+        }
+
+        private void ctCardType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ctCardType.Text == "十次卡") { ctCountLeft.Value = 10; ctExpirationDate.Value = DateTime.Now.AddYears(1); }
+            if (ctCardType.Text == "二十次卡") { ctCountLeft.Value = 20; ctExpirationDate.Value = DateTime.Now.AddYears(1); }
+            if (ctCardType.Text == "月卡") { ctExpirationDate.Value = DateTime.Now.AddMonths(1); }
+            if (ctCardType.Text == "年卡") { ctExpirationDate.Value = DateTime.Now.AddYears(1); }
+            if (ctCardType.Text == "暑假卡") { ctExpirationDate.Value = DateTime.Now.AddMonths(2); }
         }
 
 

@@ -33,15 +33,13 @@ namespace ChildCafe
             //bic.JoinedDate = Convert.ToDateTime("2014-5-1 00:00:00");
             //bic.CardNumber = "111";
             //bic.ChildName = "test";
+            //bic.Mobile = "13333333333";
             //bic.CardType = BaseInfoCardType.十次卡.ToString();
-            //bic.CountLeft = 0;
+            //bic.CountLeft = 10;
             //bic.ExpirationDate = Convert.ToDateTime("2015-5-1 00:00:00");
             //bic.CardStatus = (int)BaseInfoCardStatus.使用;
             //bic.OptrType = UserStatics.OptrType;
             //bic.Save();
-            //if (IsSelect == true)
-            //    TableForLoad = BllBaseInfoCard.GetPartTable(UserStatics.OptrType);
-            //else
             TableForLoad = BllBaseInfoCard.GetTable(UserStatics.OptrType);
         }
 
@@ -80,15 +78,17 @@ namespace ChildCafe
                 for (int iRow = 0; iRow < dt.Rows.Count; iRow++)
                 {
                     BaseInfoCard bic = BaseInfoCard.New;
-                    bic.JoinedDate = (DateTime)dt.Rows[iRow][0];
+                    if (dt.Rows[iRow][0] != null)
+                    {
+                        DateTime dtime = (DateTime)dt.Rows[iRow][0];
+                        bic.JoinedDate = dtime;
+                        bic.ExpirationDate = dtime.AddYears(1);
+                    }
                     bic.CardNumber = dt.Rows[iRow][1].ToString();
                     bic.ChildName = dt.Rows[iRow][2].ToString();
                     bic.Mobile = dt.Rows[iRow][4].ToString();
                     bic.CardType = dt.Rows[iRow][5].ToString();
                     bic.CountLeft = decimal.Parse(dt.Rows[iRow][6].ToString());
-
-                    DateTime dtime = (DateTime)dt.Rows[iRow][0];
-                    bic.ExpirationDate = dtime.AddYears(1);
 
                     bic.Remark = dt.Rows[iRow][8].ToString();
                     bic.CardStatus = 1;
@@ -111,5 +111,9 @@ namespace ChildCafe
             return "简拼 like '%" + tbFind.Text + "%' or 宝宝名 like '%" + tbFind.Text + "%' or 卡号 like '%" + tbFind.Text + "%'";
         }
 
+        override protected void DeleteCurrentRow()
+        {
+            BllBaseInfoCard.DelCell(DeletingRowId);
+        }
     }
 }
