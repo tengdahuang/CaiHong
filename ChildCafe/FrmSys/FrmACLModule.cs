@@ -26,7 +26,7 @@ namespace ChildCafe
 
         protected override void SetDataGridViewColumns()
         {
-            baseDataGridView.Columns[IdNameInTable].Visible = false;
+            //baseDataGridView.Columns[IdNameInTable].Visible = false;
             baseDataGridView.Columns["上一级"].Visible = false;
 
         }

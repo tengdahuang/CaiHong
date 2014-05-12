@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSolo.BaseForm", "XSolo.BaseForm\XSolo.BaseForm.csproj", "{EEC73104-235E-4814-A60C-A9F5D5198E3A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XSolo.Common", "XSolo.Common\XSolo.Common.csproj", "{F4EB7896-2E7C-4055-9B02-7DB20C9570F1}"
@@ -15,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TDReferences", "TDReference
 	ProjectSection(SolutionItems) = preProject
 		TDReferences\1.ico = TDReferences\1.ico
 		TDReferences\DotNetSkin.dll = TDReferences\DotNetSkin.dll
+		TDReferences\DotNetSpeech.dll = TDReferences\DotNetSpeech.dll
 		TDReferences\Extensis-EXTENSIS.skn = TDReferences\Extensis-EXTENSIS.skn
 		TDReferences\Ionic.Zip.dll = TDReferences\Ionic.Zip.dll
 		TDReferences\Lephone.Data.dll = TDReferences\Lephone.Data.dll
@@ -38,18 +41,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildCafe", "ChildCafe\Chil
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{3C555975-82F2-4C2C-B41E-A9748C5B9BFB}"
 	ProjectSection(SolutionItems) = preProject
+		Documents\ERP中英文词典.xls = Documents\ERP中英文词典.xls
 		Documents\ImportTemp-Goods.xls = Documents\ImportTemp-Goods.xls
+		Documents\ImportTemp-Goods1.xls = Documents\ImportTemp-Goods1.xls
 		Documents\ImportTemp-Member2.xls = Documents\ImportTemp-Member2.xls
+		Documents\v_BaseInfoMaterial.xls = Documents\v_BaseInfoMaterial.xls
 		Documents\会员信息模版.xls = Documents\会员信息模版.xls
+		Documents\关于台号.txt = Documents\关于台号.txt
 		Documents\数据结构.xls = Documents\数据结构.xls
 		Documents\新建文本文档.txt = Documents\新建文本文档.txt
+		Documents\游园卡管理.txt = Documents\游园卡管理.txt
+		Documents\物料信息模版.xls = Documents\物料信息模版.xls
 		Documents\销售明细-20130819-171924.xls = Documents\销售明细-20130819-171924.xls
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = TDSystem.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug (SQL Server Only)|Any CPU = Debug (SQL Server Only)|Any CPU
 		Debug (SQL Server Only)|Mixed Platforms = Debug (SQL Server Only)|Mixed Platforms
@@ -188,6 +194,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = TDSystem.vsmdi
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True

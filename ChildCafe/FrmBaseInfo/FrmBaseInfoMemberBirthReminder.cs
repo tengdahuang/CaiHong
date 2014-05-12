@@ -29,11 +29,7 @@ namespace ChildCafe
             TableForLoad = BllBaseInfoMember.GetRemain(UserStatics.OptrType, 7);
         }
 
-        protected override void SetDataGridViewColumns()
-        {
-            baseDataGridView.Columns[IdNameInTable].Visible = false;
 
-        }
 
         protected override void btnFind_Click(object sender, EventArgs e)
         {

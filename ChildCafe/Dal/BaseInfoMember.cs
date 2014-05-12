@@ -23,7 +23,7 @@ namespace ChildCafe.Dal
         /// 姓名
         /// </summary>
         [Length(30)]
-        public abstract string Name { get; set; }
+        public abstract string MemberName { get; set; }
 
         /// <summary>
         /// 简拼
@@ -96,5 +96,9 @@ namespace ChildCafe.Dal
 
         [HasMany(OrderBy = "Id")]
         public abstract IList<BaseInfoMemberRecharge> BaseInfoMemberRecharges { get; set; }
+
+        [HasMany(OrderBy = "Id")]
+        public abstract IList<BaseInfoCard> BaseInfoCards { get; set; }
+
     }
 }

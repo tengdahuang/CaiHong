@@ -20,7 +20,8 @@ namespace ChildCafe.Bll
             dt.Columns[4].ColumnName = "更新时间";
             dt.Columns[5].ColumnName = "状态";
             dt.Columns[6].ColumnName = "顺序";
-            dt.Columns[7].ColumnName = "是否删除";
+            dt.Columns[7].ColumnName = "是否Dialog";
+            dt.Columns[8].ColumnName = "是否删除";
             return dt;
 
         }

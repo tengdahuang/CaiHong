@@ -34,12 +34,7 @@ namespace ChildCafe
             TableForLoad = BllBaseInfoMember.GetTable(UserStatics.OptrType);
         }
 
-        protected override void SetDataGridViewColumns()
-        {
-            baseDataGridView.Columns[IdNameInTable].Visible = false;
-            baseDataGridView.Columns["用户类型"].Visible = false;
 
-        }
 
         protected override void SetImportOptration()
         {
@@ -101,8 +96,8 @@ namespace ChildCafe
                     BaseInfoMember bifm = BaseInfoMember.New;
                     bifm.JoinedDate = (DateTime)dt.Rows[iRow][0];
                     bifm.CardNumber = dt.Rows[iRow][1].ToString();
-                    bifm.Name = dt.Rows[iRow][2].ToString();
-                    bifm.PinYin = PinYinTransfer.GetInitials(bifm.Name, gb2312);
+                    bifm.MemberName = dt.Rows[iRow][2].ToString();
+                    bifm.PinYin = PinYinTransfer.GetInitials(bifm.MemberName, gb2312);
                     bifm.Password = dt.Rows[iRow][4].ToString();
                     bifm.Birth = (DateTime)dt.Rows[iRow][5];
                     bifm.Mobile = dt.Rows[iRow][6].ToString();
@@ -129,7 +124,7 @@ namespace ChildCafe
 
         protected override string SetFilterString()
         {
-            return "简拼 like '%" + tbFind.Text + "%'";
+            return "简拼 like '%" + tbFind.Text + "%' or 姓名 like '%" + tbFind.Text + "%' or 卡号 like '%" + tbFind.Text + "%'";
         }
     }
 }

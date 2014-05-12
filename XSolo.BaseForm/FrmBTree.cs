@@ -114,6 +114,7 @@ namespace XSolo.BaseForm
                 InitTree();
                 reloadDataGridView();
                 SetCountToolStripStatusLabel();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 
@@ -176,6 +177,16 @@ namespace XSolo.BaseForm
 
         #endregion 加载时初始化设置
 
+        ///<summary>
+        ///设置GridView必需隐藏的行
+        /// </summary>
+        protected void DataGridViewMustHideColumns()
+        {
+            if (baseDataGridView.Columns["IsDeleted"] != null) baseDataGridView.Columns["IsDeleted"].Visible = false;
+            if (baseDataGridView.Columns[IdNameInTable] != null) baseDataGridView.Columns[IdNameInTable].Visible = false;
+            if (baseDataGridView.Columns["用户类型"] != null) baseDataGridView.Columns["用户类型"].Visible = false;
+        }
+        
         /// <summary>
         /// 设置GridView显示的行
         /// </summary>
@@ -398,6 +409,7 @@ namespace XSolo.BaseForm
                 }
                 InitData();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
                 if (IsTree)
                 {
@@ -428,6 +440,7 @@ namespace XSolo.BaseForm
                 }
                 InitData();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
                 if (IsTree)
                 {
@@ -451,13 +464,14 @@ namespace XSolo.BaseForm
 
                             foreach (DataGridViewRow row in baseDataGridView.SelectedRows)
                             {
-                                DeletingRowId = long.Parse(row.Cells[0].Value.ToString());
+                                DeletingRowId = long.Parse(row.Cells[IdNameInTable].Value.ToString());
                                 DeleteCurrentRow();
                                 count++;
                             }
-                            MessageBox.Show("已删除" + count + "条记录！");
+                            delCountToolStripStatusLabel.Text = "已删除" + count + "条记录！";
                             
                             resetDataGridView();
+                            DataGridViewMustHideColumns();
                             SetDataGridViewColumns();
                             if (IsTree)
                             {
@@ -486,6 +500,7 @@ namespace XSolo.BaseForm
             {
                 InitData();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
                 if (IsTree)
                 {
@@ -521,6 +536,7 @@ namespace XSolo.BaseForm
             {
                 SetOperation();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 
@@ -532,6 +548,7 @@ namespace XSolo.BaseForm
             {
                 SetImportOptration();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 
@@ -543,10 +560,23 @@ namespace XSolo.BaseForm
             {
                 SetRechargeOptration();
                 resetDataGridView();
+                DataGridViewMustHideColumns();
                 SetDataGridViewColumns();
             }
 
             #endregion 充值结束
+
+            #region 耗材
+
+            if (fullName == "耗材" && AsmName != "")
+            {
+                SetIngredientOptration();
+                resetDataGridView();
+                DataGridViewMustHideColumns();
+                SetDataGridViewColumns();
+            }
+
+            #endregion 耗材结束
         }
 
 
@@ -565,6 +595,11 @@ namespace XSolo.BaseForm
         }
 
         virtual protected void SetRechargeOptration()
+        {
+            throw new NotImplementedException();
+        }
+
+        virtual protected void SetIngredientOptration()
         {
             throw new NotImplementedException();
         }
@@ -712,7 +747,7 @@ namespace XSolo.BaseForm
         /// </summary>
         virtual protected void GetSelectedValue()
         {
-            SelectedValue = (long)baseDataGridView.SelectedCells[0].Value;
+            SelectedValue = long.Parse(baseDataGridView.SelectedCells[0].Value.ToString());
         }
 
         virtual protected void baseDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

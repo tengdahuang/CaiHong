@@ -33,22 +33,28 @@
             System.Windows.Forms.Label chineseNameLabel;
             System.Windows.Forms.Label nStateLabel;
             System.Windows.Forms.Label SequenceLabel;
+            System.Windows.Forms.Label label1;
             this.ctName = new System.Windows.Forms.TextBox();
             this.ctParentId = new System.Windows.Forms.ComboBox();
             this.ctChineseName = new System.Windows.Forms.TextBox();
             this.ctStatus = new System.Windows.Forms.TextBox();
             this.ctSequence = new System.Windows.Forms.TextBox();
+            this.ctDialogType = new System.Windows.Forms.TextBox();
             nameLabel = new System.Windows.Forms.Label();
             parentIDLabel = new System.Windows.Forms.Label();
             chineseNameLabel = new System.Windows.Forms.Label();
             nStateLabel = new System.Windows.Forms.Label();
             SequenceLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(label1);
+            this.tabPage1.Controls.Add(this.ctDialogType);
             this.tabPage1.Controls.Add(SequenceLabel);
             this.tabPage1.Controls.Add(this.ctSequence);
             this.tabPage1.Controls.Add(nameLabel);
@@ -63,7 +69,7 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(22, 56);
+            nameLabel.Location = new System.Drawing.Point(27, 21);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new System.Drawing.Size(59, 12);
             nameLabel.TabIndex = 20;
@@ -72,7 +78,7 @@
             // parentIDLabel
             // 
             parentIDLabel.AutoSize = true;
-            parentIDLabel.Location = new System.Drawing.Point(22, 83);
+            parentIDLabel.Location = new System.Drawing.Point(27, 48);
             parentIDLabel.Name = "parentIDLabel";
             parentIDLabel.Size = new System.Drawing.Size(47, 12);
             parentIDLabel.TabIndex = 22;
@@ -81,7 +87,7 @@
             // chineseNameLabel
             // 
             chineseNameLabel.AutoSize = true;
-            chineseNameLabel.Location = new System.Drawing.Point(22, 109);
+            chineseNameLabel.Location = new System.Drawing.Point(27, 74);
             chineseNameLabel.Name = "chineseNameLabel";
             chineseNameLabel.Size = new System.Drawing.Size(59, 12);
             chineseNameLabel.TabIndex = 24;
@@ -90,15 +96,24 @@
             // nStateLabel
             // 
             nStateLabel.AutoSize = true;
-            nStateLabel.Location = new System.Drawing.Point(22, 136);
+            nStateLabel.Location = new System.Drawing.Point(27, 101);
             nStateLabel.Name = "nStateLabel";
             nStateLabel.Size = new System.Drawing.Size(35, 12);
             nStateLabel.TabIndex = 27;
             nStateLabel.Text = "状态:";
             // 
+            // SequenceLabel
+            // 
+            SequenceLabel.AutoSize = true;
+            SequenceLabel.Location = new System.Drawing.Point(27, 128);
+            SequenceLabel.Name = "SequenceLabel";
+            SequenceLabel.Size = new System.Drawing.Size(35, 12);
+            SequenceLabel.TabIndex = 29;
+            SequenceLabel.Text = "顺序:";
+            // 
             // ctName
             // 
-            this.ctName.Location = new System.Drawing.Point(105, 53);
+            this.ctName.Location = new System.Drawing.Point(110, 18);
             this.ctName.Name = "ctName";
             this.ctName.Size = new System.Drawing.Size(100, 21);
             this.ctName.TabIndex = 21;
@@ -106,42 +121,50 @@
             // ctParentId
             // 
             this.ctParentId.FormattingEnabled = true;
-            this.ctParentId.Location = new System.Drawing.Point(105, 80);
+            this.ctParentId.Location = new System.Drawing.Point(110, 45);
             this.ctParentId.Name = "ctParentId";
             this.ctParentId.Size = new System.Drawing.Size(100, 20);
             this.ctParentId.TabIndex = 23;
             // 
             // ctChineseName
             // 
-            this.ctChineseName.Location = new System.Drawing.Point(105, 106);
+            this.ctChineseName.Location = new System.Drawing.Point(110, 71);
             this.ctChineseName.Name = "ctChineseName";
             this.ctChineseName.Size = new System.Drawing.Size(100, 21);
             this.ctChineseName.TabIndex = 25;
             // 
             // ctStatus
             // 
-            this.ctStatus.Location = new System.Drawing.Point(105, 133);
+            this.ctStatus.Location = new System.Drawing.Point(110, 98);
             this.ctStatus.Name = "ctStatus";
             this.ctStatus.Size = new System.Drawing.Size(100, 21);
             this.ctStatus.TabIndex = 28;
             this.ctStatus.Text = "0";
             // 
-            // SequenceLabel
-            // 
-            SequenceLabel.AutoSize = true;
-            SequenceLabel.Location = new System.Drawing.Point(22, 163);
-            SequenceLabel.Name = "SequenceLabel";
-            SequenceLabel.Size = new System.Drawing.Size(35, 12);
-            SequenceLabel.TabIndex = 29;
-            SequenceLabel.Text = "顺序:";
-            // 
             // ctSequence
             // 
-            this.ctSequence.Location = new System.Drawing.Point(105, 160);
+            this.ctSequence.Location = new System.Drawing.Point(110, 125);
             this.ctSequence.Name = "ctSequence";
             this.ctSequence.Size = new System.Drawing.Size(100, 21);
             this.ctSequence.TabIndex = 30;
             this.ctSequence.Text = "0";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(27, 155);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(71, 12);
+            label1.TabIndex = 31;
+            label1.Text = "对话框类型:";
+            // 
+            // ctDialogType
+            // 
+            this.ctDialogType.Location = new System.Drawing.Point(110, 152);
+            this.ctDialogType.Name = "ctDialogType";
+            this.ctDialogType.Size = new System.Drawing.Size(100, 21);
+            this.ctDialogType.TabIndex = 32;
+            this.ctDialogType.Text = "0";
             // 
             // FrmACLModuleEdit
             // 
@@ -151,6 +174,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +187,6 @@
         private System.Windows.Forms.TextBox ctChineseName;
         private System.Windows.Forms.TextBox ctStatus;
         private System.Windows.Forms.TextBox ctSequence;
+        private System.Windows.Forms.TextBox ctDialogType;
     }
 }

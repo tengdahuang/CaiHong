@@ -31,9 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetSkin">
       <HintPath>..\TDReferences\DotNetSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetSpeech">
+      <HintPath>..\TDReferences\DotNetSpeech.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Lephone.Data">
       <HintPath>..\TDReferences\Lephone.Data.dll</HintPath>
@@ -52,6 +59,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessSystem.cs" />
+    <Compile Include="Bll\BllBaseInfoCard.cs" />
+    <Compile Include="Bll\BllBaseInfoMemberTester.cs" />
+    <Compile Include="Common\ChnColAttribute.cs" />
+    <Compile Include="Dal\BaseInfoCard.cs" />
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCard.Designer.cs">
+      <DependentUpon>FrmBaseInfoCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCardEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCardEdit.Designer.cs">
+      <DependentUpon>FrmBaseInfoCardEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoTextToSpeech.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoTextToSpeech.Designer.cs">
+      <DependentUpon>FrmBaseInfoTextToSpeech.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTester.Designer.cs">
+      <DependentUpon>FrmBaseInfoMemberTester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput.Designer.cs">
+      <DependentUpon>FrmBaseInfoMemberTesterInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bll\BllACLAction.cs" />
     <Compile Include="Bll\BllACLModule.cs" />
     <Compile Include="Bll\BllACLModuleAction.cs" />
@@ -59,12 +100,14 @@
     <Compile Include="Bll\BllACLOptrAction.cs" />
     <Compile Include="Bll\BllACLOptrModule.cs" />
     <Compile Include="Bll\BllBaseInfoMaterial.cs" />
+    <Compile Include="Bll\BllBaseInfoMaterialIngredients.cs" />
     <Compile Include="Bll\BllBaseInfoMember.cs" />
     <Compile Include="Bll\BllBaseInfoStaff.cs" />
     <Compile Include="Bll\BllBaseInfoVendor.cs" />
     <Compile Include="Bll\BllFrmAppMain.cs" />
     <Compile Include="Bll\BllMainDict.cs" />
     <Compile Include="Bll\BllMainDictType.cs" />
+    <Compile Include="Bll\BllSupplyChainPos.cs" />
     <Compile Include="Bll\BllUserLogin.cs" />
     <Compile Include="Common\CommonStatics.cs" />
     <Compile Include="Common\ExcelToAccess.cs" />
@@ -75,6 +118,7 @@
     <Compile Include="Dal\BaseInfoMaterialIngredient.cs" />
     <Compile Include="Dal\BaseInfoMember.cs" />
     <Compile Include="Dal\BaseInfoMemberRecharge.cs" />
+    <Compile Include="Dal\BaseInfoMemberTester.cs" />
     <Compile Include="Dal\BaseInfoStaff.cs" />
     <Compile Include="Dal\BaseInfoVendor.cs" />
     <Compile Include="Dal\MainAction.cs" />
@@ -84,6 +128,20 @@
     <Compile Include="Dal\MainOptr.cs" />
     <Compile Include="Dal\MainOptrType.cs" />
     <Compile Include="Dal\MainRole.cs" />
+    <Compile Include="Dal\SupplyChainPos.cs" />
+    <Compile Include="Dal\SupplyChainPosDetail.cs" />
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput2.Designer.cs">
+      <DependentUpon>FrmBaseInfoMemberTesterInput2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMaterialIngredients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoMaterialIngredients.Designer.cs">
+      <DependentUpon>FrmBaseInfoMaterialIngredients.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +201,12 @@
     </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoMember.Designer.cs">
       <DependentUpon>FrmBaseInfoMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSupplyChain\FrmSupplyChainPos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSupplyChain\FrmSupplyChainPos.Designer.cs">
+      <DependentUpon>FrmSupplyChainPos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSys\FrmMainDict.cs">
       <SubType>Form</SubType>
@@ -236,6 +300,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoCard.resx">
+      <DependentUpon>FrmBaseInfoCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoCardEdit.resx">
+      <DependentUpon>FrmBaseInfoCardEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoTextToSpeech.resx">
+      <DependentUpon>FrmBaseInfoTextToSpeech.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberTester.resx">
+      <DependentUpon>FrmBaseInfoMemberTester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput.resx">
+      <DependentUpon>FrmBaseInfoMemberTesterInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMemberTesterInput2.resx">
+      <DependentUpon>FrmBaseInfoMemberTesterInput2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMaterialIngredients.resx">
+      <DependentUpon>FrmBaseInfoMaterialIngredients.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoMaterial.resx">
       <DependentUpon>FrmBaseInfoMaterial.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoVendorEdit.resx">
       <DependentUpon>FrmBaseInfoVendorEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSupplyChain\FrmSupplyChainPos.resx">
+      <DependentUpon>FrmSupplyChainPos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSys\FrmMainDict.resx">
       <DependentUpon>FrmMainDict.cs</DependentUpon>
@@ -324,6 +412,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <EmbeddedResource Include="1.ico" />
     <Content Include="Caihong.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

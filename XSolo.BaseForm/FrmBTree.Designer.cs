@@ -46,6 +46,7 @@
             this.baseToolStrip = new System.Windows.Forms.ToolStrip();
             this.baseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.baseImageList = new System.Windows.Forms.ImageList(this.components);
+            this.delCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.baseDataGridView)).BeginInit();
             this.panelMain.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -132,7 +133,8 @@
             // baseStatusStrip
             // 
             this.baseStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.countToolStripStatusLabel});
+            this.countToolStripStatusLabel,
+            this.delCountToolStripStatusLabel});
             this.baseStatusStrip.Location = new System.Drawing.Point(0, 375);
             this.baseStatusStrip.Name = "baseStatusStrip";
             this.baseStatusStrip.Size = new System.Drawing.Size(531, 22);
@@ -226,6 +228,11 @@
             this.baseImageList.Images.SetKeyName(15, "search.png");
             this.baseImageList.Images.SetKeyName(16, "up.png");
             // 
+            // delCountToolStripStatusLabel
+            // 
+            this.delCountToolStripStatusLabel.Name = "delCountToolStripStatusLabel";
+            this.delCountToolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
             // FrmBTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -263,8 +270,6 @@
         protected System.Windows.Forms.SplitContainer splitContainer1;
         protected System.Windows.Forms.BindingSource baseBindingSource;
         private System.Windows.Forms.Panel panelMain;
-        protected System.Windows.Forms.Panel panelFind;
-        protected System.Windows.Forms.ToolStrip baseToolStrip;
         private System.Windows.Forms.ImageList baseImageList;
         protected System.Windows.Forms.TextBox tbFind;
         protected System.Windows.Forms.Label lbFind;
@@ -272,5 +277,8 @@
         protected System.Windows.Forms.Button btnFind;
         protected System.Windows.Forms.StatusStrip baseStatusStrip;
         protected System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
+        public System.Windows.Forms.ToolStrip baseToolStrip;
+        public System.Windows.Forms.Panel panelFind;
+        private System.Windows.Forms.ToolStripStatusLabel delCountToolStripStatusLabel;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ChildCafe.Bll;
 using ChildCafe.Common;
 using ChildCafe.Dal;
 using XSolo.Common;
@@ -13,6 +14,8 @@ namespace ChildCafe
 {
     public partial class FrmBaseInfoMaterialEdit : XSolo.BaseForm.FrmAddEdit
     {
+        private bool IsSaved = false;
+
         public FrmBaseInfoMaterialEdit()
         {
             InitializeComponent();
@@ -33,12 +36,17 @@ namespace ChildCafe
             ctSaleUnitName.DisplayMember = "Name";
 
 
-            if (!IsAdd)
+            if (!IsAdd || IsSaved)
             {
                 var obj = BaseInfoMaterial.FindById(long.Parse(ItemID));
                 BindControlsDecimal.BindObjectToControls(obj, tabPage1);
-                //ReSetNumbericUpDownStatus();
+                BindControlsDecimal.BindObjectToControls(obj, tabPage2);
+                bsIngredients.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, ItemID);
+                dgvIngredients.DataSource = bsIngredients;
+
             }
+
+
             
         }
 
@@ -48,14 +56,18 @@ namespace ChildCafe
             {
                 var obj = BaseInfoMaterial.FindById(long.Parse(ItemID));
                 BindControlsDecimal.BindControlsToObject(obj, tabPage1);
+                BindControlsDecimal.BindControlsToObject(obj, tabPage2);
                 obj.Save();
             }
             else
             {
                 var obj = BaseInfoMaterial.New;
                 BindControlsDecimal.BindControlsToObject(obj, tabPage1);
+                BindControlsDecimal.BindControlsToObject(obj, tabPage2);
                 obj.OptrType = UserStatics.OptrType;
                 obj.Save();
+                ItemID = obj.Id.ToString();
+                IsSaved = true;
             }
 
         }
@@ -127,6 +139,24 @@ namespace ChildCafe
         {
             if (ctCategory.Text == "半成品") ctIsIngredient.Checked = true;
             else ctIsIngredient.Checked = false;
+        }
+
+        private void chooseIngredient_Click(object sender, EventArgs e)
+        {
+            if (!IsAdd || IsSaved )
+            {
+                FrmBaseInfoMaterialIngredients frmBaseInfoMaterialIngredients = new FrmBaseInfoMaterialIngredients();
+                frmBaseInfoMaterialIngredients.BaseParentId = ItemID;
+                frmBaseInfoMaterialIngredients.ShowDialog();
+                bsIngredients.DataSource = null;
+                bsIngredients.DataSource = BllBaseInfoMaterialIngredients.GetDestTable(UserStatics.OptrType, ItemID);
+                dgvIngredients.DataSource = bsIngredients;
+                Loading();
+            }
+            else
+            {
+                MessageBox.Show("请先保存该商品!");
+            }
         }
     }
 }

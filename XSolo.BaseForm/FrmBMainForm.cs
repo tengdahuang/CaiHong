@@ -274,7 +274,7 @@ namespace XSolo.BaseForm
 
                         subMenu.Text = dv[i]["ChineseName"].ToString();
                         //扩展属性可以加任何想要的值。
-                        subMenu.Tag = dv[i]["Name"] + "." + dv[i]["Id"] + "." + dv[i]["ChineseName"];
+                        subMenu.Tag = dv[i]["Name"] + "." + dv[i]["Id"] + "." + dv[i]["ChineseName"] + "." + dv[i]["DialogType"];
                         //给没有子菜单的菜单项加事件。
                         subMenu.Click += SubMenuClick;
 
@@ -376,8 +376,17 @@ namespace XSolo.BaseForm
             frms.Text = formName.Split('.')[2];
             frms.StartPosition = FormStartPosition.CenterScreen;
             frms.Tag = formName;
-            frms.MdiParent = this;
-            frms.Show();
+            
+            if (formName.Split('.')[3] == "1")
+            {
+                frms.ShowDialog();
+            }
+            else
+            {
+                frms.MdiParent = this;
+                frms.Show();
+            }
+            
         }
 
         #endregion 菜单单击事件及打开子窗体

@@ -21,9 +21,9 @@ namespace ChildCafe.Bll
         {
             DataTable dt = new DataTable();
             SqlStatement sqlStatement =
-            new SqlStatement("SELECT mm.Id AS Id, mm.Name AS Name, mm.ChineseName AS ChineseName, mm.ParentId AS ParentId, mm.Sequence AS Sequence " +
+            new SqlStatement("SELECT mm.Id AS Id, mm.Name AS Name, mm.ChineseName AS ChineseName, mm.ParentId AS ParentId, mm.Sequence AS Sequence, mm.DialogType as DialogType " +
                                 "from " + 
-                                "(SELECT m.Id as Id, Name, ChineseName, ParentId, Sequence, mmmo.MainOptr_Id FROM MainModule AS m INNER JOIN MainModule_MainOptr AS mmmo ON m.Id=mmmo.MainModule_Id) mm " +
+                                "(SELECT m.Id as Id, Name, ChineseName, ParentId, Sequence, DialogType, mmmo.MainOptr_Id FROM MainModule AS m INNER JOIN MainModule_MainOptr AS mmmo ON m.Id=mmmo.MainModule_Id) mm " +
                                 "inner JOIN MainOptr mo ON mm.MainOptr_Id = mo.Id WHERE (mo.Id = @Id) Order By mm.ParentId,mm.Sequence",
             new DataParameter("@id", id));
             dt = DbEntry.Context.ExecuteDataset(sqlStatement).Tables[0];

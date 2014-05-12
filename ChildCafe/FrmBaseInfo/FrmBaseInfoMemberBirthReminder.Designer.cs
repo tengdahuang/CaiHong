@@ -50,6 +50,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.ClientSize = new System.Drawing.Size(715, 450);
             this.Name = "FrmBaseInfoMemberBirthReminder";
+            this.Text = "生日提醒";
             this.Load += new System.EventHandler(this.FrmBaseInfoMemberBirthReminder_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);

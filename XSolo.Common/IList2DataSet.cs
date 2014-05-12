@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Reflection;
 using System.Text;
 
 
@@ -15,11 +16,12 @@ namespace XSolo.Common
                 return null;
             }
             DataSet ds = new DataSet();
-            DataTable dt = new DataTable(typeof(T).Name);
+            DataTable dt = new DataTable(typeof (T).Name);
             DataColumn column;
             DataRow row;
 
-            System.Reflection.PropertyInfo[] myPropertyInfo = typeof(T).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+            System.Reflection.PropertyInfo[] myPropertyInfo =
+                typeof (T).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
 
             foreach (T t in list)
             {
@@ -43,6 +45,27 @@ namespace XSolo.Common
             }
             ds.Tables.Add(dt);
             return ds;
+        }
+
+        public static T ConvertToEntity<T>(DataRow dr)
+        {
+            // 得到模型的类型
+            Type type = typeof (T);
+            T instance = (T) Activator.CreateInstance(type);
+
+            PropertyInfo[] pis =
+                type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.SetProperty |
+                                   BindingFlags.SetField);
+
+            foreach (PropertyInfo pi in pis)
+            {
+                string strColumnName = pi.Name;
+                if (dr[strColumnName] != DBNull.Value)
+                {
+                    pi.SetValue(instance, dr[strColumnName], null);
+                }
+            }
+            return instance;
         }
     }
 }

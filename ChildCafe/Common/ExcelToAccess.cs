@@ -33,8 +33,8 @@ namespace ChildCafe.Common
                 {
                     BaseInfoMember bifm = BaseInfoMember.New;
                     bifm.CardNumber = dt.Rows[iRow][0].ToString();
-                    bifm.Name = dt.Rows[iRow][1].ToString();
-                    bifm.PinYin = AutoPinYin.GetPinYin(bifm.Name);
+                    bifm.MemberName = dt.Rows[iRow][1].ToString();
+                    bifm.PinYin = AutoPinYin.GetPinYin(bifm.MemberName);
                     bifm.Password = dt.Rows[iRow][3].ToString();
                     bifm.Birth = (DateTime) dt.Rows[iRow][4];
                     bifm.Mobile = dt.Rows[iRow][5].ToString();

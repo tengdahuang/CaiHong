@@ -24,6 +24,11 @@ namespace ChildCafe.Dal
 
         public abstract int Sequence { get; set; }
 
+        /// <summary>
+        /// 是否对话窗体
+        /// </summary>
+        public abstract int DialogType { get; set; }
+
         [HasAndBelongsToMany(OrderBy = "Id")]
         public abstract IList<MainAction> Actions { get; set; }
 
