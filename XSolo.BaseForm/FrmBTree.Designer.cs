@@ -88,6 +88,7 @@
             this.baseDataGridView.TabIndex = 3;
             this.baseDataGridView.Tag = "修改";
             this.baseDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.baseDataGridView_CellDoubleClick);
+            this.baseDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.baseDataGridView_CellFormatting);
             this.baseDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.baseDataGridView_CellPainting);
             this.baseDataGridView.SelectionChanged += new System.EventHandler(this.baseDataGridView_SelectionChanged);
             this.baseDataGridView.KeyUp += new System.Windows.Forms.KeyEventHandler(this.baseDataGridView_KeyUp);
@@ -270,6 +271,8 @@
         protected System.Windows.Forms.SplitContainer splitContainer1;
         protected System.Windows.Forms.BindingSource baseBindingSource;
         private System.Windows.Forms.Panel panelMain;
+        protected System.Windows.Forms.Panel panelFind;
+        protected System.Windows.Forms.ToolStrip baseToolStrip;
         private System.Windows.Forms.ImageList baseImageList;
         protected System.Windows.Forms.TextBox tbFind;
         protected System.Windows.Forms.Label lbFind;
@@ -277,8 +280,6 @@
         protected System.Windows.Forms.Button btnFind;
         protected System.Windows.Forms.StatusStrip baseStatusStrip;
         protected System.Windows.Forms.ToolStripStatusLabel countToolStripStatusLabel;
-        public System.Windows.Forms.ToolStrip baseToolStrip;
-        public System.Windows.Forms.Panel panelFind;
         private System.Windows.Forms.ToolStripStatusLabel delCountToolStripStatusLabel;
     }
 }

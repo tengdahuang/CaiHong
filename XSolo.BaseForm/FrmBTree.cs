@@ -79,6 +79,8 @@ namespace XSolo.BaseForm
         /// </summary>
         protected long ModuleId { get; set; }
 
+        protected bool IsDataGridViewToExcelShortDate { get; set; }
+
         /// <summary>
         /// 私有成员，用于记录点击datagridview时的该条记录的Id
         /// </summary>
@@ -104,6 +106,7 @@ namespace XSolo.BaseForm
             IdNameInTable = "Id";
             FormTreeRootName = "所有";
             ParentItemId = "上一级";
+            IsDataGridViewToExcelShortDate = false;
 
             if (Tag.ToString() != "")
             {
@@ -186,7 +189,7 @@ namespace XSolo.BaseForm
             if (baseDataGridView.Columns[IdNameInTable] != null) baseDataGridView.Columns[IdNameInTable].Visible = false;
             if (baseDataGridView.Columns["用户类型"] != null) baseDataGridView.Columns["用户类型"].Visible = false;
         }
-        
+
         /// <summary>
         /// 设置GridView显示的行
         /// </summary>
@@ -524,8 +527,16 @@ namespace XSolo.BaseForm
 
             if (fullName == "导出" && AsmName != "")
             {
-                NPOIGvToExcel.DataGridViewToExcel(baseDataGridView);
-                //GvToExcel.DataGridViewToExcel(baseDataGridView);
+                if (IsDataGridViewToExcelShortDate)
+                {
+                    NPOIGvToExcel.DataGridViewToExcelShortDate(baseDataGridView);
+                }
+                else
+                {
+                    NPOIGvToExcel.DataGridViewToExcel(baseDataGridView);
+                    //GvToExcel.DataGridViewToExcel(baseDataGridView);
+
+                }
             }
 
             #endregion 导出结束
@@ -566,6 +577,7 @@ namespace XSolo.BaseForm
 
             #endregion 充值结束
 
+
             #region 耗材
 
             if (fullName == "耗材" && AsmName != "")
@@ -577,6 +589,18 @@ namespace XSolo.BaseForm
             }
 
             #endregion 耗材结束
+            #region 历史
+
+            if (fullName == "历史" && AsmName != "")
+            {
+                SetHistoryOptration();
+                resetDataGridView();
+                DataGridViewMustHideColumns();
+                SetDataGridViewColumns();
+            }
+
+            #endregion 历史结束
+
         }
 
 
@@ -600,6 +624,11 @@ namespace XSolo.BaseForm
         }
 
         virtual protected void SetIngredientOptration()
+        {
+            throw new NotImplementedException();
+        }
+
+        virtual protected void SetHistoryOptration()
         {
             throw new NotImplementedException();
         }
@@ -765,6 +794,10 @@ namespace XSolo.BaseForm
             {
                 countToolStripStatusLabel.Text = "总共有" + baseDataGridView.RowCount.ToString() + "条记录";
             }
+        }
+        virtual protected void baseDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
         }
 
 
