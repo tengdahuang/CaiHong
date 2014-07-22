@@ -62,7 +62,7 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Size = new System.Drawing.Size(584, 266);
+            this.tabControl1.Size = new System.Drawing.Size(784, 376);
             // 
             // tabPage1
             // 
@@ -91,7 +91,7 @@
             this.tabPage1.Controls.Add(this.ctCardNumber);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Size = new System.Drawing.Size(576, 240);
+            this.tabPage1.Size = new System.Drawing.Size(776, 350);
             // 
             // ctChildName
             // 
@@ -244,9 +244,12 @@
             this.ctCardType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ctCardType.FormattingEnabled = true;
             this.ctCardType.Items.AddRange(new object[] {
+            "五次卡",
             "十次卡",
             "二十次卡",
             "月卡",
+            "季卡",
+            "半年卡",
             "年卡",
             "暑假卡"});
             this.ctCardType.Location = new System.Drawing.Point(67, 60);
@@ -282,15 +285,16 @@
             // 
             // ctPictureDir
             // 
-            this.ctPictureDir.Location = new System.Drawing.Point(404, 6);
+            this.ctPictureDir.Location = new System.Drawing.Point(397, 36);
             this.ctPictureDir.Name = "ctPictureDir";
-            this.ctPictureDir.Size = new System.Drawing.Size(120, 180);
+            this.ctPictureDir.Size = new System.Drawing.Size(360, 270);
+            this.ctPictureDir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ctPictureDir.TabIndex = 78;
             this.ctPictureDir.TabStop = false;
             // 
             // btnCapture
             // 
-            this.btnCapture.Location = new System.Drawing.Point(386, 192);
+            this.btnCapture.Location = new System.Drawing.Point(397, 6);
             this.btnCapture.Name = "btnCapture";
             this.btnCapture.Size = new System.Drawing.Size(75, 23);
             this.btnCapture.TabIndex = 79;
@@ -300,12 +304,13 @@
             // 
             // btnDelPicture
             // 
-            this.btnDelPicture.Location = new System.Drawing.Point(467, 192);
+            this.btnDelPicture.Location = new System.Drawing.Point(478, 6);
             this.btnDelPicture.Name = "btnDelPicture";
             this.btnDelPicture.Size = new System.Drawing.Size(75, 23);
             this.btnDelPicture.TabIndex = 80;
             this.btnDelPicture.Text = "&Del删照";
             this.btnDelPicture.UseVisualStyleBackColor = true;
+            this.btnDelPicture.Click += new System.EventHandler(this.btnDelPicture_Click);
             // 
             // ctPictureFilePath
             // 
@@ -326,7 +331,7 @@
             // FrmBaseInfoCardEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.ClientSize = new System.Drawing.Size(584, 301);
+            this.ClientSize = new System.Drawing.Size(784, 411);
             this.Name = "FrmBaseInfoCardEdit";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmBaseInfoCardEdit_KeyUp);
             this.tabControl1.ResumeLayout(false);

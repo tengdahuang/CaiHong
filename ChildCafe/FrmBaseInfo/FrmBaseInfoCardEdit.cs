@@ -29,6 +29,10 @@ namespace ChildCafe
                 var obj = BaseInfoCard.FindById(long.Parse(ItemID));
                 FrmAddEditBindComboBoxText.BindObjectToControls(obj, tabPage1);
                 if (obj.BaseInfoMember != null) { ctMemberCardNumber.Text = obj.BaseInfoMember.CardNumber; }
+                if (File.Exists(ctPictureFilePath.Text))
+                {
+                    ctPictureDir.Load(ctPictureFilePath.Text);
+                }
 
             }
             else
@@ -154,9 +158,12 @@ namespace ChildCafe
 
         private void ctCardType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ctCardType.Text == "五次卡") { ctCountLeft.Value = 5; ctExpirationDate.Value = DateTime.Now.AddYears(1); }
             if (ctCardType.Text == "十次卡") { ctCountLeft.Value = 10; ctExpirationDate.Value = DateTime.Now.AddYears(1); }
             if (ctCardType.Text == "二十次卡") { ctCountLeft.Value = 20; ctExpirationDate.Value = DateTime.Now.AddYears(1); }
             if (ctCardType.Text == "月卡") { ctExpirationDate.Value = DateTime.Now.AddMonths(1); }
+            if (ctCardType.Text == "季卡") { ctExpirationDate.Value = DateTime.Now.AddMonths(3); }
+            if (ctCardType.Text == "半年卡") { ctExpirationDate.Value = DateTime.Now.AddMonths(6); }
             if (ctCardType.Text == "年卡") { ctExpirationDate.Value = DateTime.Now.AddYears(1); }
             if (ctCardType.Text == "暑假卡") { ctExpirationDate.Value = DateTime.Now.AddMonths(2); }
         }
@@ -164,7 +171,7 @@ namespace ChildCafe
         private void btnCapture_Click(object sender, EventArgs e)
         {
             string fileName = "";
-            if (ctPictureFilePath.Text.EndsWith("png"))
+            if (ctPictureFilePath.Text.EndsWith("jpg"))
             {
                 MessageBox.Show("该会员已拍照！");
             }
@@ -172,12 +179,12 @@ namespace ChildCafe
             {
                 if (ctCardNumber.Text != "" || ctMobile.Text != "")
                 {
-                    fileName = @".\Images\" + ctCardNumber.Text + ctMobile.Text + ".png";
+                    fileName = @".\Images\" + ctCardNumber.Text + ctMobile.Text + ".jpg";
                     FrmBaseInfoCapture fbc = new FrmBaseInfoCapture();
                     fbc.FileName = fileName;
                     fbc.ShowDialog();
 
-                    if (Directory.Exists(fileName))
+                    if (File.Exists(fileName))
                     {
                         ctPictureDir.Load(fileName);
                         ctPictureFilePath.Text = fileName;
@@ -186,6 +193,15 @@ namespace ChildCafe
                 else { MessageBox.Show("请先输入会员卡号和手机号"); }
             }
 
+        }
+
+        private void btnDelPicture_Click(object sender, EventArgs e)
+        {
+            if(File.Exists(ctPictureFilePath.Text))
+            {
+                File.Delete(ctPictureFilePath.Text);
+                ctPictureFilePath.Text = "";
+            }
         }
 
 

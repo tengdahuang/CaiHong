@@ -71,7 +71,9 @@ namespace ChildCafe
         {
             if(pictureBox2.Image != null)
             {
-                pictureBox2.Image.Save(FileName, ImageFormat.Png);
+                pictureBox2.Image.Save(FileName, ImageFormat.Jpeg);
+                MessageBox.Show("保存成功！");
+                this.Close();
             }
 
         }
