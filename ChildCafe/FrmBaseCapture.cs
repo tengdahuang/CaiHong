@@ -50,5 +50,18 @@ namespace ChildCafe
         {
             pictureBox1.Image = (Bitmap)eventArgs.Frame.Clone();
         }
+
+        private void FrmBaseCapture_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(_finalFrame.IsRunning)
+            {
+                _finalFrame.Stop();
+            }
+        }
+
+        private void btnCapture_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Image = (Bitmap)pictureBox1.Image.Clone();
+        }
     }
 }

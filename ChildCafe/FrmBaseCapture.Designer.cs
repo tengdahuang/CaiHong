@@ -33,6 +33,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.cbDevices = new System.Windows.Forms.ComboBox();
+            this.btnCapture = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -89,19 +90,31 @@
             this.cbDevices.FormattingEnabled = true;
             this.cbDevices.Location = new System.Drawing.Point(93, 14);
             this.cbDevices.Name = "cbDevices";
-            this.cbDevices.Size = new System.Drawing.Size(479, 20);
+            this.cbDevices.Size = new System.Drawing.Size(196, 20);
             this.cbDevices.TabIndex = 2;
+            // 
+            // btnCapture
+            // 
+            this.btnCapture.Location = new System.Drawing.Point(295, 12);
+            this.btnCapture.Name = "btnCapture";
+            this.btnCapture.Size = new System.Drawing.Size(75, 23);
+            this.btnCapture.TabIndex = 3;
+            this.btnCapture.Text = "拍照";
+            this.btnCapture.UseVisualStyleBackColor = true;
+            this.btnCapture.Click += new System.EventHandler(this.btnCapture_Click);
             // 
             // FrmBaseCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
+            this.Controls.Add(this.btnCapture);
             this.Controls.Add(this.cbDevices);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FrmBaseCapture";
             this.Text = "FrmBaseCapture";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmBaseCapture_FormClosing);
             this.Load += new System.EventHandler(this.FrmBaseCapture_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -117,5 +130,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ComboBox cbDevices;
+        private System.Windows.Forms.Button btnCapture;
     }
 }
