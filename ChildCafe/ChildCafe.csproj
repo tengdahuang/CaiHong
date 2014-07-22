@@ -35,6 +35,18 @@
     <ApplicationIcon>1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>C:\Program Files\AForge.NET\Framework\Release\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>C:\Program Files\AForge.NET\Framework\Release\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>C:\Program Files\AForge.NET\Framework\Release\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>C:\Program Files\AForge.NET\Framework\Release\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetSkin">
       <HintPath>..\TDReferences\DotNetSkin.dll</HintPath>
     </Reference>
@@ -63,6 +75,12 @@
     <Compile Include="Bll\BllBaseInfoMemberTester.cs" />
     <Compile Include="Common\ChnColAttribute.cs" />
     <Compile Include="Dal\BaseInfoCard.cs" />
+    <Compile Include="FrmBaseCapture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseCapture.Designer.cs">
+      <DependentUpon>FrmBaseCapture.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +318,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBaseCapture.resx">
+      <DependentUpon>FrmBaseCapture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoCard.resx">
       <DependentUpon>FrmBaseInfoCard.cs</DependentUpon>
     </EmbeddedResource>

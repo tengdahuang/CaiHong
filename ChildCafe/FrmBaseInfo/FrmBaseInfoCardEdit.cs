@@ -160,6 +160,11 @@ namespace ChildCafe
             if (ctCardType.Text == "暑假卡") { ctExpirationDate.Value = DateTime.Now.AddMonths(2); }
         }
 
+        private void btnCapture_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 
