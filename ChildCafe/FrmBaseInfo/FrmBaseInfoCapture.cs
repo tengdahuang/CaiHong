@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Text;
 using System.Windows.Forms;
 using AForge;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using System.IO;
 
 namespace ChildCafe
 {
-    public partial class FrmBaseCapture : Form
+    public partial class FrmBaseInfoCapture : Form
     {
-        public FrmBaseCapture()
+        public FrmBaseInfoCapture()
         {
             InitializeComponent();
         }
 
         private FilterInfoCollection _captureDevice;
         private VideoCaptureDevice _finalFrame;
+        public string FileName { get; set; }
 
         private void FrmBaseCapture_Load(object sender, EventArgs e)
         {
@@ -62,6 +65,15 @@ namespace ChildCafe
         private void btnCapture_Click(object sender, EventArgs e)
         {
             pictureBox2.Image = (Bitmap)pictureBox1.Image.Clone();
+        }
+
+        private void btnSavePic_Click(object sender, EventArgs e)
+        {
+            if(pictureBox2.Image != null)
+            {
+                pictureBox2.Image.Save(FileName, ImageFormat.Png);
+            }
+
         }
     }
 }

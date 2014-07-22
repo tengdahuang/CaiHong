@@ -79,11 +79,11 @@
     <Compile Include="Bll\BllBaseInfoMemberTester.cs" />
     <Compile Include="Common\ChnColAttribute.cs" />
     <Compile Include="Dal\BaseInfoCard.cs" />
-    <Compile Include="FrmBaseCapture.cs">
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCapture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBaseCapture.Designer.cs">
-      <DependentUpon>FrmBaseCapture.cs</DependentUpon>
+    <Compile Include="FrmBaseInfo\FrmBaseInfoCapture.Designer.cs">
+      <DependentUpon>FrmBaseInfoCapture.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBaseInfo\FrmBaseInfoCard.cs">
       <SubType>Form</SubType>
@@ -322,8 +322,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBaseCapture.resx">
-      <DependentUpon>FrmBaseCapture.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoCapture.resx">
+      <DependentUpon>FrmBaseInfoCapture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBaseInfo\FrmBaseInfoCard.resx">
       <DependentUpon>FrmBaseInfoCard.cs</DependentUpon>

@@ -74,8 +74,6 @@ namespace ChildCafe
             }
             else
             {
-                FrmBaseCapture fbc = new FrmBaseCapture();
-                fbc.ShowDialog();
                 FrmLogin login = new FrmLogin();
                 login.ShowDialog();
                 if (login.DialogResult.Equals(DialogResult.OK))

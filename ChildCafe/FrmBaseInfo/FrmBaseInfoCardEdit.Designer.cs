@@ -51,6 +51,8 @@
             this.ctPictureDir = new System.Windows.Forms.PictureBox();
             this.btnCapture = new System.Windows.Forms.Button();
             this.btnDelPicture = new System.Windows.Forms.Button();
+            this.ctPictureFilePath = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -64,6 +66,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ctPictureFilePath);
+            this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.btnDelPicture);
             this.tabPage1.Controls.Add(this.btnCapture);
             this.tabPage1.Controls.Add(this.ctPictureDir);
@@ -303,6 +307,22 @@
             this.btnDelPicture.Text = "&Del删照";
             this.btnDelPicture.UseVisualStyleBackColor = true;
             // 
+            // ctPictureFilePath
+            // 
+            this.ctPictureFilePath.Location = new System.Drawing.Point(259, 85);
+            this.ctPictureFilePath.Name = "ctPictureFilePath";
+            this.ctPictureFilePath.Size = new System.Drawing.Size(121, 21);
+            this.ctPictureFilePath.TabIndex = 81;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(200, 88);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 82;
+            this.label8.Text = "保存路径";
+            // 
             // FrmBaseInfoCardEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -345,5 +365,7 @@
         private System.Windows.Forms.PictureBox ctPictureDir;
         private System.Windows.Forms.Button btnCapture;
         private System.Windows.Forms.Button btnDelPicture;
+        private System.Windows.Forms.TextBox ctPictureFilePath;
+        private System.Windows.Forms.Label label8;
     }
 }

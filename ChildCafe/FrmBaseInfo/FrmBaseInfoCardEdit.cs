@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ChildCafe.Common;
 using ChildCafe.Dal;
 using XSolo.Common;
+using System.IO;
 
 namespace ChildCafe
 {
@@ -162,6 +163,28 @@ namespace ChildCafe
 
         private void btnCapture_Click(object sender, EventArgs e)
         {
+            string fileName = "";
+            if (ctPictureFilePath.Text.EndsWith("png"))
+            {
+                MessageBox.Show("该会员已拍照！");
+            }
+            else
+            {
+                if (ctCardNumber.Text != "" || ctMobile.Text != "")
+                {
+                    fileName = @".\Images\" + ctCardNumber.Text + ctMobile.Text + ".png";
+                    FrmBaseInfoCapture fbc = new FrmBaseInfoCapture();
+                    fbc.FileName = fileName;
+                    fbc.ShowDialog();
+
+                    if (Directory.Exists(fileName))
+                    {
+                        ctPictureDir.Load(fileName);
+                        ctPictureFilePath.Text = fileName;
+                    }
+                }
+                else { MessageBox.Show("请先输入会员卡号和手机号"); }
+            }
 
         }
 

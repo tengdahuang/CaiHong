@@ -74,6 +74,12 @@ namespace ChildCafe.Dal
         public abstract DateTime? ExpirationDate { get; set; }
 
         /// <summary>
+        /// 保存路径
+        /// </summary>
+        [AllowNull, Length(200), ChnCol("保存路径")]
+        public abstract string PictureFilePath { get; set; }
+
+        /// <summary>
         /// 备注
         /// </summary>
         [AllowNull, Length(200), ChnCol("备注")]

@@ -1,6 +1,6 @@
 ﻿namespace ChildCafe
 {
-    partial class FrmBaseCapture
+    partial class FrmBaseInfoCapture
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.cbDevices = new System.Windows.Forms.ComboBox();
             this.btnCapture = new System.Windows.Forms.Button();
+            this.btnSavePic = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -103,11 +104,22 @@
             this.btnCapture.UseVisualStyleBackColor = true;
             this.btnCapture.Click += new System.EventHandler(this.btnCapture_Click);
             // 
+            // btnSavePic
+            // 
+            this.btnSavePic.Location = new System.Drawing.Point(387, 12);
+            this.btnSavePic.Name = "btnSavePic";
+            this.btnSavePic.Size = new System.Drawing.Size(75, 23);
+            this.btnSavePic.TabIndex = 4;
+            this.btnSavePic.Text = "保存";
+            this.btnSavePic.UseVisualStyleBackColor = true;
+            this.btnSavePic.Click += new System.EventHandler(this.btnSavePic_Click);
+            // 
             // FrmBaseCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
+            this.Controls.Add(this.btnSavePic);
             this.Controls.Add(this.btnCapture);
             this.Controls.Add(this.cbDevices);
             this.Controls.Add(this.btnStart);
@@ -131,5 +143,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.ComboBox cbDevices;
         private System.Windows.Forms.Button btnCapture;
+        private System.Windows.Forms.Button btnSavePic;
     }
 }
